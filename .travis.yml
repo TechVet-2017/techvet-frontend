@@ -4,8 +4,7 @@ node_js:
   - "node"
 
 script:
-  - npm test
-  - npm install
+  - npm run ci -s
 
 notifications:
   email:
