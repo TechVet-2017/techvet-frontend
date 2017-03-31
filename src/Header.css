@@ -6,6 +6,8 @@
     border: none;
     border-radius: 0;
     height: 48px;
+    margin-bottom: 0;
+    z-index: 2;
 }
 .navbar.techvet-navbar h1 {
     display: inline-block;
