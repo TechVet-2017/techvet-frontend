@@ -11,7 +11,7 @@ const Sidebar = function Sidebar() {
       <ul>
         <li>
           <i className="fa fa-user-circle-o" />
-          <a href="/">Proprietário</a>
+          Proprietário
           <ul>
             <li>
               <i className="fa fa-chevron-right" />
@@ -25,7 +25,7 @@ const Sidebar = function Sidebar() {
         </li>
         <li>
           <i className="fa fa-paw" />
-          <a href="/">Paciente</a>
+          Paciente
           <ul>
             <li>
               <i className="fa fa-chevron-right" />

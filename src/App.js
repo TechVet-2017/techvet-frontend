@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import Home from './Home';
+import './App.css';
 
 const App = function App() {
   return (
@@ -11,8 +13,8 @@ const App = function App() {
           <div className="col-md-3">
             <Sidebar />
           </div>
-          <div className="col-md-9">
-            <h1>App</h1>
+          <div className="col-md-9 application-page">
+            <Home />
           </div>
         </div>
       </div>

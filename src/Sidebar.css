@@ -19,6 +19,7 @@
   margin: 0 auto;
 }
 .techvet-sidemenu {
+  background: white;
   box-shadow: 2px -4px 4px 3px rgba(136,144, 130, 1);
 }
 .techvet-sidemenu a {
