@@ -13,11 +13,20 @@
     display: inline-block;
     font-size: 19px;
     margin-top: 15px;
+    position: absolute;
+}
+.navbar.techvet-navbar ul {
+  margin-top: 5px;
 }
 .btn.techvet-button {
     font-size: 20px;
-    padding: 10px 12px;
     color: white;
     border: none;
+    border-radius: 10px;
     background: none;
+    margin-left: 15px;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.3);
+    height: 35px;
+    padding: 0 12px;
+    outline: none !important;
 }

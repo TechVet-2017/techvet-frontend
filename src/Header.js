@@ -9,11 +9,15 @@ const Header = function header() {
         <h1>TECH Vet</h1>
         <ul className="nav navbar-nav pull-right">
           <li>
-            <button className="btn btn-default techvet-button" type="button">
+            <button className="btn btn-default techvet-button techvet-config-button" type="button">
               <i className="glyphicon glyphicon-cog" />
             </button>
           </li>
-          <li><button className="btn btn-default techvet-button" type="button">Sair</button></li>
+          <li>
+            <button className="btn btn-default techvet-button techvet-logout-button" type="button">
+              Sair
+            </button>
+          </li>
         </ul>
       </div>
     </div>
