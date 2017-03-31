@@ -10,24 +10,53 @@ const Sidebar = function Sidebar() {
       </div>
       <ul>
         <li>
+          <i className="fa fa-user-circle-o" />
           <a href="/">Proprietário</a>
           <ul>
-            <li><a href="/">Consultar</a></li>
-            <li><a href="/">Cadastrar</a></li>
+            <li>
+              <i className="fa fa-chevron-right" />
+              <a href="/">Consultar</a>
+            </li>
+            <li>
+              <i className="fa fa-chevron-right" />
+              <a href="/">Cadastrar</a>
+            </li>
           </ul>
         </li>
         <li>
+          <i className="fa fa-paw" />
           <a href="/">Paciente</a>
           <ul>
-            <li><a href="/">Consultar</a></li>
-            <li><a href="/">Cadastrar</a></li>
+            <li>
+              <i className="fa fa-chevron-right" />
+              <a href="/">Consultar</a>
+            </li>
+            <li>
+              <i className="fa fa-chevron-right" />
+              <a href="/">Cadastrar</a>
+            </li>
           </ul>
         </li>
-        <li><a href="/">Consultar Atendimento</a></li>
-        <li><a href="/">Consultar Internação</a></li>
-        <li><a href="/">Calendário de Vacinas</a></li>
-        <li><a href="/">Banho & Tosa</a></li>
-        <li><a href="/">Relatório Financeiro</a></li>
+        <li>
+          <i className="fa fa-medkit" />
+          <a href="/">Consultar Atendimento</a>
+        </li>
+        <li>
+          <i className="fa fa-stethoscope" />
+          <a href="/">Consultar Internação</a>
+        </li>
+        <li>
+          <i className="fa fa-calendar-plus-o" />
+          <a href="/">Calendário de Vacinas</a>
+        </li>
+        <li>
+          <i className="fa fa-bath" />
+          <a href="/">Banho & Tosa</a>
+        </li>
+        <li>
+          <i className="fa fa-credit-card" />
+          <a href="/">Relatório Financeiro</a>
+        </li>
       </ul>
     </div>
   );

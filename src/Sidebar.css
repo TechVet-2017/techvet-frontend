@@ -24,7 +24,11 @@
 .techvet-sidemenu a {
   color: black;
 }
+.techvet-sidemenu i {
+  padding-right: 15px;
+}
 .techvet-sidemenu ul {
+  padding-left: 20px;
   list-style: none;
 }
 .techvet-sidemenu ul li {
