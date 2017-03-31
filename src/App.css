@@ -1,8 +1,11 @@
 body {
   background: #E2F0D9;
 }
-
 .application-page {
   text-align: center;
   margin-top: 75px;
+}
+.no-margin {
+  margin-left: 0;
+  margin-right: 0;
 }

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = function Sidebar() {
   return (
-    <div id="sidebar" className="techvet-sidemenu">
+    <div className="techvet-sidemenu">
       <div className="sidemenu-user">
         <div className="sidemenu-user-picture" />
         <h2>Nome do Usuário</h2>
@@ -14,12 +15,16 @@ const Sidebar = function Sidebar() {
           Proprietário
           <ul>
             <li>
-              <i className="fa fa-chevron-right" />
-              <a href="/">Consultar</a>
+              <a href="/">
+                <i className="fa fa-chevron-right" />
+                Consultar
+              </a>
             </li>
             <li>
-              <i className="fa fa-chevron-right" />
-              <a href="/">Cadastrar</a>
+              <Link to="/owner/register">
+                <i className="fa fa-chevron-right" />
+                Cadastrar
+              </Link>
             </li>
           </ul>
         </li>
@@ -28,34 +33,48 @@ const Sidebar = function Sidebar() {
           Paciente
           <ul>
             <li>
-              <i className="fa fa-chevron-right" />
-              <a href="/">Consultar</a>
+              <a href="/">
+                <i className="fa fa-chevron-right" />
+                Consultar
+              </a>
             </li>
             <li>
-              <i className="fa fa-chevron-right" />
-              <a href="/">Cadastrar</a>
+              <Link to="/patient/register">
+                <i className="fa fa-chevron-right" />
+                Cadastrar
+              </Link>
             </li>
           </ul>
         </li>
         <li>
-          <i className="fa fa-medkit" />
-          <a href="/">Consultar Atendimento</a>
+          <a href="/">
+            <i className="fa fa-medkit" />
+            Consultar Atendimento
+          </a>
         </li>
         <li>
-          <i className="fa fa-stethoscope" />
-          <a href="/">Consultar Internação</a>
+          <a href="/">
+            <i className="fa fa-stethoscope" />
+            Consultar Internação
+          </a>
         </li>
         <li>
-          <i className="fa fa-calendar-plus-o" />
-          <a href="/">Calendário de Vacinas</a>
+          <a href="/">
+            <i className="fa fa-calendar-plus-o" />
+            Calendário de Vacinas
+          </a>
         </li>
         <li>
-          <i className="fa fa-bath" />
-          <a href="/">Banho & Tosa</a>
+          <a href="/">
+            <i className="fa fa-bath" />
+            Banho & Tosa
+          </a>
         </li>
         <li>
-          <i className="fa fa-credit-card" />
-          <a href="/">Relatório Financeiro</a>
+          <a href="/">
+            <i className="fa fa-credit-card" />
+            Relatório Financeiro
+          </a>
         </li>
       </ul>
     </div>
