@@ -1,0 +1,21 @@
+.navbar.techvet-navbar {
+    text-align: center;
+    background: #70ad47;
+    color: white;
+    box-shadow: 1px 5px 5px 1px rgba(136,144, 130, 1);
+    border: none;
+    border-radius: 0;
+    height: 48px;
+}
+.navbar.techvet-navbar h1 {
+    display: inline-block;
+    font-size: 19px;
+    margin-top: 15px;
+}
+.btn.techvet-button {
+    font-size: 20px;
+    padding: 10px 12px;
+    color: white;
+    border: none;
+    background: none;
+}
