@@ -2,6 +2,7 @@
   "name": "techvet",
   "version": "0.1.0",
   "private": true,
+  "main": "./src/index.jsx",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
@@ -19,7 +20,7 @@
     "build": "react-scripts build",
     "test": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint **/*.js && ./node_modules/.bin/eslint **/*.jsx",
+    "lint": "./node_modules/.bin/eslint **/*.js",
     "ci": "npm run test && npm run lint"
   }
 }
