@@ -2,3 +2,8 @@
   width: 348px;
   height: 348px;
 }
+.application-page .home-page {
+  margin-top: 75px;
+  text-align: center;
+  background: none;
+}

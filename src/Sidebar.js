@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
-const Sidebar = function Sidebar() {
+const Sidebar = function sidebar() {
   return (
     <div className="techvet-sidemenu">
       <div className="sidemenu-user">
@@ -15,13 +15,13 @@ const Sidebar = function Sidebar() {
           Proprietário
           <ul>
             <li>
-              <a href="/">
+              <Link to="/owners/consult">
                 <i className="fa fa-chevron-right" />
                 Consultar
-              </a>
+              </Link>
             </li>
             <li>
-              <Link to="/owner/register">
+              <Link to="/owners/register">
                 <i className="fa fa-chevron-right" />
                 Cadastrar
               </Link>
@@ -33,13 +33,13 @@ const Sidebar = function Sidebar() {
           Paciente
           <ul>
             <li>
-              <a href="/">
+              <Link to="/patients/consult">
                 <i className="fa fa-chevron-right" />
                 Consultar
-              </a>
+              </Link>
             </li>
             <li>
-              <Link to="/patient/register">
+              <Link to="/patients/register">
                 <i className="fa fa-chevron-right" />
                 Cadastrar
               </Link>
@@ -47,34 +47,34 @@ const Sidebar = function Sidebar() {
           </ul>
         </li>
         <li>
-          <a href="/">
+          <Link to="/consultAttendance">
             <i className="fa fa-medkit" />
             Consultar Atendimento
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
+          <Link to="/consultHospitalization">
             <i className="fa fa-stethoscope" />
             Consultar Internação
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
+          <Link to="/immunizationSchedule">
             <i className="fa fa-calendar-plus-o" />
             Calendário de Vacinas
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
+          <Link to="/bathAndGrooming">
             <i className="fa fa-bath" />
             Banho & Tosa
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
+          <Link to="/financialReport">
             <i className="fa fa-credit-card" />
             Relatório Financeiro
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
