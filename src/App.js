@@ -10,9 +10,9 @@ import FinancialReportIcon from 'material-ui/svg-icons/editor/attach-money';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import React from 'react';
-import { Admin, Resource, Delete } from 'admin-on-rest';
+import { jsonServerRestClient, Admin, Resource, Delete } from 'admin-on-rest';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
-import { UserList } from './Categories/ClinicWorkers';
+import { UserList, UserEdit, UserCreate } from './Categories/ClinicWorkers';
 import { OwnerList } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
@@ -26,17 +26,17 @@ import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
+    restClient={jsonServerRestClient('http://localhost:3000')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
     authClient={authClient}
     dashboard={Dashboard}
-    /* restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')} */
   >
     <Resource
-      name="example" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
+      name="post" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
-    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} icon={UserIcon} />
+    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
     <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
