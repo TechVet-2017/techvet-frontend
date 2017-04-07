@@ -14,7 +14,7 @@ const CustomTheme = {
     primary2Color: green700,
     primary3Color: red500,
     accent1Color: amber800,
-    accent2Color: red500,
+    accent2Color: white,
     accent3Color: grey500,
     textColor: darkBlack,
     alternateTextColor: white,
