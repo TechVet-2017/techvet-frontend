@@ -1,51 +1,54 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-} from 'react-router-dom';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Home from './Home';
-import ConsultPatients from './ConsultPatients';
-import ConsultOwners from './ConsultOwners';
-import RegisterPatient from './RegisterPatient';
-import RegisterOwners from './RegisterOwner';
-import FinancialReport from './FinancialReport';
-import ImmunizationSchedule from './ImmunizationSchedule';
-import ConsultHospitalization from './ConsultHospitalization';
-import ConsultAttendance from './ConsultAttendance';
-import BathAndGrooming from './BathAndGrooming';
-import './App.css';
+import PostIcon from 'material-ui/svg-icons/action/book';
+import UserIcon from 'material-ui/svg-icons/social/person';
+import OwnerIcon from 'material-ui/svg-icons/social/person-outline';
+import PatientIcon from 'material-ui/svg-icons/action/pets';
+import AttendenceIcon from 'material-ui/svg-icons/image/healing';
+import HospitalizationIcon from 'material-ui/svg-icons/maps/local-hospital';
+import VaccinationScheduleIcon from 'material-ui/svg-icons/notification/event-note';
+import BathAndGroomingIcon from 'material-ui/svg-icons/places/hot-tub';
+import FinancialReportIcon from 'material-ui/svg-icons/editor/attach-money';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-const App = function app() {
-  return (
-    <Router>
-      <div>
-        <Header />
-        <div className="container no-margin">
-          <div className="row">
-            <div className="col-md-4">
-              <Sidebar />
-            </div>
-            <div className="col-md-8 application-page">
-              <div>
-                <Route exact path="/" component={Home} />
-                <Route path="/patients/register" component={RegisterPatient} />
-                <Route path="/patients/consult" component={ConsultPatients} />
-                <Route path="/owners/consult" component={ConsultOwners} />
-                <Route path="/owners/register" component={RegisterOwners} />
-                <Route path="/financialReport" component={FinancialReport} />
-                <Route path="/immunizationSchedule" component={ImmunizationSchedule} />
-                <Route path="/consultHospitalization" component={ConsultHospitalization} />
-                <Route path="/consultAttendance" component={ConsultAttendance} />
-                <Route path="/bathAndGrooming" component={BathAndGrooming} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Router>
-  );
-};
+import React from 'react';
+import { Admin, Resource, Delete } from 'admin-on-rest';
+import { PostList, PostEdit, PostCreate } from './Categories/Example';
+import { UserList } from './Categories/ClinicWorkers';
+import { OwnerList } from './Categories/Owners';
+import { PatientList } from './Categories/Patients';
+import { AttendenceList } from './Categories/Attendences';
+import { HospitalizationList } from './Categories/Hospitalizations';
+import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
+import { BathAndGroomingList } from './Categories/BathAndGrooming';
+import { FinancialReportList } from './Categories/FinancialReports';
+import Dashboard from './Dashboard';
+import authClient from './authClient';
+import CustomTheme from './CustomTheme';
+
+const App = () => (
+  <Admin
+    theme={getMuiTheme(CustomTheme)}
+    title={'TechVet'}
+    authClient={authClient}
+    dashboard={Dashboard}
+    /* restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')} */
+  >
+    <Resource
+      name="example" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
+      create={PostCreate} remove={Delete} icon={PostIcon}
+    />
+    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} icon={UserIcon} />
+    <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
+    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
+    <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
+    <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
+    <Resource
+      name="vaccinationSchedule" options={{ label: 'Calendário de Vacinação' }}
+      list={VaccinationScheduleList}
+      icon={VaccinationScheduleIcon}
+    />
+    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
+    <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
+  </Admin>
+);
 
 export default App;
