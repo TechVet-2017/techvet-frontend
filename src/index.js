@@ -1,7 +1,13 @@
+/* eslint-env browser */
+/* global document */
+
+import 'font-awesome/css/font-awesome.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
 
 ReactDOM.render(
-  <h1>Hello, world</h1>,
-  document.getElementById('root')
+  <App />,
+  document.getElementById('root'),
 );
