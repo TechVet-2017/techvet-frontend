@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Edit, Create, Datagrid, EmailField, EmailInput, TextField, Filter, EditButton, DeleteButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, SimpleList, Edit, Create, Datagrid, EmailField, TextField, Filter, EditButton, DisabledInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
 
 const UserFilter = props => (
   <Filter {...props}>
