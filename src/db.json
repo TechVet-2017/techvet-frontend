@@ -2,76 +2,18 @@
   "user": [
     {
       "id": 0,
-      "name": "Luiz Guilherme",
-      "email": "test@gmail.com"
+      "userFullName": "Luiz Guilherme Silva",
+      "userName": "luizguilherme",
+      "userPassword": "123"
     },
     {
-      "id": 1,
-      "name": "Leonardo",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 2,
-      "name": "João Paulo",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 3,
-      "name": "Antônio",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 4,
-      "name": "Lucas",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 5,
-      "name": "Flávio",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 6,
-      "name": "Mateus",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 7,
-      "name": "Marcelo",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 8,
-      "name": "Adailson",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 9,
-      "name": "Varley",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 10,
-      "name": "Gustavo",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": 11,
-      "name": "Teste",
-      "email": "teste_edicao@gmail.com"
-    },
-    {
-      "id": "12",
-      "name": "Teste Maroto",
-      "email": "marotao@hotmail.com"
+      "id": "1",
+      "userFullName": "Lucas Amoedo",
+      "userName": "amoedo",
+      "userPassword": "123"
     }
   ],
   "post": [
-    {
-      "id": 1,
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-    },
     {
       "id": 2,
       "title": "qui est esse",
@@ -120,7 +62,7 @@
     },
     {
       "id": 11,
-      "title": "Teste",
+      "title": "Teste muito louco",
       "body": "Teste"
     }
   ]
