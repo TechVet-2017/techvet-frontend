@@ -10,9 +10,10 @@ import FinancialReportIcon from 'material-ui/svg-icons/editor/attach-money';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import React from 'react';
-import { jsonServerRestClient, Admin, Resource, Delete } from 'admin-on-rest';
+import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
-import { UserList, UserEdit, UserCreate } from './Categories/ClinicWorkers';
+import { UserList, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
@@ -36,7 +37,7 @@ const App = () => (
       name="post" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
-    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} icon={UserIcon} />
+    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
     <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />

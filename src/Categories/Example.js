@@ -4,8 +4,8 @@ import { List, Responsive, SimpleList, Edit, Create, Datagrid, ReferenceField, T
 const PostFilter = props => (
   <Filter {...props}>
     <TextInput label="Pesquisar" source="q" alwaysOn />
-    <ReferenceInput label="Usuário" source="userId" reference="users" allowEmpty>
-      <SelectInput optionText="name" />
+    <ReferenceInput label="Usuário" source="id" reference="user" allowEmpty>
+      <SelectInput optionText="userName" />
     </ReferenceInput>
   </Filter>
 );
@@ -24,7 +24,7 @@ export const PostList = props => (
         <Datagrid>
           <TextField source="id" label="ID" />
           <ReferenceField label="Usuário" source="id" reference="user">
-            <TextField source="name" />
+            <TextField source="userFullName" />
           </ReferenceField>
           <TextField source="title" label="Título" />
           <TextField source="body" label="Corpo" />
@@ -45,7 +45,7 @@ export const PostEdit = props => (
     <SimpleForm>
       <DisabledInput source="id" />
       <ReferenceInput label="Usuário" source="user" reference="user">
-        <SelectInput optionText="name" />
+        <SelectInput optionText="userFullName" />
       </ReferenceInput>
       <TextInput source="title" />
       <LongTextInput source="body" />
@@ -57,11 +57,10 @@ export const PostCreate = props => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput label="Usuário" source="id" reference="user" allowEmpty>
-        <SelectInput optionText="name" />
+        <SelectInput optionText="userFullName" />
       </ReferenceInput>
       <TextInput source="title" label="Título" />
       <LongTextInput source="body" label="Corpo" />
     </SimpleForm>
   </Create>
 );
-
