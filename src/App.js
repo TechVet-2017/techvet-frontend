@@ -27,7 +27,7 @@ import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
-    restClient={jsonServerRestClient('http://localhost:3000')}
+    restClient={jsonServerRestClient('http://localhost:4000')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
     authClient={authClient}
