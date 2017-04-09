@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DeleteButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, EditButton, DeleteButton, DisabledInput, LongTextInput, SimpleForm } from 'admin-on-rest/lib/mui';
 
 
 export const BathAndGroomingList = props => (
@@ -15,11 +15,7 @@ export const BathAndGroomingList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="ID" />
-          <ReferenceField label="Usuário" source="id" reference="user">
-            <TextField source="userFullName" />
-          </ReferenceField>
-          <TextField source="title" label="Título" />
-          <TextField source="body" label="Corpo" />
+          <TextField source="service" label="Serviço" />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -37,11 +33,7 @@ export const BathAndGroomingEdit = props => (
   <Edit title={<BathAndGroomingTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <ReferenceInput label="Usuário" source="user" reference="user">
-        <SelectInput optionText="userFullName" />
-      </ReferenceInput>
-      <TextInput source="title" />
-      <LongTextInput source="body" />
+      <LongTextInput source="service" />
     </SimpleForm>
   </Edit>
 );
@@ -49,11 +41,7 @@ export const BathAndGroomingEdit = props => (
 export const BathAndGroomingCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <ReferenceInput label="Usuário" source="id" reference="user" allowEmpty>
-        <SelectInput optionText="userFullName" />
-      </ReferenceInput>
-      <TextInput source="title" label="Título" />
-      <LongTextInput source="body" label="Corpo" />
+      <LongTextInput source="service" label="Serviço" />
     </SimpleForm>
   </Create>
 );
