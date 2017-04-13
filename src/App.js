@@ -15,7 +15,7 @@ import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList } from './Categories/Owners';
-import { PatientList } from './Categories/Patients';
+import { PatientList, PatientEdit, PatientCreate } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
@@ -39,7 +39,8 @@ const App = () => (
     />
     <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
-    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
+    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} edit={PatientEdit}
+      create={PatientCreate} remove={Delete} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
