@@ -3,7 +3,7 @@ import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, EditBu
 
 
 export const BathAndGroomingList = props => (
- <List {...props} title={'Banho & Tosa'}>
+  <List {...props} title={'Banho & Tosa'}>
     <Responsive
       small={
         <SimpleList

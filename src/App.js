@@ -47,8 +47,7 @@ const App = () => (
       list={VaccinationScheduleList}
       icon={VaccinationScheduleIcon}
     />
-    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} edit={BathAndGroomingEdit}
-      create={BathAndGroomingCreate} remove={Delete} icon={BathAndGroomingIcon} />
+    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} edit={BathAndGroomingEdit}create={BathAndGroomingCreate} remove={Delete} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
   </Admin>
 );
