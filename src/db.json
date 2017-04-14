@@ -89,8 +89,13 @@
   "patient": [
     {
       "id": 2,
-      "title": "qui est esse",
-      "body": "est rerum tempore vitae\nsequi sint reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+      "patientName": "qui est esse",
+      "specie": "est rerum tempore",
+      "breed": "qui est esse",
+      "size": "qui est esse",
+      "gender": "qui est esse",
+      "birthday": "qui est esse",
+      "coat": "qui est esse"
     }
   ]
 }
