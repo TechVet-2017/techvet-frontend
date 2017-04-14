@@ -21,13 +21,14 @@ import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
 import { BathAndGroomingList } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
+import { AppointmentRecordsList } from './Categories/ClinicalRecordsAppointment';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
 import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
-    restClient={jsonServerRestClient('http://localhost:3000')}
+    restClient={jsonServerRestClient('http://localhost:8080/techvet/rest')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
     authClient={authClient}
@@ -49,6 +50,7 @@ const App = () => (
     />
     <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
+    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais'}} list={AppointmentRecordsList} />
   </Admin>
 );
 
