@@ -31,9 +31,13 @@ const PatientTitle = ({ record }) => {
 export const PatientEdit = props => (
   <Edit title={<PatientTitle />} {...props}>
     <SimpleForm>
-      <DisabledInput source="id" /> 
-      <TextInput source="title" />
-      <LongTextInput source="body" />
+      <TextField source="patientName" label="Nome do Paciente" />
+      <TextInput source="specie" label="Espécie" />
+      <TextField source="breed" label="Raça" />
+      <TextInput source="size" label="Tamanho" />
+      <TextInput source="gender" label="Sexo" />
+      <DateField source="birthday" label="Data de Nascimente" />
+      <TextField source="coat" label="Pelagem" />
     </SimpleForm>
   </Edit>
 );
