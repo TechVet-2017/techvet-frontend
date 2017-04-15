@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Edit, Create, Datagrid, ReferenceField, DateField, TextField, EditButton, DeleteButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, SimpleList, Edit, Create, Datagrid, DateField, TextField, EditButton, DeleteButton, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
 
 export const PatientList = props => (
 <List {...props}  title={'Pacientes'}>
@@ -14,6 +14,7 @@ export const PatientList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="RG DB Nº" />
+          <TextField source="patientName" label="Nome do Paciente" />
           <TextField source="title" label="Espécie" />
           <TextField source="body" label="Raça" />
           <EditButton />
