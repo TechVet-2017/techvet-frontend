@@ -27,7 +27,7 @@ import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
-    restClient={jsonServerRestClient('http://localhost:4000')}
+    restClient={jsonServerRestClient('http://localhost:8080/techvet/rest')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
     authClient={authClient}
@@ -39,7 +39,7 @@ const App = () => (
     />
     <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
-    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} edit={PatientEdit}
+    <Resource name="patients" options={{ label: 'Pacientes' }} list={PatientList} edit={PatientEdit}
       create={PatientCreate} remove={Delete} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />

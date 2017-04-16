@@ -39,13 +39,13 @@ export const PatientEdit = props => (
       ]} />
       <TextInput source="breed" label="Raça" />
       <RadioButtonGroupInput source="size" label="Tamanho" choices={[
-        { id: 'Pequeno', name: 'Pequeno' },
-        { id: 'Médio', name: 'Médio' },
-        { id: 'Grande', name: 'Grande' },
+        { id: 'P', name: 'Pequeno' },
+        { id: 'M', name: 'Médio' },
+        { id: 'G', name: 'Grande' },
      ]} />
       <RadioButtonGroupInput source="gender" label="Sexo" choices={[
-        { id: 'Macho', name: 'Macho' },
-        { id: 'Fêmea', name: 'Fêmea' },
+        { id: 'M', name: 'Macho' },
+        { id: 'F', name: 'Fêmea' },
      ]} />
       <DateInput source="birthday" label="Data de Nascimento" />
       <TextField source="coat" label="Pelagem" />
@@ -63,13 +63,13 @@ export const PatientCreate = props => (
      ]} />
       <TextInput source="breed" label="Raça" />
        <RadioButtonGroupInput source="size" label="Tamanho" choices={[
-        { id: 'Pequeno', name: 'Pequeno' },
-        { id: 'Médio', name: 'Médio' },
-        { id: 'Grande', name: 'Grande' },
+        { id: 'P', name: 'Pequeno' },
+        { id: 'M', name: 'Médio' },
+        { id: 'G', name: 'Grande' },
      ]} />
        <RadioButtonGroupInput source="gender" label="Sexo" choices={[
-        { id: 'Macho', name: 'Macho' },
-        { id: 'Fêmea', name: 'Fêmea' },
+        { id: 'M', name: 'Macho' },
+        { id: 'F', name: 'Fêmea' },
      ]} />
       <DateInput source="birthday" label="Data de Nascimento" />
       <TextInput source="coat" label="Pelagem" />
