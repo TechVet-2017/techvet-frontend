@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Responsive, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
 
 export const PatientList = props => (
-<List {...props}  title={'Pacientes'}>
+  <List {...props} title={'Pacientes'}>
     <Responsive
       small={
         <SimpleList
@@ -15,14 +15,14 @@ export const PatientList = props => (
         <Datagrid>
           <TextField source="id" label="RG DB Nº" />
           <TextField source="patientName" label="Nome do Paciente" />
-          <TextField source="specie" label="Espécie" />
+          <TextField source="species" label="Espécie" />
           <TextField source="breed" label="Raça" />
           <EditButton />
           <DeleteButton />
         </Datagrid>
       }
     />
-</List>
+  </List>
 );
 
 const PatientTitle = ({ record }) => {
@@ -33,20 +33,32 @@ export const PatientEdit = props => (
   <Edit title={<PatientTitle />} {...props}>
     <SimpleForm>
       <TextInput source="patientName" label="Nome do Paciente" />
-      <RadioButtonGroupInput source="specie" label="Espécie"  choices={[
+      <RadioButtonGroupInput
+        source="species"
+        label="Espécie"
+        choices={[
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
-      ]} />
+        ]}
+      />
       <TextInput source="breed" label="Raça" />
-      <RadioButtonGroupInput source="size" label="Tamanho" choices={[
+      <RadioButtonGroupInput
+        source="size"
+        label="Tamanho"
+        choices={[
         { id: 'P', name: 'Pequeno' },
         { id: 'M', name: 'Médio' },
         { id: 'G', name: 'Grande' },
-     ]} />
-      <RadioButtonGroupInput source="gender" label="Sexo" choices={[
+        ]}
+      />
+      <RadioButtonGroupInput
+        source="gender"
+        label="Sexo"
+        choices={[
         { id: 'M', name: 'Macho' },
         { id: 'F', name: 'Fêmea' },
-     ]} />
+        ]}
+      />
       <DateInput source="birthday" label="Data de Nascimento" />
       <TextField source="coat" label="Pelagem" />
     </SimpleForm>
@@ -56,21 +68,33 @@ export const PatientEdit = props => (
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
-     <TextInput source="patientName" label="Nome do Paciente" />
-      <RadioButtonGroupInput source="specie" label="Espécie" choices={[
+      <TextInput source="patientName" label="Nome do Paciente" />
+      <RadioButtonGroupInput
+        source="species"
+        label="Espécie"
+        choices={[
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
-     ]} />
+        ]}
+      />
       <TextInput source="breed" label="Raça" />
-       <RadioButtonGroupInput source="size" label="Tamanho" choices={[
+      <RadioButtonGroupInput
+        source="size"
+        label="Tamanho"
+        choices={[
         { id: 'P', name: 'Pequeno' },
         { id: 'M', name: 'Médio' },
         { id: 'G', name: 'Grande' },
-     ]} />
-       <RadioButtonGroupInput source="gender" label="Sexo" choices={[
+        ]}
+      />
+      <RadioButtonGroupInput
+        source="gender"
+        label="Sexo"
+        choices={[
         { id: 'M', name: 'Macho' },
         { id: 'F', name: 'Fêmea' },
-     ]} />
+        ]}
+      />
       <DateInput source="birthday" label="Data de Nascimento" />
       <TextInput source="coat" label="Pelagem" />
     </SimpleForm>

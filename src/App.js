@@ -39,8 +39,15 @@ const App = () => (
     />
     <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
-    <Resource name="patients" options={{ label: 'Pacientes' }} list={PatientList} edit={PatientEdit}
-      create={PatientCreate} remove={Delete} icon={PatientIcon} />
+    <Resource
+      name="patients"
+      options={{ label: 'Pacientes' }}
+      list={PatientList}
+      edit={PatientEdit}
+      create={PatientCreate}
+      remove={Delete}
+      icon={PatientIcon}
+    />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
@@ -48,8 +55,14 @@ const App = () => (
       list={VaccinationScheduleList}
       icon={VaccinationScheduleIcon}
     />
-    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} edit={BathAndGroomingEdit}
-      create={BathAndGroomingCreate} remove={Delete} icon={BathAndGroomingIcon} />
+    <Resource
+      name="bathAndGrooming"
+      options={{ label: 'Banho & Tosa' }}
+      list={BathAndGroomingList}
+      edit={BathAndGroomingEdit}
+      create={BathAndGroomingCreate}
+      remove={Delete} icon={BathAndGroomingIcon}
+    />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
   </Admin>
 );
