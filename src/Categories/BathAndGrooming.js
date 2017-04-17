@@ -15,7 +15,7 @@ export const BathAndGroomingList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="ID" />
-          <TextField source="service" label="Serviço" />
+          <TextField source="serviceBathGrooming" label="Serviço" />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -33,7 +33,7 @@ export const BathAndGroomingEdit = props => (
   <Edit title={<BathAndGroomingTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <LongTextInput source="service" />
+      <LongTextInput source="serviceBathGrooming" />
     </SimpleForm>
   </Edit>
 );
@@ -41,7 +41,7 @@ export const BathAndGroomingEdit = props => (
 export const BathAndGroomingCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <LongTextInput source="service" label="Serviço" />
+      <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
   </Create>
 );
