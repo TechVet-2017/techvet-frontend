@@ -26,7 +26,7 @@ export const BathAndGroomingList = props => (
 
 
 const BathAndGroomingTitle = ({ record }) => {
-  return <span>Editar Serviço</span>;
+  return <span>Editar Serviço{record ? `"${record.bathAndGroomingTitle}"` : ''}</span>;
 };
 
 export const BathAndGroomingEdit = props => (
