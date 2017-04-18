@@ -3,8 +3,8 @@ import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, Filter
 
 const UserFilter = props => (
   <Filter {...props}>
-    <TextInput label="Pesquisar" source="q" alwaysOn />
-    <ReferenceInput label="Usuário" source="id" reference="user" allowEmpty>
+    <TextInput label="Pesquisar" source="userFullName" alwaysOn />
+    <ReferenceInput label="Usuário" source="id" reference="users" allowEmpty>
       <SelectInput source="id" optionText="userName" />
     </ReferenceInput>
   </Filter>
@@ -50,7 +50,6 @@ export const UserEdit = props => (
 export const UserCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="id" label="ID" />
       <TextInput source="userFullName" label="Nome Completo" />
       <TextInput source="userName" label="Nome de Usuário" />
       <TextInput type="password" source="userPassword" label="Senha" />
