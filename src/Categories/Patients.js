@@ -1,14 +1,23 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+
+const PatientFilter = props => (
+  <Filter {...props}>
+    <TextInput label="Pesquisar" source="q" alwaysOn />
+    <ReferenceInput label="Nome do Paciente" source="id" reference="patient" allowEmpty>
+      <SelectInput source="id" optionText="pacientName" />
+    </ReferenceInput>
+  </Filter>
+);
 
 export const PatientList = props => (
-  <List {...props} title={'Pacientes'}>
+  <List {...props} filters={<PatientFilter />}title={'Pacientes'}>
     <Responsive
       small={
         <SimpleList
-          primaryText={record => record.title}
-          secondaryText={record => `${record.views} views`}
-          tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
+          primaryText={patient => `Nome: ${patient.patientName}`}
+          secondaryText={patient => patient.breed}
+          tertiaryText={patient => patient.species}
         />
       }
       medium={
@@ -26,7 +35,7 @@ export const PatientList = props => (
 );
 
 const PatientTitle = ({ record }) => {
-  return <span>Post {record ? `"${record.title}"` : ''}</span>;
+  return <span>Paciente {record ? `"${record.patientName}"` : ''}</span>;
 };
 
 export const PatientEdit = props => (
