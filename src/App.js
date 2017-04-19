@@ -21,7 +21,7 @@ import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
 import { BathAndGroomingList } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
-import { AppointmentRecordsList } from './Categories/ClinicalRecordsAppointment';
+import { AppointmentRecordsList, AppointmentRecordsEdit } from './Categories/ClinicalRecordsAppointment';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
 import CustomTheme from './CustomTheme';
@@ -50,7 +50,7 @@ const App = () => (
     />
     <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
-    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais'}} list={AppointmentRecordsList} />
+    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais'}} list={AppointmentRecordsList} edit={AppointmentRecordsEdit}/>
   </Admin>
 );
 

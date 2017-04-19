@@ -5,43 +5,64 @@ import {
 	EditButton,
 	DeleteButton,
 	List,
+	TabbedForm,
+	FormTab,
+	TextInput,
+	NumberInput,
+	LongTextInput,
+	Edit,
 } from 'admin-on-rest/lib/mui';
 
 export const AppointmentRecordsList = (props) => (
 
  	<List {...props} title={'Consultas'}>
 		<Datagrid>
+	        <TextField source="veterinarian" label="Paciente" />
+	        <TextField source="veterinarian" label="Veterinário" />
 		    <TextField source="anamnesis" label="Anamnese" />
-	        <TextField source="veterinarian" label="Veterinário" />
-	        <TextField source="veterinarian" label="Veterinário" />
-			// <TextField source="clinicalProcedure" label="Procedimento Clínico" />
-			// <TextField source="observations" label="Observações" />
 			<TextField source="exam" label="Exame" />
-			// <TextField source="informations" label="Informações" />
-			// <TextField source="preliminaryMedication" label="Medicação Preliminar" />
-			// <TextField source="medicationDosage" label="Dosagem de Medicação" />
-			// <TextField source="medicationFrequency" label="Frequência de Medicação" />
-			// <TextField source="diagnostic" label="Diagnóstico" />
-			// <TextField source="prognostic" label="Prognóstico" />
-			// <TextField source="homeMedicationName" label="Nome da Medicação Domiciliar" />
-			// <TextField source="homeMedicationDosage" label="Dosagem da Medicação Domiciliar" />
-			// <TextField source="homeMedicationFrequency" label="Frequência da Medicação Domiciliar" />
-			// <TextField source="clinicMedicationName" label="Nome da Medicação Clínica" />
-			// <TextField source="clinicMedicationDosage" label="Dosagem da Medicação Clínica" />
-			// <TextField source="clinicMedicationFrequency" label="Frequência da Medicação Clínica" />
-
-			// <TextField source="clinicalHistory" label="aqui" />
-   			// <TextField source="diagnosis" label="aqui" />
-			// <TextField source="patientTemperature" label="aqui" />
-			// <TextField source="capillaryFill" label="aqui" />
-			// <TextField source="patientPulse" label="aqui" />
-			// <TextField source="mucosasApparent" label="aqui" />
-			// <TextField source="patientRespiratoryRate" label="aqui" />
-			// <TextField source="patientHeartRate" label="aqui" />
-			// <TextField source="patientWeight" label="aqui" />
-
 	        <EditButton />
 	        <DeleteButton />
 	    </Datagrid>
 	</List>
+);
+
+export const AppointmentRecordsEdit = (props) => (
+	<Edit title="Ficha de Consulta" {...props}>
+		<TabbedForm>
+			<FormTab label="Dados do Paciente">
+				<TextInput source="veterinarian" label="Paciente" />
+				<LongTextInput source="observations" label="Observações" />
+				<LongTextInput source="informations" label="Informações" />
+				<NumberInput source="patientTemperature" label="Temperatura do Paciente" />
+				<NumberInput source="capillaryFill" label="Nem ideia" />
+				<TextInput source="patientPulse" label="Pulso" />
+				<TextInput source="mucosasApparent" label="Mucosas Aparentes" />
+				<NumberInput source="patientRespiratoryRate" label="Frequência Respiratória" />
+				<NumberInput source="patientHeartRate" label="Frequência Cardíaca" />
+				<NumberInput source="patientWeight" label="Peso" />
+			</FormTab>
+			<FormTab label="Situação Clínica">
+				<LongTextInput source="anamnesis" label="Anamnese" />
+				<TextInput source="veterinarian" label="Veterinário" />
+				<TextInput source="exam" label="Exame" />
+				<TextInput source="clinicalProcedure" label="Procedimento Clínico" />
+				<LongTextInput source="diagnostic" label="Diagnóstico" />
+				<LongTextInput source="prognostic" label="Prognóstico" />
+				<TextInput source="clinicalHistory" label="Histórico Clínico" />
+				<LongTextInput source="diagnosis" label="Diagnose???" />
+			</FormTab>
+			<FormTab label="Medicação">
+				<TextInput source="preliminaryMedication" label="Medicação Preliminar" />
+				<NumberInput source="medicationDosage" label="Dosagem de Medicação" />
+				<TextInput source="medicationFrequency" label="Frequência de Medicação" />
+				<TextInput source="homeMedicationName" label="Nome da Medicação Domiciliar" />
+				<TextInput source="homeMedicationDosage" label="Dosagem da Medicação Domiciliar" />
+				<TextInput source="homeMedicationFrequency" label="Frequência da Medicação Domiciliar" />
+				<TextInput source="clinicMedicationName" label="Nome da Medicação Clínica" />
+				<TextInput source="clinicMedicationDosage" label="Dosagem da Medicação Clínica" />
+				<TextInput source="clinicMedicationFrequency" label="Frequência da Medicação Clínica" />
+			</FormTab>
+		</TabbedForm>
+	</Edit>
 );
