@@ -50,7 +50,7 @@ const App = () => (
     />
     <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
-    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais'}} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} />
+    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} />
   </Admin>
 );
 
