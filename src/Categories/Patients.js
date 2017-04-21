@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, Filter, ReferenceInput, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, TabbedForm, FormTab } from 'admin-on-rest/lib/mui';
 
 const PatientFilter = props => (
   <Filter {...props}>
