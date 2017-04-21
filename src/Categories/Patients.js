@@ -10,6 +10,13 @@ const PatientFilter = props => (
   </Filter>
 );
 
+const TextInputValidation = (value, values) => {
+    if (!value) {
+        return ['Campo obrigatório'];
+    }
+    return [];
+};
+
 export const PatientList = props => (
   <List {...props} filters={<PatientFilter />}title={'Pacientes'}>
     <Responsive
@@ -22,7 +29,7 @@ export const PatientList = props => (
       }
       medium={
         <Datagrid>
-          <TextField source="id" label="RG DB Nº" />
+          <TextField source="id" label="RG BD Nº" />
           <TextField source="patientName" label="Nome do Paciente" />
           <TextField source="species" label="Espécie" />
           <TextField source="breed" label="Raça" />
@@ -41,7 +48,11 @@ const PatientTitle = ({ record }) => {
 export const PatientEdit = props => (
   <Edit title={<PatientTitle />} {...props}>
     <SimpleForm>
-      <TextInput source="patientName" label="Nome do Paciente" />
+      <TextInput 
+        source="patientName" 
+        label="Nome do Paciente" 
+        validation={TextInputValidation}
+      />
       <RadioButtonGroupInput
         source="species"
         label="Espécie"
@@ -49,8 +60,13 @@ export const PatientEdit = props => (
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
         ]}
+        validation={TextInputValidation}
       />
-      <TextInput source="breed" label="Raça" />
+      <TextInput 
+        source="breed" 
+        label="Raça" 
+        validation={TextInputValidation}
+      />
       <RadioButtonGroupInput
         source="size"
         label="Tamanho"
@@ -59,6 +75,7 @@ export const PatientEdit = props => (
         { id: 'M', name: 'Médio' },
         { id: 'G', name: 'Grande' },
         ]}
+        validation={TextInputValidation} 
       />
       <RadioButtonGroupInput
         source="gender"
@@ -67,9 +84,18 @@ export const PatientEdit = props => (
         { id: 'M', name: 'Macho' },
         { id: 'F', name: 'Fêmea' },
         ]}
+        validation={TextInputValidation}
       />
-      <DateInput source="birthday" label="Data de Nascimento" />
-      <TextField source="coat" label="Pelagem" />
+      <DateInput 
+        source="birthday" 
+        label="Data de Nascimento" 
+        validation={TextInputValidation}
+      />
+      <TextField 
+        source="coat" 
+        label="Pelagem" 
+        validation={TextInputValidation}
+      />
     </SimpleForm>
   </Edit>
 );
@@ -77,18 +103,28 @@ export const PatientEdit = props => (
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
-      <TextInput source="patientName" label="Nome do Paciente" />
+      <TextInput 
+        source="patientName" 
+        label="Nome do Paciente" 
+        validation={TextInputValidation}
+      />
       <RadioButtonGroupInput
         source="species"
+        validation={TextInputValidation}
         label="Espécie"
         choices={[
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
         ]}
       />
-      <TextInput source="breed" label="Raça" />
+      <TextInput 
+        source="breed" 
+        label="Raça" 
+        validation={TextInputValidation}
+      />
       <RadioButtonGroupInput
         source="size"
+        validation={TextInputValidation}
         label="Tamanho"
         choices={[
         { id: 'P', name: 'Pequeno' },
@@ -98,14 +134,23 @@ export const PatientCreate = props => (
       />
       <RadioButtonGroupInput
         source="gender"
+        validation={TextInputValidation}
         label="Sexo"
         choices={[
         { id: 'M', name: 'Macho' },
         { id: 'F', name: 'Fêmea' },
         ]}
       />
-      <DateInput source="birthday" label="Data de Nascimento" />
-      <TextInput source="coat" label="Pelagem" />
+      <DateInput 
+        source="birthday" 
+        label="Data de Nascimento" 
+        validation={TextInputValidation}
+      />
+      <TextInput 
+        source="coat" 
+        label="Pelagem" 
+        validation={TextInputValidation} 
+      />
     </SimpleForm>
   </Create>
 );
