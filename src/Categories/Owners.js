@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, Filter, EditButton, 
+DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -15,15 +16,16 @@ export const OwnerList = props => (
     <Responsive
       small={
         <SimpleList
-          primaryText={record => record.title}
-          secondaryText={record => `${record.views} views`}
-          tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
+          primaryText={owner => `Nome: ${owner.ownerName}`}
+          secondaryText={owner => `Sobrenome: ${owner.lastName}`}
+          tertiaryText={owner => `Telefone: ${owner.phoneNumber}`}
         />
     }
       medium={
         <Datagrid>
           <TextField source="id" label="ID" />
-          <TextField source="ownerName" label="Nome Completo" />
+          <TextField source="ownerName" label="Nome" />
+          <TextField source="ownerLastName" label="Sobrenome" />
           <TextField source="ownerPhoneNumber" label="Telefone" />
           <EditButton />
           <DeleteButton />
