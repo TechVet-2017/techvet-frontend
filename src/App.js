@@ -15,7 +15,7 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
-import { OwnerList, OwnerCreate, OwnerEdit} from './Categories/Owners';
+import { OwnerList, OwnerCreate, OwnerEdit } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
@@ -24,7 +24,7 @@ import { BathAndGroomingList } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
-import CustomTheme from './CustomTheme'; 
+import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
@@ -39,14 +39,14 @@ const App = () => (
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
     <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
-    <Resource 
-      name="owners" 
+    <Resource
+      name="owners"
       options={{ label: 'Proprietários' }}
-      list={OwnerList} 
-      edit={OwnerEdit} 
-      create={OwnerCreate} 
+      list={OwnerList}
+      edit={OwnerEdit}
+      create={OwnerCreate}
       remove={Delete}
-      icon={OwnerIcon} 
+      icon={OwnerIcon}
     />
     <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
