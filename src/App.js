@@ -15,7 +15,7 @@ import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList } from './Categories/Owners';
-import { PatientList, PatientEdit, PatientCreate } from './Categories/Patients';
+import { PatientList, PatientEdit, PatientCreate, PatientShow } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
@@ -27,6 +27,7 @@ import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
+   
     restClient={jsonServerRestClient('http://localhost:8080/techvet/rest')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
@@ -42,6 +43,7 @@ const App = () => (
     <Resource
       name="patients"
       options={{ label: 'Pacientes' }}
+      show={PatientShow}
       list={PatientList}
       edit={PatientEdit}
       create={PatientCreate}

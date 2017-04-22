@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, Filter, ReferenceInput, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, TabbedForm, FormTab } from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton} from 'admin-on-rest/lib/mui';
 
 const PatientFilter = props => (
   <Filter {...props}>
@@ -33,6 +33,7 @@ export const PatientList = props => (
           <TextField source="patientName" label="Nome do Paciente" />
           <TextField source="species" label="Espécie" />
           <TextField source="breed" label="Raça" />
+          <ShowButton />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -153,4 +154,61 @@ export const PatientCreate = props => (
       />
     </SimpleForm>
   </Create>
+);
+
+export const PatientShow = props => (
+   <Show title={<PatientTitle />} {...props}>
+    <SimpleForm>
+      <TextInput 
+        value="off"
+        source="patientName" 
+        label="Nome do Paciente" 
+        validation={TextInputValidation}
+      />
+      <RadioButtonGroupInput
+        source="species"
+        label="Espécie"
+        choices={[
+        { id: 'Canino', name: 'Canino' },
+        { id: 'Felino', name: 'Felino' },
+        ]}
+        validation={TextInputValidation}
+      />
+      <TextInput 
+        source="breed" 
+        label="Raça" 
+        validation={TextInputValidation}
+      />
+      <RadioButtonGroupInput
+        source="size"
+        label="Tamanho"
+        choices={[
+        { id: 'P', name: 'Pequeno' },
+        { id: 'M', name: 'Médio' },
+        { id: 'G', name: 'Grande' },
+        ]}
+        validation={TextInputValidation} 
+      />
+      <RadioButtonGroupInput
+        source="gender"
+        label="Sexo"
+        choices={[
+        { id: 'M', name: 'Macho' },
+        { id: 'F', name: 'Fêmea' },
+        ]}
+        validation={TextInputValidation}
+      />
+      <DateInput 
+        source="birthday" 
+        label="Data de Nascimento" 
+        validation={TextInputValidation}
+      />
+      <TextField 
+        source="coat" 
+        label="Pelagem" 
+        validation={TextInputValidation}
+      />
+      
+    </SimpleForm>
+  </Show>
 );
