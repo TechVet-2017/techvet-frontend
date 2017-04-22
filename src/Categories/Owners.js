@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, Filter, EditButton, 
-DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput, TabbedForm, FormTab } from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -10,6 +10,13 @@ const OwnerFilter = props => (
     </ReferenceInput>
   </Filter>
 );
+
+const TextInputValidation = (value, values) => {
+	if (!value) {
+		return ['Campo obrigatório'];
+	}
+	return [];
+};
 
 export const OwnerList = props => (
   <List {...props} filters={<OwnerFilter />} title={'Lista de proprietários'}>
@@ -37,15 +44,50 @@ export const OwnerList = props => (
 export const OwnerCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="ownerID" label="ID" />
-      <TextInput source="cpf" label="CPF" />
-      <TextInput source="ownerName" label="Primeiro Nome" />
-      <TextInput source="ownerLastName" label="Sobrenome" />
-      <TextInput source="phoneNumber" label="Telefone" />
-      <TextInput source="zipCode" label="Código Postal" />
-      <TextInput source="district" label="Estado" />
-      <TextInput source="publicPlace" label="Endereço" />
-      <TextInput source="addressNumber" label="Número" />
+      <TextInput 
+      	source="ownerID" 
+      	label="ID" 
+      />
+      <TextInput 
+      	source="cpf"
+      	label="CPF"
+      	validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="ownerName" 
+      	label="Primeiro Nome" 
+		validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="ownerLastName" 
+      	label="Sobrenome" 
+      	validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="phoneNumber" 
+      	label="Telefone" 
+   		validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="zipCode" 
+      	label="Código Postal" 
+      	validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="district" 
+      	label="Estado"
+      	validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="publicPlace" 
+      	label="Endereço"
+      	validation={TextInputValidation}
+      />
+      <TextInput 
+      	source="addressNumber" 
+      	label="Número" 
+      	validation={TextInputValidation}
+      />
     </SimpleForm>
   </Create>
 );
