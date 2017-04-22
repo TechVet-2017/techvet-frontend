@@ -4,9 +4,16 @@ DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput, TabbedForm, Fo
 
 const OwnerFilter = props => (
   <Filter {...props}>
-    <TextInput label="Pesquisar" source="q" alwaysOn />
+    <TextInput 
+    	label="Pesquisar" 
+    	source="q" 
+    	alwaysOn 
+    />
     <ReferenceInput label="Proprietário" source="id" reference="owner" allowEmpty>
-      <SelectInput source="id" optionText="ownerName" />
+      <SelectInput 
+      	source="id" 
+      	optionText="ownerName" 
+      />
     </ReferenceInput>
   </Filter>
 );
@@ -30,10 +37,22 @@ export const OwnerList = props => (
     }
       medium={
         <Datagrid>
-          <TextField source="id" label="ID" />
-          <TextField source="ownerName" label="Nome" />
-          <TextField source="ownerLastName" label="Sobrenome" />
-          <TextField source="ownerPhoneNumber" label="Telefone" />
+          <TextField 
+          	source="id" 
+          	label="ID" 
+          />
+          <TextField 
+          	source="ownerName" 
+          	label="Nome" 
+          />
+          <TextField 
+          	source="ownerLastName" 
+          	label="Sobrenome" 
+          />
+          <TextField 
+          	source="phoneNumber" 
+          	label="Telefone" 
+          />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -44,11 +63,7 @@ export const OwnerList = props => (
 export const OwnerCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput 
-      	source="ownerID" 
-      	label="ID" 
-      />
-      <TextInput 
+    <TextInput 
       	source="cpf"
       	label="CPF"
       	validation={TextInputValidation}
@@ -92,22 +107,49 @@ export const OwnerCreate = props => (
   </Create>
 );
 
-const OwnerName = ({ record }) => {
-  return <span>Proprietário {record ? `"${record.ownerName}"` : ''}</span>;
+const OwnerName = ({ owner }) => {
+  return <span>Proprietário {owner ? `"${owner.ownerName}"` : ''}</span>;
 };
 
 export const OwnerEdit = props => (
   <Edit title={<OwnerName />} {...props}>
     <SimpleForm>
-      <TextInput source="ownerID" label="ID" />
-      <TextInput source="cpf" label="CPF" />
-      <TextInput source="ownerName" label="Primeiro Nome" />
-      <TextInput source="ownerLastName" label="Sobrenome" />
-      <TextInput source="phoneNumber" label="Telefone" />
-      <TextInput source="zipCode" label="Código Postal" />
-      <TextInput source="district" label="Estado" />
-      <TextInput source="publicPlace" label="Endereço" />
-      <TextInput source="addressNumber" label="Número" />
+      <TextInput 
+      	source="ownerID" 
+      	label="ID" 
+      />
+      <TextInput 
+      	source="cpf" 
+      	label="CPF" 
+      />
+      <TextInput 
+      	source="ownerName" 
+      	label="Primeiro Nome" 
+      />
+      <TextInput 
+      	source="ownerLastName" 
+      	label="Sobrenome" 
+      />
+      <TextInput 
+      	source="phoneNumber" 
+      	label="Telefone" 
+      />
+      <TextInput 
+      	source="zipCode" 
+      	label="Código Postal" 
+      />
+      <TextInput 
+      	source="district" 
+      	label="Estado" 
+      />
+      <TextInput 
+      	source="publicPlace" 
+      	label="Endereço" 
+      />
+      <TextInput 
+      	source="addressNumber" 
+      	label="Número" 
+      />
     </SimpleForm>
   </Edit>
 );
