@@ -15,7 +15,7 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
-import { OwnerList, OwnerCreate, OwnerEdit } from './Categories/Owners';
+import { OwnerList, OwnerShow, OwnerCreate, OwnerEdit } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
@@ -43,6 +43,7 @@ const App = () => (
       name="owners"
       options={{ label: 'Proprietários' }}
       list={OwnerList}
+      show={OwnerShow}
       edit={OwnerEdit}
       create={OwnerCreate}
       remove={Delete}
