@@ -12,8 +12,9 @@ import {
   SelectInput,
   TabbedForm,
   FormTab,
+  NumberInput,
+  LongTextInput,
 } from 'admin-on-rest/lib/mui';
-import { ClinicalRecordCommonForm } from './ClinicalRecordCommonForm';
 
 export const VaccinationRecordsList = props => (
 
@@ -28,6 +29,16 @@ export const VaccinationRecordsList = props => (
     </Datagrid>
   </List>
 );
+
+const inlineStyle = {
+  display: 'inline-block',
+  marginRight: '50px',
+};
+const title = {
+  fontSize: '20px',
+  fontWeight: 'normal',
+  marginBottom: '8px',
+};
 
 const vaccines = [
   { id: '1', name: 'Vanguard Plus (ou V10 ou Déctupla) - 21 dias' },
@@ -60,9 +71,55 @@ const vaccines = [
   { id: '28', name: 'Leish-Tec Anual' },
 ];
 
-const VaccinactionForm = () => (
-  <TabbedForm>
-    <ClinicalRecordCommonForm label="Informações" />
+export const VaccinationRecordsEdit = props => (
+  <Edit title="Ficha de Vacinação" {...props}>
+    <TabbedForm>
+    <FormTab label="Informações do Paciente">
+    <TextInput
+      source="veterinarian"
+      label="Atendido por Médico Veterinário"
+      style={inlineStyle}
+    />
+    <TextInput source="veterinarianIdentification" label="Identificador" style={inlineStyle} />
+    <h2 style={title}>Anamnese</h2>
+    <LongTextInput source="anamnesis" label="Histórico da Doença" />
+    <h2 style={title}>Histórico Clínico</h2>
+    <LongTextInput source="clinicalHistory" label="Sinais Clínicos" />
+    <h2 style={title}>Exame Físico</h2>
+    <SelectInput
+      source="hydrationState"
+      label="Estado de Hidratação"
+      choices={[
+        { id: 'hidratado', name: 'Hidratado' },
+        { id: 'levemente desidratado', name: 'Levemente Desidratado' },
+        { id: 'desidratado', name: 'Desidratado' },
+      ]}
+    />
+    <NumberInput source="patientTemperature" label="Temperatura" />
+    <NumberInput source="capillaryFill" label="TPC" />
+    <SelectInput
+      source="patientPulse"
+      label="Pulso do Paciente"
+      choices={[
+        { id: 'forteSincrono', name: 'Forte e Síncrono' },
+        { id: 'fracoAssincrono', name: 'Fraco e Assíncrono' },
+      ]}
+    />
+    <TextInput source="lymphnodes" label="Linfonodos" />
+    <NumberInput source="bloodPressure" label="PAS" />
+    <SelectInput
+      source="mucosasApparent"
+      label="Mucosas Aparentes"
+      choices={[
+        { id: 'normoCorada', name: 'Normo Corada' },
+        { id: 'hipoCorada', name: 'Hipo Corada' },
+        { id: 'hiperCorada', name: 'Hiper Corada' },
+      ]}
+    />
+    <NumberInput source="patientHeartRate" label="Frequência Cardíaca" />
+    <NumberInput source="patientRespiratoryRate" label="Frequência Respiratória" />
+    <NumberInput source="patientWeight" label="Peso" />
+  </FormTab>
     <FormTab label="Vacinação">
       <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" />
       <SelectInput
@@ -90,16 +147,84 @@ const VaccinactionForm = () => (
       <DateInput source="vermifugationReturnDate" label="Data de Retorno" />
     </FormTab>
   </TabbedForm>
-);
-
-export const VaccinationRecordsEdit = props => (
-  <Edit title="Ficha de Vacinação" {...props}>
-    <VaccinactionForm />
   </Edit>
 );
 
 export const VaccinationRecordsCreate = props => (
   <Create title="Cadastro Ficha Médica Vacinação" {...props}>
-    <VaccinactionForm />
+    <TabbedForm>
+    <FormTab label="Informações do Paciente">
+    <TextInput
+      source="veterinarian"
+      label="Atendido por Médico Veterinário"
+      style={inlineStyle}
+    />
+    <TextInput source="veterinarianIdentification" label="Identificador" style={inlineStyle} />
+    <h2 style={title}>Anamnese</h2>
+    <LongTextInput source="anamnesis" label="Histórico da Doença" />
+    <h2 style={title}>Histórico Clínico</h2>
+    <LongTextInput source="clinicalHistory" label="Sinais Clínicos" />
+    <h2 style={title}>Exame Físico</h2>
+    <SelectInput
+      source="hydrationState"
+      label="Estado de Hidratação"
+      choices={[
+        { id: 'hidratado', name: 'Hidratado' },
+        { id: 'levemente desidratado', name: 'Levemente Desidratado' },
+        { id: 'desidratado', name: 'Desidratado' },
+      ]}
+    />
+    <NumberInput source="patientTemperature" label="Temperatura" />
+    <NumberInput source="capillaryFill" label="TPC" />
+    <SelectInput
+      source="patientPulse"
+      label="Pulso do Paciente"
+      choices={[
+        { id: 'forteSincrono', name: 'Forte e Síncrono' },
+        { id: 'fracoAssincrono', name: 'Fraco e Assíncrono' },
+      ]}
+    />
+    <TextInput source="lymphnodes" label="Linfonodos" />
+    <NumberInput source="bloodPressure" label="PAS" />
+    <SelectInput
+      source="mucosasApparent"
+      label="Mucosas Aparentes"
+      choices={[
+        { id: 'normoCorada', name: 'Normo Corada' },
+        { id: 'hipoCorada', name: 'Hipo Corada' },
+        { id: 'hiperCorada', name: 'Hiper Corada' },
+      ]}
+    />
+    <NumberInput source="patientHeartRate" label="Frequência Cardíaca" />
+    <NumberInput source="patientRespiratoryRate" label="Frequência Respiratória" />
+    <NumberInput source="patientWeight" label="Peso" />
+  </FormTab>
+    <FormTab label="Vacinação">
+      <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" />
+      <SelectInput
+        source="vaccinationName"
+        label="Vacina"
+        choices={vaccines}
+      />
+      <SelectInput
+        source="vaccinationLaboratory"
+        label="Laboratório"
+        choices={[
+        { id: 'Pfizer', name: 'Pfizer' },
+        { id: 'Zoetis', name: 'Zoetis' },
+        { id: 'Fort', name: 'Fort' },
+        { id: 'Dodge', name: 'Dodge' },
+        { id: 'Hertape', name: 'Hertape' },
+        ]}
+      />
+      <DateInput source="vaccinationReturnDate" label="Data de Retorno" />
+    </FormTab>
+    <FormTab label="Vermifugação">
+      <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" />
+      <TextInput source="vermifugeName" label="Vermífugo" />
+      <TextInput source="vermifugeDosage" label="Dose" step={0.1} />
+      <DateInput source="vermifugationReturnDate" label="Data de Retorno" />
+    </FormTab>
+  </TabbedForm>
   </Create>
 );
