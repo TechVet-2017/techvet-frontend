@@ -22,16 +22,26 @@ export const UserList = props => (
     <Responsive
       small={
         <SimpleList
-          primaryText={record => record.title}
-          secondaryText={record => `${record.views} views`}
-          tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
+          primaryText={user => `ID: ${user.id}`}
+          secondaryText={user => `Nome de Usuário: ${user.userName}`}
+          tertiaryText={user => `Nome Completo: ${user.userFullName}`}
         />
     }
       medium={
         <Datagrid>
-          <TextField source="id" label="ID" />
-          <TextField source="userFullName" label="Nome Completo" />
-          <TextField source="userName" label="Nome de Usuário" />
+          <TextField
+            source="id"
+            label="ID"
+          />
+          <TextField
+            source="userFullName"
+            label="Nome Completo"
+          />
+          <TextField
+            source="userName"
+            label="Nome de Usuário"
+          />
+          <ShowButton />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -40,8 +50,6 @@ export const UserList = props => (
   </List>
 );
 
-const UserName = ({ record }) => {
-  return <span>Usuário {record ? `"${record.userName}"` : ''}</span>;
 export const UserCreate = props => (
   <Create {...props}>
     <SimpleForm>
