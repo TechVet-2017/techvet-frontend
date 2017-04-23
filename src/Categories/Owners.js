@@ -160,39 +160,39 @@ export const OwnerEdit = props => (
 export const OwnerShow = props => (
   <Show title={<OwnerName />} {...props}>
     <SimpleForm>
-      <TextInput
+      <TextField
         source="id"
         label="ID"
       />
-      <TextInput
+      <TextField
         source="cpf"
         label="CPF"
       />
-      <TextInput
+      <TextField
         source="ownerName"
         label="Primeiro Nome"
       />
-      <TextInput
+      <TextField
         source="ownerLastName"
         label="Sobrenome"
       />
-      <TextInput
+      <TextField
         source="phoneNumber"
         label="Telefone"
       />
-      <TextInput
+      <TextField
         source="zipCode"
         label="Código Postal"
       />
-      <TextInput
+      <TextField
         source="district"
         label="Estado"
       />
-      <TextInput
+      <TextField
         source="publicPlace"
         label="Endereço"
       />
-      <TextInput
+      <TextField
         source="addressNumber"
         label="Número"
       />
