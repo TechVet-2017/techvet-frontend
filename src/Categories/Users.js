@@ -10,6 +10,13 @@ const UserFilter = props => (
   </Filter>
 );
 
+const TextInputValidation = (value) => {
+  if (!value) {
+    return ['Campo obrigatório'];
+  }
+  return [];
+};
+
 export const UserList = props => (
   <List {...props} filters={<UserFilter />} title={'Lista de Usuários'}>
     <Responsive
@@ -35,26 +42,53 @@ export const UserList = props => (
 
 const UserName = ({ record }) => {
   return <span>Usuário {record ? `"${record.userName}"` : ''}</span>;
+export const UserCreate = props => (
+  <Create {...props}>
+    <SimpleForm>
+      <TextInput
+        source="userFullName"
+        label="Nome Completo"
+        validation="{TextInputValidation}"
+      />
+      <TextInput
+        source="userName"
+        label="Nome de Usuário"
+        validation="{TextInputValidation}"
+      />
+      <TextInput
+        type="password"
+        source="userPassword"
+        label="Senha"
+        validation="{TextInputValidation}"
+      />
+    </SimpleForm>
+  </Create>
+);
+
+const UserName = ({ user }) => {
+  return <span>Usuário {user ? `"${user.userName}"` : ''}</span>;
 };
 
 export const UserEdit = props => (
   <Edit title={<UserName />} {...props}>
     <SimpleForm>
-      <TextInput source="userFullName" label="Nome Completo" />
-      <TextInput source="userName" label="Nome de Usuário" />
-      <TextInput type="password" source="userPassword" label="Senha" />
+      <TextInput
+        source="userFullName"
+        label="Nome Completo"
+      />
+      <TextInput
+        source="userName"
+        label="Nome de Usuário"
+      />
+      <TextInput
+        type="password"
+        source="userPassword"
+        label="Senha"
+      />
     </SimpleForm>
   </Edit>
 );
 
-export const UserCreate = props => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source="userFullName" label="Nome Completo" />
-      <TextInput source="userName" label="Nome de Usuário" />
-      <TextInput type="password" source="userPassword" label="Senha" />
-    </SimpleForm>
-  </Create>
 export const UserShow = props => (
   <Show title={<UserName />} {...props}>
     <SimpleShowLayout>
