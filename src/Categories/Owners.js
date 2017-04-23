@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
 Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
-SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+SelectInput, SimpleForm, SimpleShowLayout, TextInput } from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -159,7 +159,7 @@ export const OwnerEdit = props => (
 
 export const OwnerShow = props => (
   <Show title={<OwnerName />} {...props}>
-    <SimpleForm>
+    <SimpleShowLayout>
       <TextField
         source="id"
         label="ID"
@@ -196,6 +196,6 @@ export const OwnerShow = props => (
         source="addressNumber"
         label="Número"
       />
-    </SimpleForm>
+    </SimpleShowLayout>
   </Show>
 );
