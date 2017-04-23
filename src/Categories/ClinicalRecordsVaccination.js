@@ -9,11 +9,11 @@ import {
   Create,
   DateInput,
   TextInput,
-  SimpleForm,
-  LongTextInput,
-  NumberInput,
   SelectInput,
+  TabbedForm,
+  FormTab,
 } from 'admin-on-rest/lib/mui';
+import { ClinicalRecordCommonForm } from './ClinicalRecordCommonForm';
 
 export const VaccinationRecordsList = props => (
 
@@ -29,105 +29,77 @@ export const VaccinationRecordsList = props => (
   </List>
 );
 
-export const VaccinationRecordsEdit = props => (
-  <Edit title="Ficha de Vacinação" {...props}>
-    <SimpleForm>
-      <DateInput source="vaccinationApplicationDate" label="Data da Vacinação" />
-      <TextInput source="vaccinationName" label="Vacina" />
-      <DateInput source="vaccinationReturnDate" label="Data de Retorno" />
-      <TextInput source="vaccinationLaboratory" label="Laboratório da Vacina" />
-      <DateInput source="vermifugationApplicationDate" label="Data de Vermifugação" />
-      <TextInput source="vermifugeName" label="Nome do Vermífugo" />
-      <TextInput source="vermifugeDosage" label="Dosagem do Vermífugo" />
-      <DateInput source="vermifugationReturnDate" label="Data de Retorno do Vermífugo" />
+const vaccines = [
+  { id: '1', name: 'Vanguard Plus (ou V10 ou Déctupla) - 21 dias' },
+  { id: '2', name: 'Vanguard Plus Mensal (ou V10 ou Déctupla)' },
+  { id: '3', name: 'Vanguard Plus Intermediária (ou V10 ou Déctupla)' },
+  { id: '4', name: 'Vanguard Plus Anual (ou V10 ou Déctupla)' },
+  { id: '5', name: 'Bronchi-guard - 21 dias' },
+  { id: '6', name: 'Bronchi-guard Mensal' },
+  { id: '7', name: 'Bronchi-guard Intermediária' },
+  { id: '8', name: 'Bronchi-guard Anual' },
+  { id: '9', name: 'Defensor - 21 dias' },
+  { id: '10', name: 'Defensor Mensal' },
+  { id: '11', name: 'Defensor Intermediária' },
+  { id: '12', name: 'Defensor Anual' },
+  { id: '13', name: 'GiardiaVax - 21 dias' },
+  { id: '14', name: 'GiardiaVax Mensal' },
+  { id: '15', name: 'GiardiaVax Intermediária' },
+  { id: '16', name: 'GiardiaVax Anual' },
+  { id: '17', name: 'FeloCell (ou Quádrupla felina) - 21 dias' },
+  { id: '18', name: 'FeloCell Mensal (ou Quádrupla felina)' },
+  { id: '19', name: 'FeloCell Intermediária (ou Quádrupla felina)' },
+  { id: '20', name: 'FeloCell Anual (ou Quádrupla felina)' },
+  { id: '21', name: 'Fel-O-Vax (ou Quíntupla felina) - 21 dias' },
+  { id: '22', name: 'Fel-O-Vax Mensal (ou Quíntupla felina)' },
+  { id: '23', name: 'Fel-O-Vax Intermediária (ou Quíntupla felina)' },
+  { id: '24', name: 'Fel-O-Vax Anual (ou Quíntupla felina)' },
+  { id: '25', name: 'Leish-Tec - 21 dias' },
+  { id: '26', name: 'Leish-Tec Mensal' },
+  { id: '27', name: 'Leish-Tec Intermediária' },
+  { id: '28', name: 'Leish-Tec Anual' },
+];
 
-      <LongTextInput source="anamnesis" label="Anamnese" />
-      <TextInput source="veterinarian" label="Veterinário" />
-      <TextInput source="clinicalHistory" label="Histórico Médico" />
-      <LongTextInput source="diagnosis" label="Diagnose?" />
-      <NumberInput source="patientTemperature" label="Temperatura do Paciente" />
-      <NumberInput source="capillaryFill" label="Nem Sei" />
-      <TextInput source="patientPulse" label="Pulso do Paciente" />
-      <TextInput source="mucosasApparent" label="Mucosas Aparentes" />
-      <NumberInput source="patientRespiratoryRate" label="Frequência Respiratória" />
-      <NumberInput source="patientHeartRate" label="Frequência Cardíaca" />
-      <NumberInput source="patientWeight" label="Peso" />
-    </SimpleForm>
-  </Edit>
-);
-
-const inlineStyle = {
-  display: 'inline-block',
-  marginRight: '50px',
-};
-const title = {
-  fontSize: '20px',
-  fontWeight: 'normal',
-  marginBottom: '8px',
-};
-export const VaccinationRecordsCreate = props => (
-  <Create title="Cadastro Ficha Médica Vacinação" {...props}>
-    <SimpleForm>
-      <TextInput
-        source="veterinarian"
-        label="Atendido por Médico Veterinário"
-        style={inlineStyle}
-      />
-      <TextInput source="veterinarianIdentification" label="Identificador" style={inlineStyle} />
-      <h2 style={title}>Anamnese</h2>
-      <LongTextInput source="anamnesis" label="Histórico da Doença" />
-      <h2 style={title}>Exame Físico</h2>
-      <SelectInput
-        source="hydrationState"
-        label="Estado de Hidratação"
-        choices={[
-        { id: 'hidratado', name: 'Hidratado' },
-        { id: '???', name: '???' },
-        { id: 'desidratado', name: 'Desidratado' },
-        ]}
-      />
-      <NumberInput source="patientTemperature" label="Temperatura" />
-      <NumberInput source="capillaryFill" label="TPC" />
-      <TextInput source="patientPulse" label="Pulso do Paciente" />
-      <TextInput source="bloodPressure" label="PAS" />
-      <SelectInput
-        source="mucosasApparent"
-        label="Mucosas Aparentes"
-        choices={[
-        { id: 'normoCorada', name: 'Normo Corada' },
-        { id: '??', name: '??' },
-        { id: 'heh?', name: 'heh?' },  
-        ]}
-      />
-      <NumberInput source="patientRespiratoryRate" label="Frequência Respiratória" />
-      <NumberInput source="patientHeartRate" label="Frequência Cardíaca" />
-      <h2 style={title}>Vacinação</h2>
+const VaccinactionForm = () => (
+  <TabbedForm>
+    <ClinicalRecordCommonForm label="Informações" />
+    <FormTab label="Vacinação">
       <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" />
       <SelectInput
         source="vaccinationName"
-        label="vacina"
-        choices={[
-         { id: 'vanguardPlusmonthly', name: 'Vanguard Plus Mensal' },
-         { id: 'vacina', name: 'Vacina' },
-         { id: 'nomeVacina', name: 'Nome de Vacina' },
-        ]}
+        label="Vacina"
+        choices={vaccines}
       />
       <SelectInput
         source="vaccinationLaboratory"
         label="Laboratório"
         choices={[
-         { id: 'pfizer', name: 'Pfizer' },
-         { id: 'dexter', name: 'Laboratório de Dexter' },
-         { id: 'sabin', name: 'Sabin' },
+        { id: 'Pfizer', name: 'Pfizer' },
+        { id: 'Zoetis', name: 'Zoetis' },
+        { id: 'Fort', name: 'Fort' },
+        { id: 'Dodge', name: 'Dodge' },
+        { id: 'Hertape', name: 'Hertape' },
         ]}
       />
       <DateInput source="vaccinationReturnDate" label="Data de Retorno" />
-      <h2 style={title}>Vermifugação</h2>
+    </FormTab>
+    <FormTab label="Vermifugação">
       <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" />
       <TextInput source="vermifugeName" label="Vermífugo" />
-      <NumberInput source="patientWeight" label="Peso" />
-      <TextInput source="vermifugeDosage" label="Dose" />
+      <TextInput source="vermifugeDosage" label="Dose" step={0.1} />
       <DateInput source="vermifugationReturnDate" label="Data de Retorno" />
-    </SimpleForm>
+    </FormTab>
+  </TabbedForm>
+);
+
+export const VaccinationRecordsEdit = props => (
+  <Edit title="Ficha de Vacinação" {...props}>
+    <VaccinactionForm />
+  </Edit>
+);
+
+export const VaccinationRecordsCreate = props => (
+  <Create title="Cadastro Ficha Médica Vacinação" {...props}>
+    <VaccinactionForm />
   </Create>
 );

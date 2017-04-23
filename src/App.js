@@ -16,13 +16,12 @@ import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
-import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
 import { BathAndGroomingList } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
 import { AppointmentRecordsList, AppointmentRecordsEdit, AppointmentRecordsCreate } from './Categories/ClinicalRecordsAppointment';
-import { VaccinationRecordsList, VaccinationRecordsEdit, VaccinationRecordsCreate } from './Categories/ClinicalRecordsVaccination'
+import { VaccinationRecordsList, VaccinationRecordsEdit, VaccinationRecordsCreate } from './Categories/ClinicalRecordsVaccination';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
 import CustomTheme from './CustomTheme';
@@ -42,7 +41,6 @@ const App = () => (
     <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
     <Resource name="owner" options={{ label: 'Proprietários' }} list={OwnerList} icon={OwnerIcon} />
     <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
-    <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
       name="vaccinationSchedule" options={{ label: 'Calendário de Vacinação' }}
@@ -51,8 +49,8 @@ const App = () => (
     />
     <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
-    <Resource name="appointmentRecords" options={{ label: 'Consultas oficiais' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} />
-    <Resource name="vaccinationRecords" options={{ label: 'Vacinação' }} list={VaccinationRecordsList} edit={VaccinationRecordsEdit} create={VaccinationRecordsCreate} />
+    <Resource name="appointmentRecords" options={{ label: 'Consultas' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} icon={AttendenceIcon} />
+    <Resource name="vaccinationRecords" options={{ label: 'Vacinação' }} list={VaccinationRecordsList} edit={VaccinationRecordsEdit} create={VaccinationRecordsCreate} remove={Delete} />
   </Admin>
 );
 
