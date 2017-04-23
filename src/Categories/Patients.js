@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton} from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton, SimpleShowLayout, DisabledInput, DateField} from 'admin-on-rest/lib/mui';
 
 const PatientFilter = props => (
   <Filter {...props}>
@@ -158,14 +158,14 @@ export const PatientCreate = props => (
 
 export const PatientShow = props => (
    <Show title={<PatientTitle />} {...props}>
-    <SimpleForm>
-      <TextInput 
+    <SimpleShowLayout>
+      <TextField 
         value="off"
         source="patientName" 
         label="Nome do Paciente" 
         validation={TextInputValidation}
       />
-      <RadioButtonGroupInput
+      <DisabledInput
         source="species"
         label="Espécie"
         choices={[
@@ -174,12 +174,12 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation}
       />
-      <TextInput 
+      <TextField 
         source="breed" 
         label="Raça" 
         validation={TextInputValidation}
       />
-      <RadioButtonGroupInput
+      <DisabledInput
         source="size"
         label="Tamanho"
         choices={[
@@ -189,7 +189,7 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation} 
       />
-      <RadioButtonGroupInput
+      <DisabledInput
         source="gender"
         label="Sexo"
         choices={[
@@ -198,7 +198,7 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation}
       />
-      <DateInput 
+      <DateField 
         source="birthday" 
         label="Data de Nascimento" 
         validation={TextInputValidation}
@@ -209,6 +209,6 @@ export const PatientShow = props => (
         validation={TextInputValidation}
       />
       
-    </SimpleForm>
+    </SimpleShowLayout>
   </Show>
 );
