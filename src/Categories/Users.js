@@ -3,9 +3,16 @@ import { List, Responsive, SimpleList, SimpleShowLayout, Show, Edit, Create, Dat
 
 const UserFilter = props => (
   <Filter {...props}>
-    <TextInput label="Pesquisar" source="userFullName" alwaysOn />
+    <TextInput
+      label="Pesquisar"
+      source="userFullName"
+      alwaysOn
+    />
     <ReferenceInput label="Usuário" source="id" reference="users" allowEmpty>
-      <SelectInput source="id" optionText="userName" />
+      <SelectInput
+        source="id"
+        optionText="userName"
+      />
     </ReferenceInput>
   </Filter>
 );
