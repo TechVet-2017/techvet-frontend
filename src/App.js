@@ -14,7 +14,7 @@ import React from 'react';
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
-import { UserList, UserEdit, UserCreate } from './Categories/Users';
+import { UserList, UserShow, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList, OwnerCreate, OwnerEdit } from './Categories/Owners';
 import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
@@ -39,6 +39,7 @@ const App = () => (
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
     <Resource name="users" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
+      show={UserShow}
     <Resource name="owners" options={{ label: 'Proprietários' }} list={OwnerList} edit={OwnerEdit} create={OwnerCreate} icon={OwnerIcon} />
     <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
