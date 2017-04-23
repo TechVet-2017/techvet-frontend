@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
 Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
-SelectInput, SimpleForm, SimpleShowLayout, TextInput } from 'admin-on-rest/lib/mui';
+SelectInput, SimpleForm, SimpleShowLayout, TextInput, DisabledInput} from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -116,11 +116,11 @@ const OwnerName = ({ owner }) => {
 export const OwnerEdit = props => (
   <Edit title={<OwnerName />} {...props}>
     <SimpleForm>
-      <TextInput
+      <DisabledInput
         source="id"
         label="ID"
       />
-      <TextInput
+      <DisabledInput
         source="cpf"
         label="CPF"
       />
