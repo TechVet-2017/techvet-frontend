@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
 Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
-SelectInput, SimpleForm, SimpleShowLayout, TextInput, DisabledInput} from 'admin-on-rest/lib/mui';
+SelectInput, SimpleForm, SimpleShowLayout, TextInput, DisabledInput } from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -62,6 +62,7 @@ export const OwnerList = props => (
     />
   </List>
 );
+
 export const OwnerCreate = props => (
   <Create {...props}>
     <SimpleForm>
@@ -109,8 +110,8 @@ export const OwnerCreate = props => (
   </Create>
 );
 
-const OwnerName = ({ owner }) => {
-  return <span>Proprietário {owner ? `"${owner.ownerName}"` : ''}</span>;
+const OwnerName = ({ record }) => {
+  return <span>Proprietário {record ? `"${record.ownerName}"` : ''}</span>;
 };
 
 export const OwnerEdit = props => (
