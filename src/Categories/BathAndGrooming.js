@@ -24,16 +24,11 @@ export const BathAndGroomingList = props => (
   </List>
 );
 
-
-const BathAndGroomingTitle = ({ record }) => {
-  return <span>Editar Serviço</span>;
-};
-
 export const BathAndGroomingEdit = props => (
-  <Edit title={<BathAndGroomingTitle />} {...props}>
+  <Edit title={'Editar Serviço'} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <LongTextInput label="Serviço" source="serviceBathGrooming" />
+      <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
   </Edit>
 );
