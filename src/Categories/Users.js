@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, SimpleList, SimpleShowLayout, Show, Edit, Create, Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
+import { List, Responsive, SimpleList, SimpleShowLayout, Show, Edit, Create, Datagrid, ShowButton, TextField, Filter, EditButton, DeleteButton, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest/lib/mui';
 
 const UserFilter = props => (
   <Filter {...props}>
@@ -63,18 +63,18 @@ export const UserCreate = props => (
       <TextInput
         source="userFullName"
         label="Nome Completo"
-        validation="{TextInputValidation}"
+        validation={TextInputValidation}
       />
       <TextInput
         source="userName"
         label="Nome de Usuário"
-        validation="{TextInputValidation}"
+        validation={TextInputValidation}
       />
       <TextInput
         type="password"
         source="userPassword"
         label="Senha"
-        validation="{TextInputValidation}"
+        validation={TextInputValidation}
       />
     </SimpleForm>
   </Create>
