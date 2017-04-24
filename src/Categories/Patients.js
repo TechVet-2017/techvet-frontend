@@ -10,11 +10,11 @@ const PatientFilter = props => (
   </Filter>
 );
 
-const TextInputValidation = (value, values) => {
-    if (!value) {
-        return ['Campo obrigatório'];
-    }
-    return [];
+const TextInputValidation = (value) => {
+  if (!value) {
+    return ['Campo obrigatório'];
+  }
+  return [];
 };
 
 export const PatientList = props => (
@@ -49,9 +49,9 @@ const PatientTitle = ({ record }) => {
 export const PatientEdit = props => (
   <Edit title={<PatientTitle />} {...props}>
     <SimpleForm>
-      <TextInput 
-        source="patientName" 
-        label="Nome do Paciente" 
+      <TextInput
+        source="patientName"
+        label="Nome do Paciente"
         validation={TextInputValidation}
       />
       <RadioButtonGroupInput
@@ -63,38 +63,38 @@ export const PatientEdit = props => (
         ]}
         validation={TextInputValidation}
       />
-      <TextInput 
-        source="breed" 
-        label="Raça" 
+      <TextInput
+        source="breed"
+        label="Raça"
         validation={TextInputValidation}
       />
       <RadioButtonGroupInput
         source="size"
         label="Tamanho"
         choices={[
-        { id: 'P', name: 'Pequeno' },
-        { id: 'M', name: 'Médio' },
-        { id: 'G', name: 'Grande' },
+        { id: 'Pequeno', name: 'Pequeno' },
+        { id: 'Médio', name: 'Médio' },
+        { id: 'Grande', name: 'Grande' },
         ]}
-        validation={TextInputValidation} 
+        validation={TextInputValidation}
       />
       <RadioButtonGroupInput
         source="gender"
         label="Sexo"
         choices={[
-        { id: 'M', name: 'Macho' },
-        { id: 'F', name: 'Fêmea' },
+        { id: 'Macho', name: 'Macho' },
+        { id: 'Fêmea', name: 'Fêmea' },
         ]}
         validation={TextInputValidation}
       />
-      <DateInput 
-        source="birthday" 
-        label="Data de Nascimento" 
+      <DateInput
+        source="birthday"
+        label="Data de Nascimento"
         validation={TextInputValidation}
       />
-      <TextField 
-        source="coat" 
-        label="Pelagem" 
+      <TextField
+        source="coat"
+        label="Pelagem"
         validation={TextInputValidation}
       />
     </SimpleForm>
@@ -104,9 +104,9 @@ export const PatientEdit = props => (
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
-      <TextInput 
-        source="patientName" 
-        label="Nome do Paciente" 
+      <TextInput
+        source="patientName"
+        label="Nome do Paciente"
         validation={TextInputValidation}
       />
       <RadioButtonGroupInput
@@ -118,9 +118,9 @@ export const PatientCreate = props => (
         { id: 'Felino', name: 'Felino' },
         ]}
       />
-      <TextInput 
-        source="breed" 
-        label="Raça" 
+      <TextInput
+        source="breed"
+        label="Raça"
         validation={TextInputValidation}
       />
       <RadioButtonGroupInput
@@ -128,9 +128,9 @@ export const PatientCreate = props => (
         validation={TextInputValidation}
         label="Tamanho"
         choices={[
-        { id: 'P', name: 'Pequeno' },
-        { id: 'M', name: 'Médio' },
-        { id: 'G', name: 'Grande' },
+        { id: 'Pequeno', name: 'Pequeno' },
+        { id: 'Médio', name: 'Médio' },
+        { id: 'Grande', name: 'Grande' },
         ]}
       />
       <RadioButtonGroupInput
@@ -138,34 +138,34 @@ export const PatientCreate = props => (
         validation={TextInputValidation}
         label="Sexo"
         choices={[
-        { id: 'M', name: 'Macho' },
-        { id: 'F', name: 'Fêmea' },
+        { id: 'Macho', name: 'Macho' },
+        { id: 'Fêmea', name: 'Fêmea' },
         ]}
       />
-      <DateInput 
-        source="birthday" 
-        label="Data de Nascimento" 
+      <DateInput
+        source="birthday"
+        label="Data de Nascimento"
         validation={TextInputValidation}
       />
-      <TextInput 
-        source="coat" 
-        label="Pelagem" 
-        validation={TextInputValidation} 
+      <TextInput
+        source="coat"
+        label="Pelagem"
+        validation={TextInputValidation}
       />
     </SimpleForm>
   </Create>
 );
 
 export const PatientShow = props => (
-   <Show title={<PatientTitle />} {...props}>
+  <Show title={<PatientTitle />} {...props}>
     <SimpleShowLayout>
-      <TextField 
+      <TextField
         value="off"
-        source="patientName" 
-        label="Nome do Paciente" 
+        source="patientName"
+        label="Nome do Paciente"
         validation={TextInputValidation}
       />
-      <DisabledInput
+      <TextField
         source="species"
         label="Espécie"
         choices={[
@@ -174,41 +174,40 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation}
       />
-      <TextField 
-        source="breed" 
-        label="Raça" 
+      <TextField
+        source="breed"
+        label="Raça"
         validation={TextInputValidation}
       />
-      <DisabledInput
+      <TextField
         source="size"
         label="Tamanho"
         choices={[
-        { id: 'P', name: 'Pequeno' },
-        { id: 'M', name: 'Médio' },
-        { id: 'G', name: 'Grande' },
+        { id: 'Pequeno', name: 'Pequeno' },
+        { id: 'Médio', name: 'Médio' },
+        { id: 'Grande', name: 'Grande' },
         ]}
-        validation={TextInputValidation} 
+        validation={TextInputValidation}
       />
-      <DisabledInput
+      <TextField
         source="gender"
         label="Sexo"
         choices={[
-        { id: 'M', name: 'Macho' },
-        { id: 'F', name: 'Fêmea' },
+        { id: 'Macho', name: 'Macho' },
+        { id: 'Fêmea', name: 'Fêmea' },
         ]}
         validation={TextInputValidation}
       />
-      <DateField 
-        source="birthday" 
-        label="Data de Nascimento" 
+      <DateField
+        source="birthday"
+        label="Data de Nascimento"
         validation={TextInputValidation}
       />
-      <TextField 
-        source="coat" 
-        label="Pelagem" 
+      <TextField
+        source="coat"
+        label="Pelagem"
         validation={TextInputValidation}
       />
-      
     </SimpleShowLayout>
   </Show>
 );
