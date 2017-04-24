@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton, SimpleShowLayout, DisabledInput, DateField} from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton, SimpleShowLayout, DateField } from 'admin-on-rest/lib/mui';
 
 const PatientFilter = props => (
   <Filter {...props}>
@@ -87,11 +87,13 @@ export const PatientEdit = props => (
         ]}
         validation={TextInputValidation}
       />
-      <DateInput
-        source="birthday"
-        label="Data de Nascimento"
-        validation={TextInputValidation}
-      />
+      <DateInput source="birthday" label="Data de Nascimento" options={{
+        mode: 'landscape',
+        maxDate: new Date(),
+        hintText: 'Data de Nascimento',
+        cancelLabel: 'Cancelar',
+        locale: 'pt'
+      }} />
       <TextField
         source="coat"
         label="Pelagem"
@@ -142,11 +144,13 @@ export const PatientCreate = props => (
         { id: 'Fêmea', name: 'Fêmea' },
         ]}
       />
-      <DateInput
-        source="birthday"
-        label="Data de Nascimento"
-        validation={TextInputValidation}
-      />
+      <DateInput source="birthday" label="Data de Nascimento" validation={TextInputValidation} options={{
+        mode: 'landscape',
+        maxDate: new Date(),
+        hintText: 'Data de Nascimento',
+        cancelLabel: 'Cancelar',
+        locale: 'pt'
+      }} />
       <TextInput
         source="coat"
         label="Pelagem"
@@ -198,7 +202,7 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation}
       />
-      <DateField
+      <DateField 
         source="birthday"
         label="Data de Nascimento"
         validation={TextInputValidation}
