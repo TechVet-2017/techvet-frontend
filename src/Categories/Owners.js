@@ -1,7 +1,10 @@
-import React from 'react';
-import { List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
-Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
-SelectInput, SimpleForm, SimpleShowLayout, TextInput, DisabledInput } from 'admin-on-rest/lib/mui';
+import React, { Component } from 'react';
+import $ from 'jquery';
+import {
+  List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
+  Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
+  SelectInput, SimpleForm, SimpleShowLayout, TextInput, DisabledInput,
+} from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
   <Filter {...props}>
@@ -54,7 +57,7 @@ const federalStates = [
   { id: 'São Paulo (SP)', name: 'São Paulo (SP)' },
   { id: 'Sergipe (SE)', name: 'Sergipe (SE)' },
   { id: 'Tocantins (TO)', name: 'Tocantins (TO)' },
-  ];
+];
 
 export const OwnerList = props => (
   <List {...props} filters={<OwnerFilter />} title={'Lista de proprietários'}>
@@ -65,7 +68,7 @@ export const OwnerList = props => (
           secondaryText={owner => `Sobrenome: ${owner.lastName}`}
           tertiaryText={owner => `Telefone: ${owner.phoneNumber}`}
         />
-    }
+      }
       medium={
         <Datagrid>
           <TextField
@@ -88,57 +91,103 @@ export const OwnerList = props => (
           <EditButton />
           <DeleteButton />
         </Datagrid>
-    }
+      }
     />
   </List>
 );
 
-export const OwnerCreate = props => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput
-        source="cpf"
-        label="CPF"
-        validation={TextInputValidation}
-      />
-      <TextInput
-        source="ownerName"
-        label="Primeiro Nome"
-        validation={TextInputValidation}
-      />
-      <TextInput
-        source="ownerLastName"
-        label="Sobrenome"
-        validation={TextInputValidation}
-      />
-      <TextInput
-        source="phoneNumber"
-        label="Telefone"
-        validation={TextInputValidation}
-      />
-      <TextInput
-        source="zipCode"
-        label="Código Postal"
-        validation={TextInputValidation}
-      />
-      <SelectInput
-        source="district"
-        label="Estado"
-        choices={federalStates}
-      />
-      <TextInput
-        source="publicPlace"
-        label="Endereço"
-        validation={TextInputValidation}
-      />
-      <TextInput
-        source="addressNumber"
-        label="Número"
-        validation={TextInputValidation}
-      />
-    </SimpleForm>
-  </Create>
-);
+class OwnerCreateTest extends Component {
+  componentDidMount() {
+    const zipCodeInput = document.getElementsByName('zipCode')[0];
+    const publicPlaceInput = document.getElementsByName('publicPlace')[0];
+    const addressNumberInput = document.getElementsByName('addressNumber')[0];
+    const neighborhoodInput = document.getElementsByName('neighborhood')[0];
+    const cityInput = document.getElementsByName('city')[0];
+    const districtInput = document.getElementsByName('district')[0];
+    const {record} = this.props;
+    console.log(record);
+    zipCodeInput.oninput = () => {
+      if (zipCodeInput.value.length === 8) {
+        $.ajax({
+          url: 'http://correiosapi.apphb.com/cep/' + zipCodeInput.value,
+          dataType: 'jsonp',
+          crossDomain: true,
+          contentType: 'application/json',
+          statusCode: {
+            200: (data) => {
+              publicPlaceInput.value = data.logradouro;
+             },
+            400: (msg) => { console.log(msg); },
+            404: () => { console.log('CEP não encontrado!!'); },
+          },
+        });
+      } else {
+        console.log(zipCodeInput.value.length);
+      }
+    };
+  }
+  render() {
+    return (
+      <Create {...this.props}>
+        <SimpleForm>
+          <TextInput
+            source="cpf"
+            label="CPF"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="ownerName"
+            label="Primeiro Nome"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="ownerLastName"
+            label="Sobrenome"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="phoneNumber"
+            label="Telefone"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="zipCode"
+            label="Código Postal"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="publicPlace"
+            label="Endereço"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="addressNumber"
+            label="Número"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="neighborhood"
+            label="Bairro"
+            validation={TextInputValidation}
+          />
+          <TextInput
+            source="city"
+            label="Cidade"
+            validation={TextInputValidation}
+          />
+          <SelectInput
+            source="district"
+            label="Estado"
+            choices={federalStates}
+            validation={TextInputValidation}
+          />
+        </SimpleForm>
+      </Create>
+    );
+  }
+}
+
+export const OwnerCreate = OwnerCreateTest;
 
 const OwnerName = ({ record }) => {
   return <span>Proprietário {record ? `"${record.ownerName}"` : ''}</span>;
@@ -158,31 +207,48 @@ export const OwnerEdit = props => (
       <TextInput
         source="ownerName"
         label="Primeiro Nome"
+        validation={TextInputValidation}
       />
       <TextInput
         source="ownerLastName"
         label="Sobrenome"
+        validation={TextInputValidation}
       />
       <TextInput
         source="phoneNumber"
         label="Telefone"
+        validation={TextInputValidation}
       />
       <TextInput
         source="zipCode"
         label="Código Postal"
+        validation={TextInputValidation}
+      />
+      <TextInput
+        source="publicPlace"
+        label="Endereço"
+        validation={TextInputValidation}
+      />
+      <TextInput
+        source="addressNumber"
+        label="Número"
+        validation={TextInputValidation}
+      />
+      <TextInput
+        source="neighborhood"
+        label="Bairro"
+        validation={TextInputValidation}
+      />
+      <TextInput
+        source="city"
+        label="Cidade"
+        validation={TextInputValidation}
       />
       <SelectInput
         source="district"
         label="Estado"
         choices={federalStates}
-      />
-      <TextInput
-        source="publicPlace"
-        label="Endereço"
-      />
-      <TextInput
-        source="addressNumber"
-        label="Número"
+        validation={TextInputValidation}
       />
     </SimpleForm>
   </Edit>
@@ -217,16 +283,25 @@ export const OwnerShow = props => (
         label="Código Postal"
       />
       <TextField
-        source="district"
-        label="Estado"
-      />
-      <TextField
         source="publicPlace"
         label="Endereço"
       />
       <TextField
         source="addressNumber"
         label="Número"
+      />
+      <TextField
+        source="neighborhood"
+        label="Bairro"
+      />
+      <TextField
+        source="city"
+        label="Cidade"
+      />
+      <TextField
+        source="district"
+        label="Estado"
+        choices={federalStates}
       />
     </SimpleShowLayout>
   </Show>
