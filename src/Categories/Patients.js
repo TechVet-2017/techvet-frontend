@@ -3,7 +3,7 @@ import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList
 
 const PatientFilter = props => (
   <Filter {...props}>
-    <TextInput label="Pesquisar" source="q" alwaysOn />
+    <TextInput label="Pesquisar" source="patients" alwaysOn />
     <ReferenceInput label="Nome do Paciente" source="id" reference="patient" allowEmpty>
       <SelectInput source="id" optionText="pacientName" />
     </ReferenceInput>
@@ -87,13 +87,17 @@ export const PatientEdit = props => (
         ]}
         validation={TextInputValidation}
       />
-      <DateInput source="birthday" label="Data de Nascimento" options={{
-        mode: 'landscape',
-        maxDate: new Date(),
-        hintText: 'Data de Nascimento',
-        cancelLabel: 'Cancelar',
-        locale: 'pt'
-      }} />
+      <DateInput
+        source="birthday"
+        label="Data de Nascimento"
+        options={{
+          mode: 'landscape',
+          maxDate: new Date(),
+          hintText: 'Data de Nascimento',
+          cancelLabel: 'Cancelar',
+          locale: 'pt',
+        }}
+      />
       <TextField
         source="coat"
         label="Pelagem"
@@ -144,13 +148,18 @@ export const PatientCreate = props => (
         { id: 'Fêmea', name: 'Fêmea' },
         ]}
       />
-      <DateInput source="birthday" label="Data de Nascimento" validation={TextInputValidation} options={{
-        mode: 'landscape',
-        maxDate: new Date(),
-        hintText: 'Data de Nascimento',
-        cancelLabel: 'Cancelar',
-        locale: 'pt'
-      }} />
+      <DateInput
+        source="birthday"
+        label="Data de Nascimento"
+        validation={TextInputValidation}
+        options={{
+          mode: 'landscape',
+          maxDate: new Date(),
+          hintText: 'Data de Nascimento',
+          cancelLabel: 'Cancelar',
+          locale: 'pt',
+        }}
+      />
       <TextInput
         source="coat"
         label="Pelagem"
@@ -202,7 +211,7 @@ export const PatientShow = props => (
         ]}
         validation={TextInputValidation}
       />
-      <DateField 
+      <DateField
         source="birthday"
         label="Data de Nascimento"
         validation={TextInputValidation}
