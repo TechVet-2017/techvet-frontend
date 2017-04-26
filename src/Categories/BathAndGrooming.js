@@ -1,6 +1,18 @@
 import React from 'react';
 import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, EditButton, DeleteButton, DisabledInput, LongTextInput, SimpleForm } from 'admin-on-rest/lib/mui';
 
+const validationIsEmpty = (values) => {
+    const errors = {};
+    
+    if (!values.serviceBathGrooming){
+        errors.serviceBathGrooming = ['Campo obrigatório'];
+    }
+
+    else if (values.serviceBathGrooming.length < 10){
+        errors.serviceBathGrooming = ['Campo muito pequeno'];
+    }
+    return errors
+};
 
 export const BathAndGroomingList = props => (
   <List {...props} title={'Banho & Tosa'}>
@@ -26,7 +38,7 @@ export const BathAndGroomingList = props => (
 
 export const BathAndGroomingEdit = props => (
   <Edit title={'Editar Serviço'} {...props}>
-    <SimpleForm>
+    <SimpleForm validation={validationIsEmpty}>
       <DisabledInput source="id" />
       <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
@@ -35,7 +47,7 @@ export const BathAndGroomingEdit = props => (
 
 export const BathAndGroomingCreate = props => (
   <Create {...props} title={'Adicionar Serviço'}>
-    <SimpleForm>
+    <SimpleForm validation={validationIsEmpty}>
       <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
   </Create>
