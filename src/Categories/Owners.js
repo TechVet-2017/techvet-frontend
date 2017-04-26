@@ -26,6 +26,36 @@ const TextInputValidation = (value) => {
   return [];
 };
 
+const federalStates = [
+  { id: 'Acre (AC)', name: 'Acre (AC)' },
+  { id: 'Alagoas (AL)', name: 'Alagoas (AL)' },
+  { id: 'Amapá (AP)', name: 'Amapá (AP)' },
+  { id: 'Amazonas (AM)', name: 'Amazonas (AM)' },
+  { id: 'Bahia (BA)', name: 'Bahia (BA)' },
+  { id: 'Ceará (CE)', name: 'Ceará (CE)' },
+  { id: 'Distrito Federal (DF)', name: 'Distrito Federal (DF)' },
+  { id: 'Espírito Santo (ES)', name: 'Espírito Santo (ES)' },
+  { id: 'Goiás (GO)', name: 'Goiás (GO)' },
+  { id: 'Maranhão (MA)', name: 'Maranhão (MA)' },
+  { id: 'Mato Grosso (MT)', name: 'Mato Grosso (MT)' },
+  { id: 'Mato Grosso do Sul (MS)', name: 'Mato Grosso do Sul (MS)' },
+  { id: 'Minas Gerais (MG)', name: 'Minas Gerais (MG)' },
+  { id: 'Pará (PA) ', name: 'Pará (PA) ' },
+  { id: 'Paraíba (PB)', name: 'Paraíba (PB)' },
+  { id: 'Paraná (PR)', name: 'Paraná (PR)' },
+  { id: 'Pernambuco (PE)', name: 'Pernambuco (PE)' },
+  { id: 'Piauí (PI)', name: 'Piauí (PI)' },
+  { id: 'Rio de Janeiro (RJ)', name: 'Rio de Janeiro (RJ)' },
+  { id: 'Rio Grande do Norte (RN)', name: 'Rio Grande do Norte (RN)' },
+  { id: 'Rio Grande do Sul (RS)', name: 'Rio Grande do Sul (RS)' },
+  { id: 'Rondônia (RO)', name: 'Rondônia (RO)' },
+  { id: 'Roraima (RR)', name: 'Roraima (RR)' },
+  { id: 'Santa Catarina (SC)', name: 'Santa Catarina (SC)' },
+  { id: 'São Paulo (SP)', name: 'São Paulo (SP)' },
+  { id: 'Sergipe (SE)', name: 'Sergipe (SE)' },
+  { id: 'Tocantins (TO)', name: 'Tocantins (TO)' },
+  ];
+
 export const OwnerList = props => (
   <List {...props} filters={<OwnerFilter />} title={'Lista de proprietários'}>
     <Responsive
@@ -91,10 +121,10 @@ export const OwnerCreate = props => (
         label="Código Postal"
         validation={TextInputValidation}
       />
-      <TextInput
+      <SelectInput
         source="district"
         label="Estado"
-        validation={TextInputValidation}
+        choices={federalStates}
       />
       <TextInput
         source="publicPlace"
@@ -141,9 +171,10 @@ export const OwnerEdit = props => (
         source="zipCode"
         label="Código Postal"
       />
-      <TextInput
+      <SelectInput
         source="district"
         label="Estado"
+        choices={federalStates}
       />
       <TextInput
         source="publicPlace"
