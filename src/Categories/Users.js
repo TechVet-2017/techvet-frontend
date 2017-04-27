@@ -89,15 +89,18 @@ export const UserEdit = props => (
       <TextInput
         source="userFullName"
         label="Nome Completo"
+        validation={TextInputValidation}
       />
       <TextInput
         source="userName"
         label="Nome de Usuário"
+        validation={TextInputValidation}
       />
       <TextInput
         type="password"
         source="userPassword"
         label="Senha"
+        validation={TextInputValidation}
       />
     </SimpleForm>
   </Edit>
