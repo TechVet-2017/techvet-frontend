@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { change } from 'redux-form';
 import {
   List, Responsive, SimpleList, Edit, Show, ShowButton, Create,
   Datagrid, TextField, Filter, EditButton, DeleteButton, ReferenceInput,
@@ -30,33 +31,33 @@ const TextInputValidation = (value) => {
 };
 
 const federalStates = [
-  { id: 'Acre (AC)', name: 'Acre (AC)' },
-  { id: 'Alagoas (AL)', name: 'Alagoas (AL)' },
-  { id: 'Amapá (AP)', name: 'Amapá (AP)' },
-  { id: 'Amazonas (AM)', name: 'Amazonas (AM)' },
-  { id: 'Bahia (BA)', name: 'Bahia (BA)' },
-  { id: 'Ceará (CE)', name: 'Ceará (CE)' },
-  { id: 'Distrito Federal (DF)', name: 'Distrito Federal (DF)' },
-  { id: 'Espírito Santo (ES)', name: 'Espírito Santo (ES)' },
-  { id: 'Goiás (GO)', name: 'Goiás (GO)' },
-  { id: 'Maranhão (MA)', name: 'Maranhão (MA)' },
-  { id: 'Mato Grosso (MT)', name: 'Mato Grosso (MT)' },
-  { id: 'Mato Grosso do Sul (MS)', name: 'Mato Grosso do Sul (MS)' },
-  { id: 'Minas Gerais (MG)', name: 'Minas Gerais (MG)' },
-  { id: 'Pará (PA) ', name: 'Pará (PA) ' },
-  { id: 'Paraíba (PB)', name: 'Paraíba (PB)' },
-  { id: 'Paraná (PR)', name: 'Paraná (PR)' },
-  { id: 'Pernambuco (PE)', name: 'Pernambuco (PE)' },
-  { id: 'Piauí (PI)', name: 'Piauí (PI)' },
-  { id: 'Rio de Janeiro (RJ)', name: 'Rio de Janeiro (RJ)' },
-  { id: 'Rio Grande do Norte (RN)', name: 'Rio Grande do Norte (RN)' },
-  { id: 'Rio Grande do Sul (RS)', name: 'Rio Grande do Sul (RS)' },
-  { id: 'Rondônia (RO)', name: 'Rondônia (RO)' },
-  { id: 'Roraima (RR)', name: 'Roraima (RR)' },
-  { id: 'Santa Catarina (SC)', name: 'Santa Catarina (SC)' },
-  { id: 'São Paulo (SP)', name: 'São Paulo (SP)' },
-  { id: 'Sergipe (SE)', name: 'Sergipe (SE)' },
-  { id: 'Tocantins (TO)', name: 'Tocantins (TO)' },
+  { id: 'AC', name: 'Acre (AC)' },
+  { id: 'AL', name: 'Alagoas (AL)' },
+  { id: 'AP', name: 'Amapá (AP)' },
+  { id: 'AM', name: 'Amazonas (AM)' },
+  { id: 'BA', name: 'Bahia (BA)' },
+  { id: 'CE', name: 'Ceará (CE)' },
+  { id: 'DF', name: 'Distrito Federal (DF)' },
+  { id: 'ES', name: 'Espírito Santo (ES)' },
+  { id: 'GO', name: 'Goiás (GO)' },
+  { id: 'MA', name: 'Maranhão (MA)' },
+  { id: 'MT', name: 'Mato Grosso (MT)' },
+  { id: 'MS', name: 'Mato Grosso do Sul (MS)' },
+  { id: 'MG', name: 'Minas Gerais (MG)' },
+  { id: 'PA ', name: 'Pará (PA) ' },
+  { id: 'PB', name: 'Paraíba (PB)' },
+  { id: 'PR', name: 'Paraná (PR)' },
+  { id: 'PE', name: 'Pernambuco (PE)' },
+  { id: 'PI', name: 'Piauí (PI)' },
+  { id: 'RJ', name: 'Rio de Janeiro (RJ)' },
+  { id: 'RN', name: 'Rio Grande do Norte (RN)' },
+  { id: 'RS', name: 'Rio Grande do Sul (RS)' },
+  { id: 'RO', name: 'Rondônia (RO)' },
+  { id: 'RR', name: 'Roraima (RR)' },
+  { id: 'SC', name: 'Santa Catarina (SC)' },
+  { id: 'SP', name: 'São Paulo (SP)' },
+  { id: 'SE', name: 'Sergipe (SE)' },
+  { id: 'TO', name: 'Tocantins (TO)' },
 ];
 
 export const OwnerList = props => (
@@ -97,39 +98,59 @@ export const OwnerList = props => (
 );
 
 class OwnerCreateTest extends Component {
-  componentDidMount() {
-    const zipCodeInput = document.getElementsByName('zipCode')[0];
-    const publicPlaceInput = document.getElementsByName('publicPlace')[0];
-    const addressNumberInput = document.getElementsByName('addressNumber')[0];
-    const neighborhoodInput = document.getElementsByName('neighborhood')[0];
-    const cityInput = document.getElementsByName('city')[0];
-    const districtInput = document.getElementsByName('district')[0];
-    const {record} = this.props;
-    console.log(record);
-    zipCodeInput.oninput = () => {
-      if (zipCodeInput.value.length === 8) {
-        $.ajax({
-          url: 'http://correiosapi.apphb.com/cep/' + zipCodeInput.value,
-          dataType: 'jsonp',
-          crossDomain: true,
-          contentType: 'application/json',
-          statusCode: {
-            200: (data) => {
-              publicPlaceInput.value = data.logradouro;
-             },
-            400: (msg) => { console.log(msg); },
-            404: () => { console.log('CEP não encontrado!!'); },
+  constructor(props) {
+    super(props);
+    this.handleZipInput = this.handleZipInput.bind(this);
+  }
+  handleZipInput(event) {
+    const zipCode = event.target.value;
+    if (zipCode.length === 8) {
+      $.ajax({
+        url: `http://correiosapi.apphb.com/cep/${zipCode}`,
+        dataType: 'jsonp',
+        crossDomain: true,
+        contentType: 'application/json',
+        statusCode: {
+          200: (data) => {
+            // console.log(data);
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'publicPlace',
+                `${data.tipoDeLogradouro} ${data.logradouro}`),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'neighborhood',
+                data.bairro,
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'city',
+                data.cidade,
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'district',
+                data.estado,
+              ),
+            );
           },
-        });
-      } else {
-        console.log(zipCodeInput.value.length);
-      }
-    };
+          400: () => { },
+          404: () => { },
+        },
+      });
+    }
   }
   render() {
     return (
       <Create {...this.props}>
-        <SimpleForm>
+        <SimpleForm ref={(form) => { this.form = form; }}>
           <TextInput
             source="cpf"
             label="CPF"
@@ -153,6 +174,7 @@ class OwnerCreateTest extends Component {
           <TextInput
             source="zipCode"
             label="Código Postal"
+            onChange={this.handleZipInput}
             validation={TextInputValidation}
           />
           <TextInput
