@@ -56,7 +56,7 @@ const App = () => (
       remove={Delete}
       icon={OwnerIcon}
     />
-    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
+    <Resource name="patients" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
