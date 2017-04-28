@@ -52,42 +52,41 @@ export class OwnerCreate extends Component {
         contentType: 'application/json',
         statusCode: {
           200: (data) => {
-            // console.log(data);
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'publicPlace',
                 `${data.tipoDeLogradouro} ${data.logradouro}`),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'neighborhood',
                 data.bairro,
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'city',
                 data.cidade,
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'district',
                 data.estado,
               ),
             );
-                        this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'addressNumber',
                 '',
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'complement',
@@ -108,22 +107,22 @@ export class OwnerCreate extends Component {
           <TextInput
             source="cpf"
             label="CPF"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="ownerName"
             label="Primeiro Nome"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="ownerLastName"
             label="Sobrenome"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="phoneNumber"
             label="Telefone"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="zipCode"
@@ -133,12 +132,12 @@ export class OwnerCreate extends Component {
           <TextInput
             source="publicPlace"
             label="Endereço"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="addressNumber"
             label="Número"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="complement"
@@ -147,17 +146,18 @@ export class OwnerCreate extends Component {
           <TextInput
             source="neighborhood"
             label="Bairro"
-            validate={ required }
+            validate={required}
           />
           <TextInput
             source="city"
             label="Cidade"
-            validate={ required }
+            validate={required}
           />
           <SelectInput
             source="district"
             label="Estado"
             choices={federalStates}
+            validate={required}
           />
         </SimpleForm>
       </Create>

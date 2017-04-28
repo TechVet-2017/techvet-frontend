@@ -10,7 +10,7 @@ export const OwnerList = props => (
       small={
         <SimpleList
           primaryText={owner => `Nome: ${owner.ownerName}`}
-          secondaryText={owner => `Sobrenome: ${owner.lastName}`}
+          secondaryText={owner => `Sobrenome: ${owner.ownerLastName}`}
           tertiaryText={owner => `Telefone: ${owner.phoneNumber}`}
         />
       }

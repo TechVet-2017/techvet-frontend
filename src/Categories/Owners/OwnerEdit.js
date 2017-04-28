@@ -35,6 +35,8 @@ const federalStates = [
   { id: 'TO', name: 'Tocantins (TO)' },
 ];
 
+const required = value => (value ? undefined : 'Campo obrigatório');
+
 export class OwnerEdit extends Component {
   constructor(props) {
     super(props);
@@ -50,42 +52,41 @@ export class OwnerEdit extends Component {
         contentType: 'application/json',
         statusCode: {
           200: (data) => {
-            // console.log(data);
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'publicPlace',
                 `${data.tipoDeLogradouro} ${data.logradouro}`),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'neighborhood',
                 data.bairro,
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
-                'record-form',
+                'record-form',  
                 'city',
                 data.cidade,
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'district',
                 data.estado,
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'addressNumber',
                 '',
               ),
             );
-            this.form.dispatchProps.dispatch(
+            this.form.store.dispatch(
               change(
                 'record-form',
                 'complement',
@@ -114,14 +115,17 @@ export class OwnerEdit extends Component {
           <TextInput
             source="ownerName"
             label="Primeiro Nome"
+            validate={required}
           />
           <TextInput
             source="ownerLastName"
             label="Sobrenome"
+            validate={required}
           />
           <TextInput
             source="phoneNumber"
             label="Telefone"
+            validate={required}
           />
           <TextInput
             source="zipCode"
@@ -131,10 +135,12 @@ export class OwnerEdit extends Component {
           <TextInput
             source="publicPlace"
             label="Endereço"
+            validate={required}
           />
           <TextInput
             source="addressNumber"
             label="Número"
+            validate={required}
           />
           <TextInput
             source="complement"
@@ -143,15 +149,18 @@ export class OwnerEdit extends Component {
           <TextInput
             source="neighborhood"
             label="Bairro"
+            validate={required}
           />
           <TextInput
             source="city"
             label="Cidade"
+            validate={required}
           />
           <SelectInput
             source="district"
             label="Estado"
             choices={federalStates}
+            validate={required}
           />
         </SimpleForm>
       </Edit>
