@@ -78,6 +78,20 @@ export class OwnerCreate extends Component {
                 data.estado,
               ),
             );
+                        this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'addressNumber',
+                '',
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'complement',
+                '',
+              ),
+            );
           },
           400: () => { },
           404: () => { },
@@ -87,7 +101,7 @@ export class OwnerCreate extends Component {
   }
   render() {
     return (
-      <Create {...this.props}>
+      <Create title={'Cadastrar Proprietário'} {...this.props}>
         <SimpleForm ref={(form) => { this.form = form; }}>
           <TextInput
             source="cpf"
@@ -119,7 +133,7 @@ export class OwnerCreate extends Component {
             label="Número"
           />
           <TextInput
-            source="Complement"
+            source="complement"
             label="Complemento"
           />
           <TextInput

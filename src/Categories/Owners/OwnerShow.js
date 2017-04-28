@@ -4,7 +4,7 @@ import {
 } from 'admin-on-rest/lib/mui';
 
 export const OwnerShow = props => (
-  <Show title={`Proprietário ${props.record.ownerName}`} {...props}>
+  <Show title={'Cadastro do Proprietário'} {...props}>
     <SimpleShowLayout>
       <TextField
         source="id"

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import $ from 'jquery';
+import { change } from 'redux-form';
 import {
   SelectInput, SimpleForm, TextInput, DisabledInput, Edit,
 } from 'admin-on-rest/lib/mui';
@@ -33,58 +35,126 @@ const federalStates = [
   { id: 'TO', name: 'Tocantins (TO)' },
 ];
 
-export const OwnerEdit = props => (
-  <Edit title={`Proprietário ${props.record.ownerName}`} {...props}>
-    <SimpleForm>
-      <DisabledInput
-        source="id"
-        label="ID"
-      />
-      <DisabledInput
-        source="cpf"
-        label="CPF"
-      />
-      <TextInput
-        source="ownerName"
-        label="Primeiro Nome"
-      />
-      <TextInput
-        source="ownerLastName"
-        label="Sobrenome"
-      />
-      <TextInput
-        source="phoneNumber"
-        label="Telefone"
-      />
-      <TextInput
-        source="zipCode"
-        label="Código Postal"
-      />
-      <TextInput
-        source="publicPlace"
-        label="Endereço"
-      />
-      <TextInput
-        source="addressNumber"
-        label="Número"
-      />
-      <TextInput
-        source="complement"
-        label="Complemento"
-      />
-      <TextInput
-        source="neighborhood"
-        label="Bairro"
-      />
-      <TextInput
-        source="city"
-        label="Cidade"
-      />
-      <SelectInput
-        source="district"
-        label="Estado"
-        choices={federalStates}
-      />
-    </SimpleForm>
-  </Edit>
-);
+export class OwnerEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.handleZipInput = this.handleZipInput.bind(this);
+  }
+  handleZipInput = (event) => {
+    const zipCode = event.target.value;
+    if (zipCode.length === 8) {
+      $.ajax({
+        url: `http://correiosapi.apphb.com/cep/${zipCode}`,
+        dataType: 'jsonp',
+        crossDomain: true,
+        contentType: 'application/json',
+        statusCode: {
+          200: (data) => {
+            // console.log(data);
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'publicPlace',
+                `${data.tipoDeLogradouro} ${data.logradouro}`),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'neighborhood',
+                data.bairro,
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'city',
+                data.cidade,
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'district',
+                data.estado,
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'addressNumber',
+                '',
+              ),
+            );
+            this.form.dispatchProps.dispatch(
+              change(
+                'record-form',
+                'complement',
+                '',
+              ),
+            );
+          },
+          400: () => { },
+          404: () => { },
+        },
+      });
+    }
+  }
+  render() {
+    return(
+      <Edit title={'Editar Proprietário'} {...this.props}>
+        <SimpleForm ref={(form) => {this.form = form }}>
+          <DisabledInput
+            source="id"
+            label="ID"
+          />
+          <DisabledInput
+            source="cpf"
+            label="CPF"
+          />
+          <TextInput
+            source="ownerName"
+            label="Primeiro Nome"
+          />
+          <TextInput
+            source="ownerLastName"
+            label="Sobrenome"
+          />
+          <TextInput
+            source="phoneNumber"
+            label="Telefone"
+          />
+          <TextInput
+            source="zipCode"
+            label="Código Postal"
+            onChange={this.handleZipInput}
+          />
+          <TextInput
+            source="publicPlace"
+            label="Endereço"
+          />
+          <TextInput
+            source="addressNumber"
+            label="Número"
+          />
+          <TextInput
+            source="complement"
+            label="Complemento"
+          />
+          <TextInput
+            source="neighborhood"
+            label="Bairro"
+          />
+          <TextInput
+            source="city"
+            label="Cidade"
+          />
+          <SelectInput
+            source="district"
+            label="Estado"
+            choices={federalStates}
+          />
+        </SimpleForm>
+      </Edit>
+    );
+  }
+}
