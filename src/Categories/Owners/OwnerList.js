@@ -9,16 +9,16 @@ export const OwnerList = props => (
     <Responsive
       small={
         <SimpleList
-          primaryText={owner => `Nome: ${owner.ownerName}`}
-          secondaryText={owner => `Sobrenome: ${owner.ownerLastName}`}
-          tertiaryText={owner => `Telefone: ${owner.phoneNumber}`}
+          primaryText={owner => `${owner.ownerName}`}
+          secondaryText={owner => `${owner.ownerLastName}`}
+          tertiaryText={owner => `${owner.cpf}`}
         />
       }
       medium={
         <Datagrid>
           <TextField
-            source="id"
-            label="ID"
+            source="cpf"
+            label="CPF"
           />
           <TextField
             source="ownerName"

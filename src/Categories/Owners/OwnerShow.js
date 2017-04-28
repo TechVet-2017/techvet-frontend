@@ -7,10 +7,6 @@ export const OwnerShow = props => (
   <Show title={'Cadastro do Proprietário'} {...props}>
     <SimpleShowLayout>
       <TextField
-        source="id"
-        label="ID"
-      />
-      <TextField
         source="cpf"
         label="CPF"
       />

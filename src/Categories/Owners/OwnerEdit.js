@@ -105,10 +105,6 @@ export class OwnerEdit extends Component {
       <Edit title={'Editar Proprietário'} {...this.props}>
         <SimpleForm ref={(form) => {this.form = form }}>
           <DisabledInput
-            source="id"
-            label="ID"
-          />
-          <DisabledInput
             source="cpf"
             label="CPF"
           />
