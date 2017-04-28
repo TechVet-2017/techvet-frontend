@@ -41,7 +41,6 @@ const App = () => (
       name="users"
       options={{ label: 'Usuários' }}
       list={UserList}
-      show={UserShow}
       edit={UserEdit}
       create={UserCreate}
       remove={Delete}
