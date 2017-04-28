@@ -1,21 +1,16 @@
 import React from 'react';
-import { List, Responsive, Filter, ReferenceInput, Show, SelectInput, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton, SimpleShowLayout, DateField } from 'admin-on-rest/lib/mui';
+import { List, Responsive, Filter, ReferenceInput, Show, SimpleList, Edit, DateInput, RadioButtonGroupInput, Create, Datagrid, TextField, EditButton, DeleteButton, SimpleForm, TextInput, ShowButton, SimpleShowLayout, DateField } from 'admin-on-rest/lib/mui';
+
 
 const PatientFilter = props => (
   <Filter {...props}>
-    <TextInput label="Pesquisar" source="patients" alwaysOn />
-    <ReferenceInput label="Nome do Paciente" source="id" reference="patient" allowEmpty>
-      <SelectInput source="id" optionText="pacientName" />
+    <TextInput label="Pesquisar" source="patientName" alwaysOn/>
+    <ReferenceInput label="Nome do Paciente" source="patientName" reference="Nome do Paciente"  allowEmpty>
     </ReferenceInput>
   </Filter>
 );
 
-const TextInputValidation = (value) => {
-  if (!value) {
-    return ['Campo obrigatório'];
-  }
-  return [];
-};
+const required = value => (value ? undefined : 'Campo obrigatório');
 
 export const PatientList = props => (
   <List {...props} filters={<PatientFilter />}title={'Pacientes'}>
@@ -52,7 +47,7 @@ export const PatientEdit = props => (
       <TextInput
         source="patientName"
         label="Nome do Paciente"
-        validation={TextInputValidation}
+        validate={required}
       />
       <RadioButtonGroupInput
         source="species"
@@ -61,12 +56,12 @@ export const PatientEdit = props => (
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
         ]}
-        validation={TextInputValidation}
+        validate={required}
       />
       <TextInput
         source="breed"
         label="Raça"
-        validation={TextInputValidation}
+        validate={required}
       />
       <RadioButtonGroupInput
         source="size"
@@ -76,7 +71,7 @@ export const PatientEdit = props => (
         { id: 'Médio', name: 'Médio' },
         { id: 'Grande', name: 'Grande' },
         ]}
-        validation={TextInputValidation}
+        validate={required}
       />
       <RadioButtonGroupInput
         source="gender"
@@ -85,7 +80,7 @@ export const PatientEdit = props => (
         { id: 'Macho', name: 'Macho' },
         { id: 'Fêmea', name: 'Fêmea' },
         ]}
-        validation={TextInputValidation}
+        validate={required}
       />
       <DateInput
         source="birthday"
@@ -98,10 +93,10 @@ export const PatientEdit = props => (
           locale: 'pt',
         }}
       />
-      <TextField
+      <TextInput
         source="coat"
         label="Pelagem"
-        validation={TextInputValidation}
+        validate={required}
       />
     </SimpleForm>
   </Edit>
@@ -113,11 +108,11 @@ export const PatientCreate = props => (
       <TextInput
         source="patientName"
         label="Nome do Paciente"
-        validation={TextInputValidation}
+        validate={required}
       />
       <RadioButtonGroupInput
         source="species"
-        validation={TextInputValidation}
+        validate={required}
         label="Espécie"
         choices={[
         { id: 'Canino', name: 'Canino' },
@@ -127,11 +122,11 @@ export const PatientCreate = props => (
       <TextInput
         source="breed"
         label="Raça"
-        validation={TextInputValidation}
+        validate={required}
       />
       <RadioButtonGroupInput
         source="size"
-        validation={TextInputValidation}
+        validate={required}
         label="Tamanho"
         choices={[
         { id: 'Pequeno', name: 'Pequeno' },
@@ -141,7 +136,7 @@ export const PatientCreate = props => (
       />
       <RadioButtonGroupInput
         source="gender"
-        validation={TextInputValidation}
+        validate={required}
         label="Sexo"
         choices={[
         { id: 'Macho', name: 'Macho' },
@@ -151,7 +146,6 @@ export const PatientCreate = props => (
       <DateInput
         source="birthday"
         label="Data de Nascimento"
-        validation={TextInputValidation}
         options={{
           mode: 'landscape',
           maxDate: new Date(),
@@ -159,11 +153,12 @@ export const PatientCreate = props => (
           cancelLabel: 'Cancelar',
           locale: 'pt',
         }}
+        validate={required}
       />
-      <TextInput
+        <TextInput
         source="coat"
-        label="Pelagem"
-        validation={TextInputValidation}
+        label="Raça"
+        validate={required}
       />
     </SimpleForm>
   </Create>
@@ -176,7 +171,6 @@ export const PatientShow = props => (
         value="off"
         source="patientName"
         label="Nome do Paciente"
-        validation={TextInputValidation}
       />
       <TextField
         source="species"
@@ -185,12 +179,10 @@ export const PatientShow = props => (
         { id: 'Canino', name: 'Canino' },
         { id: 'Felino', name: 'Felino' },
         ]}
-        validation={TextInputValidation}
       />
       <TextField
         source="breed"
         label="Raça"
-        validation={TextInputValidation}
       />
       <TextField
         source="size"
@@ -200,7 +192,6 @@ export const PatientShow = props => (
         { id: 'Médio', name: 'Médio' },
         { id: 'Grande', name: 'Grande' },
         ]}
-        validation={TextInputValidation}
       />
       <TextField
         source="gender"
@@ -209,17 +200,14 @@ export const PatientShow = props => (
         { id: 'Macho', name: 'Macho' },
         { id: 'Fêmea', name: 'Fêmea' },
         ]}
-        validation={TextInputValidation}
       />
       <DateField
         source="birthday"
         label="Data de Nascimento"
-        validation={TextInputValidation}
       />
       <TextField
         source="coat"
         label="Pelagem"
-        validation={TextInputValidation}
       />
     </SimpleShowLayout>
   </Show>
