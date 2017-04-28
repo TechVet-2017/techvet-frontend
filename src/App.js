@@ -1,3 +1,4 @@
+import React from 'react';
 import PostIcon from 'material-ui/svg-icons/action/book';
 import UserIcon from 'material-ui/svg-icons/social/person';
 import OwnerIcon from 'material-ui/svg-icons/social/person-outline';
@@ -9,8 +10,6 @@ import BathAndGroomingIcon from 'material-ui/svg-icons/places/hot-tub';
 import FinancialReportIcon from 'material-ui/svg-icons/editor/attach-money';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-
-import React from 'react';
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
