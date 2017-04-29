@@ -41,6 +41,15 @@ const federalStates = [
 
 const required = value => (value ? undefined : 'Campo obrigatório');
 
+const caracteresQuantity = quantity => value =>
+  (value && value.replace(/[^\d]/g, '').length !== quantity ? `Deve conter ${quantity} dígitos` : undefined);
+
+const caracteresMaxQuantity = max => value =>
+  (value && value.replace(/[^\d]/g, '').length > max ? `Deve conter no máximo ${max} dígitos` : undefined);
+
+const caracteresMinQuantity = min => value =>
+  (value && value.replace(/[^\d]/g, '').length < min ? `Deve conter no mínimo ${min} dígitos` : undefined);
+
 export class OwnerForm extends Component {
   constructor(props) {
     super(props);
@@ -111,7 +120,7 @@ export class OwnerForm extends Component {
         (<TextInput
           source="cpf"
           label="CPF"
-          validate={required}
+          validate={[required, caracteresQuantity(11)]}
           normalize={formatCPF}
         />);
     } else {
@@ -138,7 +147,7 @@ export class OwnerForm extends Component {
         <TextInput
           source="phoneNumber"
           label="Telefone"
-          validate={required}
+          validate={[required, caracteresMinQuantity(10), caracteresMaxQuantity(11)]}
           normalize={formatPhoneNumber}
         />
         <TextInput
@@ -146,6 +155,7 @@ export class OwnerForm extends Component {
           label="Código Postal"
           onChange={this.handleZipInput}
           normalize={formatZipCode}
+          validate={caracteresQuantity(8)}
         />
         <TextInput
           source="publicPlace"

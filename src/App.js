@@ -27,7 +27,8 @@ import CustomTheme from './CustomTheme';
 
 const App = () => (
   <Admin
-    restClient={jsonServerRestClient('http://localhost:8080/techvet/rest')}
+    restClient={jsonServerRestClient('http://techvet-backend-amoedo.c9users.io:8080/techvet/rest')}
+    //restClient={jsonServerRestClient('http://localhost:/techvet/rest')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
     authClient={authClient}
