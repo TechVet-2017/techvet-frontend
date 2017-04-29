@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { change } from 'redux-form';
-import { formatCPF, formatPhoneNumber } from '../Util';
 import {
   TextInput,
   SelectInput,
   SimpleForm,
   DisabledInput,
 } from 'admin-on-rest/lib/mui';
+import { formatCPF, formatPhoneNumber, formatZipCode } from '../Util';
 
 const federalStates = [
   { id: 'AC', name: 'Acre (AC)' },
@@ -46,8 +46,8 @@ export class OwnerForm extends Component {
     super(props);
     this.handleZipInput = this.handleZipInput.bind(this);
   }
-handleZipInput(event) {
-    const zipCode = event.target.value;
+  handleZipInput(event) {
+    const zipCode = event.target.value.replace(/[^\d]/, '');
     if (zipCode.length === 8) {
       $.ajax({
         url: `http://correiosapi.apphb.com/cep/${zipCode}`,
@@ -108,23 +108,23 @@ handleZipInput(event) {
     let CPFField = null;
     if (!this.props.edit) {
       CPFField =
-        <TextInput
+        (<TextInput
           source="cpf"
           label="CPF"
           validate={required}
           normalize={formatCPF}
-        />;
+        />);
     } else {
       CPFField =
-        <DisabledInput
+        (<DisabledInput
           source="cpf"
           label="CPF"
-      />;
+        />);
     }
-    return (    
+    return (
       <SimpleForm ref={(form) => { this.form = form; }} {...this.props}>
-        { CPFField }
-        
+        {CPFField}
+
         <TextInput
           source="ownerName"
           label="Primeiro Nome"
@@ -145,6 +145,7 @@ handleZipInput(event) {
           source="zipCode"
           label="Código Postal"
           onChange={this.handleZipInput}
+          normalize={formatZipCode}
         />
         <TextInput
           source="publicPlace"
