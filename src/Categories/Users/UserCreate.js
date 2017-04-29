@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Create, SimpleForm, TextInput,
 } from 'admin-on-rest/lib/mui';
-import {TextInputValidation,
+import {TextInputValidation,NameValidation,
 } from './Commons';
 
 export const UserCreate = props => (
@@ -11,7 +11,7 @@ export const UserCreate = props => (
       <TextInput
         source="userFullName"
         label="Nome Completo"
-        validate={TextInputValidation}
+        validate={TextInputValidation,NameValidation}
       />
       <TextInput
         source="userName"
