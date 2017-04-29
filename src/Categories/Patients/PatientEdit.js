@@ -51,6 +51,7 @@ export const PatientEdit = props => (
         label="Data de Nascimento"
         options={{
           mode: 'landscape',
+          minDate: new Date(1985, 12-1, 31),
           maxDate: new Date(),
           hintText: 'Data de Nascimento',
           cancelLabel: 'Cancelar',
