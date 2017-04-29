@@ -1,0 +1,1 @@
+export { formatCPF } from './formatCPF';

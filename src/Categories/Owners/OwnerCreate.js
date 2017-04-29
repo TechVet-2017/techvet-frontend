@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { change } from 'redux-form';
+import { formatCPF } from '../Util';
 import {
   Create, SelectInput, SimpleForm, TextInput,
 } from 'admin-on-rest/lib/mui';
@@ -108,6 +109,7 @@ export class OwnerCreate extends Component {
             source="cpf"
             label="CPF"
             validate={required}
+            normalize={formatCPF}
           />
           <TextInput
             source="ownerName"
