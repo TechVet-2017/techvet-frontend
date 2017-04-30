@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   TextInput,
   SelectInput,
@@ -6,7 +6,17 @@ import {
   DisabledInput,
 } from 'admin-on-rest/lib/mui';
 import { AsyncValidate } from './AsyncValidate';
-import { formatCPF, formatPhoneNumber, formatZipCode } from '../Util';
+import { 
+  required,
+  numeralCharactersQuantity,
+  numeralCharactersMaxQuantity,
+  numeralCharactersMinQuantity
+} from '../Validators';
+import {
+  formatCPF,
+  formatPhoneNumber,
+  formatZipCode
+} from '../Util';
 
 const federalStates = [
   { id: 'AC', name: 'Acre (AC)' },
@@ -38,103 +48,82 @@ const federalStates = [
   { id: 'TO', name: 'Tocantins (TO)' },
 ];
 
-const required = value => (value ? undefined : 'Campo obrigatório');
-
-const caracteresQuantity = quantity => value =>
-  (value && value.replace(/[^\d]/g, '').length !== quantity ? `Deve conter ${quantity} dígitos` : undefined);
-
-const caracteresMaxQuantity = max => value =>
-  (value && value.replace(/[^\d]/g, '').length > max ? `Deve conter no máximo ${max} dígitos` : undefined);
-
-const caracteresMinQuantity = min => value =>
-  (value && value.replace(/[^\d]/g, '').length < min ? `Deve conter no mínimo ${min} dígitos` : undefined);
-
-export class OwnerForm extends Component {
-  constructor(props) {
-    super(props);
-    this.handleZipInput = this.handleZipInput.bind(this);
+export const OwnerForm = props => {
+  let CPFField = null;
+  if (!props.edit) {
+    CPFField =
+      (<TextInput
+        source="cpf"
+        label="CPF"
+        validate={[required, numeralCharactersQuantity(11)]}
+        normalize={formatCPF}
+      />);
+  } else {
+    CPFField =
+      (<DisabledInput
+        source="cpf"
+        label="CPF"
+      />);
   }
-  handleZipInput(event) {
-  }
-  render() {
-    let CPFField = null;
-    if (!this.props.edit) {
-      CPFField =
-        (<TextInput
-          source="cpf"
-          label="CPF"
-          validate={[required, caracteresQuantity(11)]}
-          normalize={formatCPF}
-        />);
-    } else {
-      CPFField =
-        (<DisabledInput
-          source="cpf"
-          label="CPF"
-        />);
-    }
-    return (
-      <SimpleForm 
-        {...this.props}
-        asyncValidate={AsyncValidate}
-        asyncBlurFields={['zipCode']}
-      >
-        {CPFField}
-
-        <TextInput
-          source="ownerName"
-          label="Primeiro Nome"
-          validate={required}
-        />
-        <TextInput
-          source="ownerLastName"
-          label="Sobrenome"
-          validate={required}
-        />
-        <TextInput
-          source="phoneNumber"
-          label="Telefone"
-          validate={[required, caracteresMinQuantity(10), caracteresMaxQuantity(11)]}
-          normalize={formatPhoneNumber}np
-        />
-        <TextInput
-          source="zipCode"
-          label="Código Postal"
-          onChange={this.handleZipInput}
-          normalize={formatZipCode}
-          validate={caracteresQuantity(8)}
-        />
-        <TextInput
-          source="publicPlace"
-          label="Endereço"
-          validate={required}
-        />
-        <TextInput
-          source="addressNumber"
-          label="Número"
-          validate={required}
-        />
-        <TextInput
-          source="complement"
-          label="Complemento"
-        />
-        <TextInput
-          source="neighborhood"
-          label="Bairro"
-          validate={required}
-        />
-        <TextInput
-          source="city"
-          label="Cidade"
-          validate={required}
-        />
-        <SelectInput
-          source="district"
-          label="Estado"
-          choices={federalStates}
-          validate={required}
-        />
-      </SimpleForm>
-    );
-  }
+  return (
+    <SimpleForm 
+      {...props}
+      asyncValidate={AsyncValidate}
+      asyncBlurFields={['zipCode']}
+    >
+      {CPFField}
+      <TextInput
+        source="ownerName"
+        label="Primeiro Nome"
+        validate={required}
+      />
+      <TextInput
+        source="ownerLastName"
+        label="Sobrenome"
+        validate={required}
+      />
+      <TextInput
+        source="phoneNumber"
+        label="Telefone"
+        validate={[required, numeralCharactersMinQuantity(10), numeralCharactersMaxQuantity(11)]}
+        normalize={formatPhoneNumber}
+      />
+      <TextInput
+        source="zipCode"
+        label="Código Postal"
+        normalize={formatZipCode}
+        validate={numeralCharactersQuantity(8)}
+      />
+      <TextInput
+        source="publicPlace"
+        label="Endereço"
+        validate={required}
+      />
+      <TextInput
+        source="addressNumber"
+        label="Número"
+        validate={required}
+      />
+      <TextInput
+        source="complement"
+        label="Complemento"
+      />
+      <TextInput
+        source="neighborhood"
+        label="Bairro"
+        validate={required}
+      />
+      <TextInput
+        source="city"
+        label="Cidade"
+        validate={required}
+      />
+      <SelectInput
+        source="district"
+        label="Estado"
+        choices={federalStates}
+        validate={required}
+      />
+    </SimpleForm>
+  );
 }
