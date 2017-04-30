@@ -123,7 +123,7 @@ export const VaccinationRecordsEdit = props => (
       <FormTab label="Vacinação">
         <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" options={{
           mode: 'landscape', 
-          minDate: new Date(), 
+          maxDate: new Date(), 
           hintText: 'Data da aplicação', 
           cancelLabel: 'Cancelar', 
           locale: 'pt'
@@ -155,7 +155,7 @@ export const VaccinationRecordsEdit = props => (
       <FormTab label="Vermifugação">
         <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" options={{
           mode: 'landscape', 
-          minDate: new Date(), 
+          maxDate: new Date(), 
           hintText: 'Data da aplicação', 
           cancelLabel: 'Cancelar', 
           locale: 'pt'
@@ -226,7 +226,7 @@ export const VaccinationRecordsCreate = props => (
       <FormTab label="Vacinação">
         <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" options={{
           mode: 'landscape', 
-          minDate: new Date(), 
+          maxDate: new Date(), 
           hintText: 'Data da aplicação', 
           cancelLabel: 'Cancelar', 
           locale: 'pt'
@@ -258,7 +258,7 @@ export const VaccinationRecordsCreate = props => (
       <FormTab label="Vermifugação">
         <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" options={{
           mode: 'landscape', 
-          minDate: new Date(), 
+          maxDate: new Date(), 
           hintText: 'Data da aplicação', 
           cancelLabel: 'Cancelar', 
           locale: 'pt'
