@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
-import { change } from 'redux-form';
 import {
   TextInput,
   SelectInput,
   SimpleForm,
   DisabledInput,
 } from 'admin-on-rest/lib/mui';
+import { AsyncValidate } from './AsyncValidate';
 import { formatCPF, formatPhoneNumber, formatZipCode } from '../Util';
 
 const federalStates = [
@@ -56,62 +55,6 @@ export class OwnerForm extends Component {
     this.handleZipInput = this.handleZipInput.bind(this);
   }
   handleZipInput(event) {
-    const zipCode = event.target.value.replace(/[^\d]/, '');
-    if (zipCode.length === 8) {
-      $.ajax({
-        url: `http://correiosapi.apphb.com/cep/${zipCode}`,
-        dataType: 'jsonp',
-        crossDomain: true,
-        contentType: 'application/json',
-        statusCode: {
-          200: (data) => {
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'publicPlace',
-                `${data.tipoDeLogradouro} ${data.logradouro}`),
-            );
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'neighborhood',
-                data.bairro,
-              ),
-            );
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'city',
-                data.cidade,
-              ),
-            );
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'district',
-                data.estado,
-              ),
-            );
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'addressNumber',
-                '',
-              ),
-            );
-            this.form.store.dispatch(
-              change(
-                'record-form',
-                'complement',
-                '',
-              ),
-            );
-          },
-          400: () => { },
-          404: () => { },
-        },
-      });
-    }
   }
   render() {
     let CPFField = null;
@@ -131,7 +74,11 @@ export class OwnerForm extends Component {
         />);
     }
     return (
-      <SimpleForm ref={(form) => { this.form = form; }} {...this.props}>
+      <SimpleForm 
+        {...this.props}
+        asyncValidate={AsyncValidate}
+        asyncBlurFields={['zipCode']}
+      >
         {CPFField}
 
         <TextInput
@@ -148,7 +95,7 @@ export class OwnerForm extends Component {
           source="phoneNumber"
           label="Telefone"
           validate={[required, caracteresMinQuantity(10), caracteresMaxQuantity(11)]}
-          normalize={formatPhoneNumber}
+          normalize={formatPhoneNumber}np
         />
         <TextInput
           source="zipCode"
