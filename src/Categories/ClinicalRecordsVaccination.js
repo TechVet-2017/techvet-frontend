@@ -121,13 +121,17 @@ export const VaccinationRecordsEdit = props => (
         <NumberInput source="patientWeight" label="Peso" />
       </FormTab>
       <FormTab label="Vacinação">
-        <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" options={{
-          mode: 'landscape', 
-          maxDate: new Date(), 
-          hintText: 'Data da aplicação', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }} />
+        <DateInput 
+          source="vaccinationApplicationDate" 
+          label="Data da Aplicação" 
+          options={{
+            mode: 'landscape', 
+            maxDate: new Date(), 
+            hintText: 'Data da aplicação', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }} 
+        />
         <SelectInput
           source="vaccinationName"
           label="Vacina"
@@ -144,31 +148,43 @@ export const VaccinationRecordsEdit = props => (
             { id: 'Hertape', name: 'Hertape' },
           ]}
         />
-        <DateInput source="vaccinationReturnDate" label="Data de Retorno" options={{
-          mode: 'landscape', 
-          minDate: new Date(), 
-          hintText: 'Data de retorno', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }} />
+        <DateInput 
+          source="vaccinationReturnDate" 
+          label="Data de Retorno" 
+          options={{
+            mode: 'landscape', 
+            minDate: new Date(), 
+            hintText: 'Data de retorno', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }} 
+        />
       </FormTab>
       <FormTab label="Vermifugação">
-        <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" options={{
-          mode: 'landscape', 
-          maxDate: new Date(), 
-          hintText: 'Data da aplicação', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }}/>
+        <DateInput 
+          source="vermifugationApplicationDate" 
+          label="Data da Aplicação" 
+          options={{
+            mode: 'landscape', 
+            maxDate: new Date(), 
+            hintText: 'Data da aplicação', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }}
+        />
         <TextInput source="vermifugeName" label="Vermífugo" />
         <TextInput source="vermifugeDosage" label="Dose" step={0.1} />
-        <DateInput source="vermifugationReturnDate" label="Data de Retorno" options={{
-          mode: 'landscape', 
-          minDate: new Date(), 
-          hintText: 'Data de retorno', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }} />
+        <DateInput 
+          source="vermifugationReturnDate" 
+          label="Data de Retorno" 
+          options={{
+            mode: 'landscape', 
+            minDate: new Date(), 
+            hintText: 'Data de retorno', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }} 
+        />
       </FormTab>
     </TabbedForm>
   </Edit>
@@ -224,13 +240,17 @@ export const VaccinationRecordsCreate = props => (
         <NumberInput source="patientWeight" label="Peso" />
       </FormTab>
       <FormTab label="Vacinação">
-        <DateInput source="vaccinationApplicationDate" label="Data da Aplicação" options={{
-          mode: 'landscape', 
-          maxDate: new Date(), 
-          hintText: 'Data da aplicação', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }}/>
+        <DateInput 
+          source="vaccinationApplicationDate" 
+          label="Data da Aplicação" 
+          options={{
+            mode: 'landscape', 
+            maxDate: new Date(), 
+            hintText: 'Data da aplicação', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }}
+        />
         <SelectInput
           source="vaccinationName"
           label="Vacina"
@@ -247,31 +267,43 @@ export const VaccinationRecordsCreate = props => (
             { id: 'Hertape', name: 'Hertape' },
           ]}
         />
-        <DateInput source="vaccinationReturnDate" label="Data de Retorno" options={{
-          mode: 'landscape', 
-          minDate: new Date(), 
-          hintText: 'Data de retorno', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }} />
+        <DateInput 
+          source="vaccinationReturnDate" 
+          label="Data de Retorno" 
+          options={{
+            mode: 'landscape', 
+            minDate: new Date(), 
+            hintText: 'Data de retorno', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }} 
+        />
       </FormTab>
       <FormTab label="Vermifugação">
-        <DateInput source="vermifugationApplicationDate" label="Data da Aplicação" options={{
-          mode: 'landscape', 
-          maxDate: new Date(), 
-          hintText: 'Data da aplicação', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }}/>
+        <DateInput 
+          source="vermifugationApplicationDate" 
+          label="Data da Aplicação" 
+          options={{
+            mode: 'landscape', 
+            maxDate: new Date(), 
+            hintText: 'Data da aplicação', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }}
+        />
         <TextInput source="vermifugeName" label="Vermífugo" />
         <TextInput source="vermifugeDosage" label="Dose" step={0.1} />
-        <DateInput source="vermifugationReturnDate" label="Data de Retorno" options={{
-          mode: 'landscape', 
-          minDate: new Date(), 
-          hintText: 'Data de retorno', 
-          cancelLabel: 'Cancelar', 
-          locale: 'pt'
-        }} />
+        <DateInput 
+          source="vermifugationReturnDate" 
+          label="Data de Retorno" 
+          options={{
+            mode: 'landscape', 
+            minDate: new Date(), 
+            hintText: 'Data de retorno', 
+            cancelLabel: 'Cancelar', 
+            locale: 'pt'
+          }} 
+        />
       </FormTab>
     </TabbedForm>
   </Create>
