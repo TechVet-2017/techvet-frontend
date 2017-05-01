@@ -1,11 +1,23 @@
 import React from 'react';
 import {
   List, Responsive, SimpleList, ShowButton,
-  Datagrid, TextField, EditButton, DeleteButton,
+  Datagrid, TextField, EditButton, DeleteButton, Filter,
+  TextInput
 } from 'admin-on-rest/lib/mui';
 
+const OwnerFilter = props => (
+  <Filter {...props}>
+    <TextInput label="Procurar por CPF" source="cpf" />
+    <TextInput label="Procurar por nome" source="ownerName" />
+    <TextInput label="Procurar por sobrenome" source="ownerLastName" />
+  </Filter>
+);
 export const OwnerList = props => (
-  <List {...props} title={'Lista de proprietários'}>
+  <List 
+    {...props}
+    title={'Lista de proprietários'}
+    perPage={5}
+    filters={<OwnerFilter />}>
     <Responsive
       small={
         <SimpleList
