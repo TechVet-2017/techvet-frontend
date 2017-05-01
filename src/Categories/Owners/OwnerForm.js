@@ -6,16 +6,17 @@ import {
   DisabledInput,
 } from 'admin-on-rest/lib/mui';
 import { AsyncValidate } from './AsyncValidate';
-import { 
+import {
   required,
   numeralCharactersQuantity,
   numeralCharactersMaxQuantity,
-  numeralCharactersMinQuantity
+  numeralCharactersMinQuantity,
+  validateCPF,
 } from '../Validators';
 import {
   formatCPF,
   formatPhoneNumber,
-  formatZipCode
+  formatZipCode,
 } from '../Util';
 
 const federalStates = [
@@ -48,14 +49,14 @@ const federalStates = [
   { id: 'TO', name: 'Tocantins (TO)' },
 ];
 
-export const OwnerForm = props => {
+export const OwnerForm = (props) => {
   let CPFField = null;
   if (!props.edit) {
     CPFField =
       (<TextInput
         source="cpf"
         label="CPF"
-        validate={[required, numeralCharactersQuantity(11)]}
+        validate={[required, numeralCharactersQuantity(11), validateCPF]}
         normalize={formatCPF}
       />);
   } else {
@@ -66,7 +67,7 @@ export const OwnerForm = props => {
       />);
   }
   return (
-    <SimpleForm 
+    <SimpleForm
       {...props}
       asyncValidate={AsyncValidate}
       asyncBlurFields={['zipCode']}

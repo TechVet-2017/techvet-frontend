@@ -1,3 +1,5 @@
+export { validateCPF } from './validateCPF';
+
 export const required = value => (value ? undefined : 'Campo obrigatório');
 
 export const numeralCharactersQuantity = quantity => value =>
@@ -8,3 +10,4 @@ export const numeralCharactersMaxQuantity = max => value =>
 
 export const numeralCharactersMinQuantity = min => value =>
   (value && value.replace(/[^\d]/g, '').length < min ? `Deve conter no mínimo ${min} dígitos` : undefined);
+
