@@ -8,6 +8,8 @@ const validationIsEmpty = (values) => {
     errors.serviceBathGrooming = ['Campo obrigatório'];
   } else if (values.serviceBathGrooming.length < 10) {
     errors.serviceBathGrooming = ['Campo muito pequeno'];
+  } else if (values.serviceBathGrooming.length > 200) {
+    errors.serviceBathGrooming = ['Campo muito longo'];
   }
   return errors;
 };
