@@ -2,16 +2,14 @@ import React from 'react';
 import { List, Responsive, SimpleList, Edit, Create, Datagrid, TextField, EditButton, DeleteButton, DisabledInput, LongTextInput, SimpleForm } from 'admin-on-rest/lib/mui';
 
 const validationIsEmpty = (values) => {
-    const errors = {};
-    
-    if (!values.serviceBathGrooming){
-        errors.serviceBathGrooming = ['Campo obrigatório'];
-    }
+  const errors = {};
 
-    else if (values.serviceBathGrooming.length < 10){
-        errors.serviceBathGrooming = ['Campo muito pequeno'];
-    }
-    return errors
+  if (!values.serviceBathGrooming) {
+    errors.serviceBathGrooming = ['Campo obrigatório'];
+  } else if (values.serviceBathGrooming.length < 10) {
+    errors.serviceBathGrooming = ['Campo muito pequeno'];
+  }
+  return errors;
 };
 
 export const BathAndGroomingList = props => (
