@@ -19,7 +19,7 @@ import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
-import { BathAndGroomingList } from './Categories/BathAndGrooming';
+import { BathAndGroomingList, BathAndGroomingEdit, BathAndGroomingCreate } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
@@ -37,7 +37,15 @@ const App = () => (
       name="post" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
-    <Resource name="user" options={{ label: 'Usuários' }} list={UserList} edit={UserEdit} create={UserCreate} remove={Delete} icon={UserIcon} />
+    <Resource
+      name="users"
+      options={{ label: 'Usuários' }}
+      list={UserList}
+      edit={UserEdit}
+      create={UserCreate}
+      remove={Delete}
+      icon={UserIcon}
+    />
     <Resource
       name="owners"
       options={{ label: 'Proprietários' }}
@@ -48,7 +56,7 @@ const App = () => (
       remove={Delete}
       icon={OwnerIcon}
     />
-    <Resource name="patient" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
+    <Resource name="patients" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
@@ -56,7 +64,7 @@ const App = () => (
       list={VaccinationScheduleList}
       icon={VaccinationScheduleIcon}
     />
-    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} icon={BathAndGroomingIcon} />
+    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} edit={BathAndGroomingEdit}create={BathAndGroomingCreate} remove={Delete} icon={BathAndGroomingIcon} />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
   </Admin>
 );
