@@ -15,7 +15,7 @@ export const BathAndGroomingList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="ID" />
-          <TextField source="service" label="Serviço" />
+          <TextField source="serviceBathGrooming" label="Serviço" />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -26,22 +26,22 @@ export const BathAndGroomingList = props => (
 
 
 const BathAndGroomingTitle = ({ record }) => {
-  return <span>Post {record ? `"${record.title}"` : ''}</span>;
+  return <span>Editar Serviço{record ? `"${record.bathAndGroomingTitle}"` : ''}</span>;
 };
 
 export const BathAndGroomingEdit = props => (
   <Edit title={<BathAndGroomingTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <LongTextInput source="service" />
+      <LongTextInput label="Serviço" source="serviceBathGrooming" />
     </SimpleForm>
   </Edit>
 );
 
 export const BathAndGroomingCreate = props => (
-  <Create {...props}>
+  <Create {...props} title={'Adicionar Serviço'}>
     <SimpleForm>
-      <LongTextInput source="service" label="Serviço" />
+      <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
   </Create>
 );
