@@ -14,8 +14,8 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
+import { PatientList, PatientEdit, PatientCreate, PatientShow } from './Categories/Patients';
 import { OwnerList, OwnerShow, OwnerCreate, OwnerEdit } from './Categories/Owners';
-import { PatientList } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
@@ -38,6 +38,16 @@ const App = () => (
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
     <Resource
+      name="patients"
+      options={{ label: 'Pacientes' }}
+      show={PatientShow}
+      list={PatientList}
+      edit={PatientEdit}
+      create={PatientCreate}
+      remove={Delete}
+      icon={PatientIcon}
+    />
+    <Resource
       name="users"
       options={{ label: 'Usuários' }}
       list={UserList}
@@ -56,7 +66,6 @@ const App = () => (
       remove={Delete}
       icon={OwnerIcon}
     />
-    <Resource name="patients" options={{ label: 'Pacientes' }} list={PatientList} icon={PatientIcon} />
     <Resource name="attendence" options={{ label: 'Consultas' }} list={AttendenceList} icon={AttendenceIcon} />
     <Resource name="hospitalization" options={{ label: 'Internações' }} list={HospitalizationList} icon={HospitalizationIcon} />
     <Resource
@@ -64,7 +73,14 @@ const App = () => (
       list={VaccinationScheduleList}
       icon={VaccinationScheduleIcon}
     />
-    <Resource name="bathAndGrooming" options={{ label: 'Banho & Tosa' }} list={BathAndGroomingList} edit={BathAndGroomingEdit}create={BathAndGroomingCreate} remove={Delete} icon={BathAndGroomingIcon} />
+    <Resource
+      name="bathAndGrooming"
+      options={{ label: 'Banho & Tosa' }}
+      list={BathAndGroomingList}
+      edit={BathAndGroomingEdit}
+      create={BathAndGroomingCreate}
+      remove={Delete} icon={BathAndGroomingIcon}
+    />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
   </Admin>
 );
