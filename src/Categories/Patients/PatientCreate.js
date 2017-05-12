@@ -5,6 +5,7 @@ import {
 import {
   required,
   numeralCharactersMaxQuantity,
+  numeralCharactersMinQuantity,
 } from '../Validators';
 
 export const PatientCreate = props => (
@@ -14,6 +15,7 @@ export const PatientCreate = props => (
         source="patientName"
         label="Nome do Paciente"
         validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="species"
@@ -28,6 +30,7 @@ export const PatientCreate = props => (
         source="breed"
         label="Raça"
         validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="size"
@@ -65,6 +68,7 @@ export const PatientCreate = props => (
         source="coat"
         label="Pelagem"
         validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
     </SimpleForm>
   </Create>

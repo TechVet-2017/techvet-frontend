@@ -4,6 +4,8 @@ import {
 } from 'admin-on-rest/lib/mui';
 import {
   required,
+  numeralCharactersMaxQuantity,
+  numeralCharactersMinQuantity,
 } from '../Validators';
 
 export const PatientEdit = props => (
@@ -13,7 +15,7 @@ export const PatientEdit = props => (
         source="patientName"
         label="Nome do Paciente"
         validate={required}
-        
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="species"
@@ -28,6 +30,7 @@ export const PatientEdit = props => (
         source="breed"
         label="Raça"
         validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="size"
@@ -64,6 +67,7 @@ export const PatientEdit = props => (
         source="coat"
         label="Pelagem"
         validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
     </SimpleForm>
   </Edit>
