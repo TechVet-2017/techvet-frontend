@@ -14,7 +14,6 @@ export const PatientCreate = props => (
       <TextInput
         source="patientName"
         label="Nome do Paciente"
-        validate={required}
         validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
@@ -29,7 +28,6 @@ export const PatientCreate = props => (
       <TextInput
         source="breed"
         label="Raça"
-        validate={required}
         validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
@@ -67,7 +65,6 @@ export const PatientCreate = props => (
         <TextInput
         source="coat"
         label="Pelagem"
-        validate={required}
         validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
     </SimpleForm>
