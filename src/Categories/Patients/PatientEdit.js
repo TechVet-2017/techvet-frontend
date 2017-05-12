@@ -2,8 +2,11 @@ import React from 'react';
 import {
   SimpleForm, TextInput, DateInput, RadioButtonGroupInput, Edit,
 } from 'admin-on-rest/lib/mui';
-
-const required = value => (value ? undefined : 'Campo obrigatório');
+import {
+  required,
+  numeralCharactersMaxQuantity,
+  numeralCharactersMinQuantity,
+} from '../Validators';
 
 export const PatientEdit = props => (
   <Edit title={'Cadastro do Paciente'} {...props}>
@@ -11,7 +14,7 @@ export const PatientEdit = props => (
       <TextInput
         source="patientName"
         label="Nome do Paciente"
-        validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="species"
@@ -25,7 +28,7 @@ export const PatientEdit = props => (
       <TextInput
         source="breed"
         label="Raça"
-        validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
       <RadioButtonGroupInput
         source="size"
@@ -61,7 +64,7 @@ export const PatientEdit = props => (
       <TextInput
         source="coat"
         label="Pelagem"
-        validate={required}
+        validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
       />
     </SimpleForm>
   </Edit>
