@@ -2,8 +2,10 @@ import React from 'react';
 import {
   Create, SimpleForm, DateInput, RadioButtonGroupInput, TextInput,
 } from 'admin-on-rest/lib/mui';
-
-const required = value => (value ? undefined : 'Campo obrigatório');
+import {
+  required,
+  numeralCharactersMaxQuantity,
+} from '../Validators';
 
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
@@ -61,7 +63,7 @@ export const PatientCreate = props => (
       />
         <TextInput
         source="coat"
-        label="Raça"
+        label="Pelagem"
         validate={required}
       />
     </SimpleForm>
