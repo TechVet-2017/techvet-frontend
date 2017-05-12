@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "node"
+
+script:
+  - npm run ci -s
+
+notifications:
+  email:
+    recipients:
+      - antoniojk7@gmail.com
+      - leomeister22@gmail.com
+      - lucas.advc@gmail.com
+      - skingk.f@gmail.com
+      - do.guilherme@hotmail.com
+      - iamferreirajp@gmail.com
+      - adailson2@gmail.com
+
+
