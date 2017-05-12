@@ -21,6 +21,8 @@ import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
 import { BathAndGroomingList, BathAndGroomingEdit, BathAndGroomingCreate } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
+import { AppointmentRecordsList, AppointmentRecordsEdit, AppointmentRecordsCreate } from './Categories/ClinicalRecordsAppointment';
+import { VaccinationRecordsList, VaccinationRecordsEdit, VaccinationRecordsCreate } from './Categories/ClinicalRecordsVaccination';
 import Dashboard from './Dashboard';
 import authClient from './authClient';
 import CustomTheme from './CustomTheme';
@@ -37,6 +39,7 @@ const App = () => (
       name="post" options={{ label: 'Exemplo' }} list={PostList} edit={PostEdit}
       create={PostCreate} remove={Delete} icon={PostIcon}
     />
+
     <Resource
       name="patients"
       options={{ label: 'Pacientes' }}
@@ -83,6 +86,8 @@ const App = () => (
       remove={Delete} icon={BathAndGroomingIcon}
     />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
+    <Resource name="appointmentRecords" options={{ label: 'Consultas' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} icon={AttendenceIcon} />
+    <Resource name="vaccinationRecords" options={{ label: 'Vacinação' }} list={VaccinationRecordsList} edit={VaccinationRecordsEdit} create={VaccinationRecordsCreate} remove={Delete} />
   </Admin>
 );
 
