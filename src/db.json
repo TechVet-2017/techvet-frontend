@@ -82,7 +82,29 @@
       "service": "O dog do Mr. M foi com tal e talz"
     },
     {
-      "service": "BANHO E BANHO",
+      "service": "BANHO E BANHO 2",
+      "id": 2
+    }
+  ],
+  "patient": [
+    {
+      "patientName": "Xuxa",
+      "specie": "Canino",
+      "breed": "Poodle",
+      "size": "Pequeno",
+      "gender": "Fêmea",
+      "birthday": "2014-04-14T03:00:00.000Z",
+      "coat": "Branca",
+      "id": 1
+    },
+    {
+      "patientName": "Lilica",
+      "specie": "Canino",
+      "size": "Pequeno",
+      "breed": "Pincher",
+      "gender": "Fêmea",
+      "birthday": "2015-04-14T03:00:00.000Z",
+      "coat": "Preto",
       "id": 2
     }
   ]
