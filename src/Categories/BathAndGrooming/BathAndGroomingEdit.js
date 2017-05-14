@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleList, Edit, EditButton, DisabledInput, LongTextInput, TextField, SimpleForm } from 'admin-on-rest/lib/mui';
+import { DisabledInput, LongTextInput, Edit, SimpleForm } from 'admin-on-rest/lib/mui';
 
 const validationIsEmpty = (values) => {
   const errors = {};
