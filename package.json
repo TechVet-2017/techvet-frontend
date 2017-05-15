@@ -31,6 +31,7 @@
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint **/*.js",
     "lint2": "./node_modules/.bin/eslint src/**/*.js",
-    "ci": "npm run test && npm run lint && npm run lint2"
+    "lint3": "./node_modules/.bin/eslint src/**/**/*.js",
+    "ci": "npm run test && npm run lint && npm run lint2 && npm run lint3"
   }
 }
