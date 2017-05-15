@@ -54,7 +54,7 @@ export const PatientCreate = props => (
         label="Data de Nascimento"
         options={{
           mode: 'landscape',
-          minDate: new Date(1985, 12-1, 31),
+          minDate: new Date(1985, 12 - 1, 31),
           maxDate: new Date(),
           hintText: 'Data de Nascimento',
           cancelLabel: 'Cancelar',
@@ -62,7 +62,7 @@ export const PatientCreate = props => (
         }}
         validate={required}
       />
-        <TextInput
+      <TextInput
         source="coat"
         label="Pelagem"
         validate={[required, numeralCharactersMinQuantity(1), numeralCharactersMaxQuantity(25)]}
