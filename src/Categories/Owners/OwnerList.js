@@ -5,6 +5,9 @@ import {
   TextInput,
 } from 'admin-on-rest/lib/mui';
 
+// Global variables
+const registersPerPage = 5;
+
 const OwnerFilter = props => (
   <Filter {...props}>
     <TextInput label="Procurar por CPF" source="cpf" />
@@ -16,7 +19,7 @@ export const OwnerList = props => (
   <List
     {...props}
     title={'Lista de proprietários'}
-    perPage={5}
+    perPage={registersPerPage}
     filters={<OwnerFilter />}
   >
     <Responsive
