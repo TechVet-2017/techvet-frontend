@@ -6,46 +6,45 @@ const fillAddressFields = (address, dispatch) => {
     change(
       'record-form',
       'publicPlace',
-      `${address.tipoDeLogradouro} ${address.logradouro}`
-    )
+      `${address.tipoDeLogradouro} ${address.logradouro}`,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'neighborhood',
-      address.bairro
-    )
+      address.bairro,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'city',
-      address.cidade
-    )
+      address.cidade,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'district',
-      address.estado
-    )
+      address.estado,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'addressNumber',
-      ''
-    )
+      '',
+    ),
   );
   dispatch(
     change(
       'record-form',
       'complement',
-      ''
-    )
-  );
-  
-}
+      '',
+    ),
+  ); 
+},
 
 export const AsyncValidate = (values, dispatch, props, blurredField) => {
   const zipCode = values.zipCode.replace(/[^\d]/, '');

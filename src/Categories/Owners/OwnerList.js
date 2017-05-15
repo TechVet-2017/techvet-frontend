@@ -2,7 +2,7 @@ import React from 'react';
 import {
   List, Responsive, SimpleList, ShowButton,
   Datagrid, TextField, EditButton, DeleteButton, Filter,
-  TextInput
+  TextInput,
 } from 'admin-on-rest/lib/mui';
 
 const OwnerFilter = props => (
@@ -13,11 +13,12 @@ const OwnerFilter = props => (
   </Filter>
 );
 export const OwnerList = props => (
-  <List 
+  <List
     {...props}
     title={'Lista de proprietários'}
     perPage={5}
-    filters={<OwnerFilter />}>
+    filters={<OwnerFilter />}
+  >
     <Responsive
       small={
         <SimpleList
