@@ -43,23 +43,23 @@ const fillAddressFields = (address, dispatch) => {
       'complement',
       '',
     ),
-  ); 
-},
+  );
+};
 
-export const AsyncValidate = (values, dispatch, props, blurredField) => {
+export const AsyncValidate = (values, dispatch) => {
   const zipCode = values.zipCode.replace(/[^\d]/, '');
   return $.ajax({
     url: `http://correiosapi.apphb.com/cep/${zipCode}`,
-        dataType: 'jsonp',
-        crossDomain: true,
-        contentType: 'application/json'
+    dataType: 'jsonp',
+    crossDomain: true,
+    contentType: 'application/json',
   }).then(
     (response) => {
       fillAddressFields(response, dispatch);
-    }, 
+    },
     (f) => {
-      const error = {zipCode: 'CEP não encontrado'};
+      const error = { zipCode: 'CEP não encontrado' };
       throw error;
-    }
+    },
   );
 };
