@@ -14,8 +14,8 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { PostList, PostEdit, PostCreate } from './Categories/Example';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
-import { PatientList, PatientEdit, PatientCreate, PatientShow } from './Categories/Patients';
 import { OwnerList, OwnerShow, OwnerCreate, OwnerEdit } from './Categories/Owners';
+import { PatientList, PatientEdit, PatientCreate, PatientShow, PatientFilter } from './Categories/Patients';
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
@@ -43,6 +43,7 @@ const App = () => (
     <Resource
       name="patients"
       options={{ label: 'Pacientes' }}
+      filter={PatientFilter}
       show={PatientShow}
       list={PatientList}
       edit={PatientEdit}

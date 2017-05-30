@@ -11,7 +11,7 @@ export const UserCreate = props => (
       <TextInput
         source="userFullName"
         label="Nome Completo"
-        validate={TextInputValidation,NameValidation}
+        validate={[TextInputValidation, NameValidation]}
       />
       <TextInput
         source="userName"
