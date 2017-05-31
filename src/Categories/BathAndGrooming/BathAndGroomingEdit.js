@@ -1,22 +1,27 @@
 import React from 'react';
-import { Edit, DisabledInput, LongTextInput, SimpleForm } from 'admin-on-rest/lib/mui';
+import { DisabledInput, LongTextInput, Edit, SimpleForm } from 'admin-on-rest/lib/mui';
+// Global variables
+import { minimumServiceLength, maximumServiceLength } from './index';
 
-const required = value => (value ? undefined : 'Campo obrigatório');
+const validationIsEmpty = (values) => {
+  const errors = {};
 
-const maxfield = (value) => {
- if (value.length > 200){
-  return 'Campo muito grande';
+  if (!values.serviceBathGrooming) {
+    errors.serviceBathGrooming = ['Campo obrigatório'];
+  } else if (values.serviceBathGrooming.length < minimumServiceLength) {
+    errors.serviceBathGrooming = ['Campo muito pequeno'];
+  } else if (values.serviceBathGrooming.length > maximumServiceLength) {
+    errors.serviceBathGrooming = ['Campo muito longo'];
   }
-  return null;
+  return errors;
 };
 
 export const BathAndGroomingEdit = props => (
   <Edit title={'Editar Serviço'} {...props}>
-    <SimpleForm>
+    <SimpleForm validation={validationIsEmpty}>
       <DisabledInput source="id" />
-      <LongTextInput source="serviceBathGrooming" 
-                     label="Serviço"
-                     validate={[ required, maxfield ]} />
+      <LongTextInput source="serviceBathGrooming" label="Serviço" />
     </SimpleForm>
   </Edit>
 );
+

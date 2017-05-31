@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Show, SimpleShowLayout, DateField, TextField, 
+  Show, SimpleShowLayout, DateField, TextField,
 } from 'admin-on-rest/lib/mui';
 
 export const PatientShow = props => (
