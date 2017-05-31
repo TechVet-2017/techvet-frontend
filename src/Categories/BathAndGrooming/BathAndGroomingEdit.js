@@ -24,3 +24,4 @@ export const BathAndGroomingEdit = props => (
     </SimpleForm>
   </Edit>
 );
+
