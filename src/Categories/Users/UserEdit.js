@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-  Edit, SimpleForm, TextInput,
+  Edit,
+  SimpleForm,
+  TextInput,
 } from 'admin-on-rest/lib/mui';
 import { TextInputValidation, UserName,
 } from './Commons';
