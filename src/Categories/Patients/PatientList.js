@@ -1,18 +1,27 @@
 import React from 'react';
 import {
   List, Responsive, SimpleList, ShowButton,
-  Datagrid, TextField, EditButton, Filter, 
+  Datagrid, TextField, EditButton, Filter,
   TextInput, DeleteButton,
 } from 'admin-on-rest/lib/mui';
 
-const PatientFilter = (props) => (
-    <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-    </Filter>
+// Global variable
+const registersPerPage = 5;
+
+const PatientFilter = props => (
+  <Filter {...props}>
+    <TextInput label="Procurar por nome" source="patientName" />
+    <TextInput label="Procurar por RG BD Nº" source="id" />
+  </Filter>
 );
 
 export const PatientList = props => (
-  <List {...props} filters={<PatientFilter />}title={'Pacientes'}>
+  <List
+    {...props}
+    filters={<PatientFilter />}
+    perPage={registersPerPage}
+    title={'LIsta de Pacientes'}
+  >
     <Responsive
       small={
         <SimpleList

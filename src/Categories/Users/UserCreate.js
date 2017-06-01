@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Create, SimpleForm, TextInput,
 } from 'admin-on-rest/lib/mui';
-import {TextInputValidation,NameValidation,
+import { TextInputValidation, NameValidation,
 } from './Commons';
 
 export const UserCreate = props => (

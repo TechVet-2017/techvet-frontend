@@ -6,61 +6,60 @@ const fillAddressFields = (address, dispatch) => {
     change(
       'record-form',
       'publicPlace',
-      `${address.tipoDeLogradouro} ${address.logradouro}`
-    )
+      `${address.tipoDeLogradouro} ${address.logradouro}`,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'neighborhood',
-      address.bairro
-    )
+      address.bairro,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'city',
-      address.cidade
-    )
+      address.cidade,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'district',
-      address.estado
-    )
+      address.estado,
+    ),
   );
   dispatch(
     change(
       'record-form',
       'addressNumber',
-      ''
-    )
+      '',
+    ),
   );
   dispatch(
     change(
       'record-form',
       'complement',
-      ''
-    )
+      '',
+    ),
   );
-  
-}
+};
 
-export const AsyncValidate = (values, dispatch, props, blurredField) => {
+export const AsyncValidate = (values, dispatch) => {
   const zipCode = values.zipCode.replace(/[^\d]/, '');
   return $.ajax({
     url: `http://correiosapi.apphb.com/cep/${zipCode}`,
-        dataType: 'jsonp',
-        crossDomain: true,
-        contentType: 'application/json'
+    dataType: 'jsonp',
+    crossDomain: true,
+    contentType: 'application/json',
   }).then(
     (response) => {
       fillAddressFields(response, dispatch);
-    }, 
+    },
     (f) => {
-      const error = {zipCode: 'CEP não encontrado'};
+      const error = { zipCode: 'CEP não encontrado' };
       throw error;
-    }
+    },
   );
 };
