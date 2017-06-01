@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   List, Responsive, SimpleList, ShowButton,
-  Datagrid, TextField, EditButton, Filter, 
+  Datagrid, TextField, EditButton, Filter,
   TextInput, DeleteButton,
 } from 'admin-on-rest/lib/mui';
 
-const PatientFilter = (props) => (
-    <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-    </Filter>
+const PatientFilter = props => (
+  <Filter {...props}>
+    <TextInput label="Procurar por nome" source="patientName" />
+  </Filter>
 );
 
 export const PatientList = props => (
