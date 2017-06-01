@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-  Show, SimpleShowLayout, TextField,
+  Show,
+  SimpleShowLayout,
+  TextField,
 } from 'admin-on-rest/lib/mui';
 
 export const OwnerShow = props => (
