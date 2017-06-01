@@ -1,5 +1,9 @@
 import React from 'react';
-import { Create, LongTextInput, SimpleForm } from 'admin-on-rest/lib/mui';
+import {
+  Create,
+  LongTextInput,
+  SimpleForm,
+} from 'admin-on-rest/lib/mui';
 // Global variables
 import { minimumServiceLength, maximumServiceLength } from './index';
 

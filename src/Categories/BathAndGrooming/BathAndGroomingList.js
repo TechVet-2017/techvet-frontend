@@ -1,5 +1,13 @@
 import React from 'react';
-import { List, Responsive, SimpleList, Datagrid, EditButton, DeleteButton, TextField } from 'admin-on-rest/lib/mui';
+import {
+  List,
+  Responsive,
+  SimpleList,
+  Datagrid,
+  EditButton,
+  DeleteButton,
+  TextField,
+} from 'admin-on-rest/lib/mui';
 
 export const BathAndGroomingList = props => (
   <List {...props} title={'Banho & Tosa'}>
