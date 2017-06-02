@@ -1,40 +1,40 @@
 export const formatCPF = (cpf, prevCpf) => {
+  const CPF_NUMBERS_ONLY = cpf.replace(/[^\d]/g, '');
   let normalizedCpf = null;
   if (cpf) {
     normalizedCpf = cpf;
-    const CPFNumbersOnly = cpf.replace(/[^\d]/g, '');
     if (!prevCpf || cpf.length > prevCpf.length) {
-      if (CPFNumbersOnly.length === 3) {
-        normalizedCpf = `${CPFNumbersOnly}.`;
+      if (CPF_NUMBERS_ONLY.length === 3) {
+        normalizedCpf = `${CPF_NUMBERS_ONLY}.`;
       } else {
         // Nothing to do
       }
-      if (CPFNumbersOnly.length === 6) {
-        normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3, 6)}.`;
+      if (CPF_NUMBERS_ONLY.length === 6) {
+        normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3, 6)}.`;
       } else {
         // Nothing to do
       }
-      if (CPFNumbersOnly.length === 9) {
-        normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3, 6)}.${CPFNumbersOnly.slice(6, 9)}-`;
+      if (CPF_NUMBERS_ONLY.length === 9) {
+        normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3, 6)}.${CPF_NUMBERS_ONLY.slice(6, 9)}-`;
       } else {
         // Nothing to do
       }
-      if (CPFNumbersOnly.length === 11) {
-        normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3, 6)}.${CPFNumbersOnly.slice(6, 9)}-${CPFNumbersOnly.slice(9, 11)}`;
+      if (CPF_NUMBERS_ONLY.length === 11) {
+        normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3, 6)}.${CPF_NUMBERS_ONLY.slice(6, 9)}-${CPF_NUMBERS_ONLY.slice(9, 11)}`;
       } else {
         // Nothing to do
       }
     } else {
       // Nothing to do
     }
-    if (CPFNumbersOnly.length <= 3) {
-      normalizedCpf = `${CPFNumbersOnly}`;
-    } else if (CPFNumbersOnly.length <= 6) {
-      normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3)}`;
-    } else if (CPFNumbersOnly.length <= 9) {
-      normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3, 6)}.${CPFNumbersOnly.slice(6)}`;
-    } else if (CPFNumbersOnly.length <= 11 || CPFNumbersOnly.length > 11) {
-      normalizedCpf = `${CPFNumbersOnly.slice(0, 3)}.${CPFNumbersOnly.slice(3, 6)}.${CPFNumbersOnly.slice(6, 9)}-${CPFNumbersOnly.slice(9, 11)}`;
+    if (CPF_NUMBERS_ONLY.length <= 3) {
+      normalizedCpf = `${CPF_NUMBERS_ONLY}`;
+    } else if (CPF_NUMBERS_ONLY.length <= 6) {
+      normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3)}`;
+    } else if (CPF_NUMBERS_ONLY.length <= 9) {
+      normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3, 6)}.${CPF_NUMBERS_ONLY.slice(6)}`;
+    } else if (CPF_NUMBERS_ONLY.length <= 11 || CPF_NUMBERS_ONLY.length > 11) {
+      normalizedCpf = `${CPF_NUMBERS_ONLY.slice(0, 3)}.${CPF_NUMBERS_ONLY.slice(3, 6)}.${CPF_NUMBERS_ONLY.slice(6, 9)}-${CPF_NUMBERS_ONLY.slice(9, 11)}`;
     } else {
       // Nothing to do
     }
