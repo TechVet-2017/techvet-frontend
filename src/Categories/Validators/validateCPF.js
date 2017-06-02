@@ -1,28 +1,28 @@
 export const validateCPF = (cpf) => {
+  const CPF_NUMBERS_ONLY = cpf.replace(/[^\d]+/g, '');
   let message = null;
   if (cpf) {
-    const CPFNumbersOnly = cpf.replace(/[^\d]+/g, '');
-    if (CPFNumbersOnly === '') {
+    if (CPF_NUMBERS_ONLY === '') {
       message = 'CPF inválido';
     } else {
       // Nothing to do
     }
-    if (CPFNumbersOnly.length !== 11 ||
-      CPFNumbersOnly === '00000000000' ||
-      CPFNumbersOnly === '11111111111' ||
-      CPFNumbersOnly === '22222222222' ||
-      CPFNumbersOnly === '33333333333' ||
-      CPFNumbersOnly === '44444444444' ||
-      CPFNumbersOnly === '55555555555' ||
-      CPFNumbersOnly === '66666666666' ||
-      CPFNumbersOnly === '77777777777' ||
-      CPFNumbersOnly === '88888888888' ||
-      CPFNumbersOnly === '99999999999') {
+    if (CPF_NUMBERS_ONLY.length !== 11 ||
+      CPF_NUMBERS_ONLY === '00000000000' ||
+      CPF_NUMBERS_ONLY === '11111111111' ||
+      CPF_NUMBERS_ONLY === '22222222222' ||
+      CPF_NUMBERS_ONLY === '33333333333' ||
+      CPF_NUMBERS_ONLY === '44444444444' ||
+      CPF_NUMBERS_ONLY === '55555555555' ||
+      CPF_NUMBERS_ONLY === '66666666666' ||
+      CPF_NUMBERS_ONLY === '77777777777' ||
+      CPF_NUMBERS_ONLY === '88888888888' ||
+      CPF_NUMBERS_ONLY === '99999999999') {
       message = 'CPF inválido';
     } else {
       let add = 0;
       for (let i = 0; i < 9; i += 1) {
-        add += parseInt((CPFNumbersOnly.charAt(i)), 10) * (10 - i);
+        add += parseInt((CPF_NUMBERS_ONLY.charAt(i)), 10) * (10 - i);
       }
       let remainder = 11 - (add % 11);
       if (remainder === 10 || remainder === 11) {
@@ -30,12 +30,12 @@ export const validateCPF = (cpf) => {
       } else {
         // Nothing to do
       }
-      if (remainder !== parseInt(CPFNumbersOnly.charAt(9), 10)) {
+      if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(9), 10)) {
         message = 'CPF inválido';
       } else {
         add = 0;
         for (let i = 0; i < 10; i += 1) {
-          add += parseInt(CPFNumbersOnly.charAt(i), 10) * (11 - i);
+          add += parseInt(CPF_NUMBERS_ONLY.charAt(i), 10) * (11 - i);
         }
         remainder = 11 - (add % 11);
         if (remainder === 10 || remainder === 11) {
@@ -43,7 +43,7 @@ export const validateCPF = (cpf) => {
         } else {
           // Nothing to do
         }
-        if (remainder !== parseInt(CPFNumbersOnly.charAt(10), 10)) {
+        if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(10), 10)) {
           message = 'CPF inválido';
         } else {
           message = undefined;
