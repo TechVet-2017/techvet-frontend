@@ -1,25 +1,25 @@
 export const formatZipCode = (zipCode, previousZipCode) => {
+  const ZIP_CODE_NUMBER_ONLY = zipCode.replace(/[^\d]/g, '');
   let normalizedZipCode = null;
   if (zipCode) {
     normalizedZipCode = zipCode;
-    const zipCodeNumbersOnly = zipCode.replace(/[^\d]/g, '');
     if (!previousZipCode || zipCode.length > previousZipCode.length) {
-      if (zipCodeNumbersOnly.length === 5) {
-        normalizedZipCode = `${zipCodeNumbersOnly.slice(0, 5)}-`;
+      if (ZIP_CODE_NUMBER_ONLY.length === 5) {
+        normalizedZipCode = `${ZIP_CODE_NUMBER_ONLY.slice(0, 5)}-`;
       } else {
         // Nothing to do
       }
-      if (zipCodeNumbersOnly.length === 8) {
-        normalizedZipCode = `${zipCodeNumbersOnly.slice(0, 5)}-${zipCodeNumbersOnly.slice(5, 8)}`;
+      if (ZIP_CODE_NUMBER_ONLY.length === 8) {
+        normalizedZipCode = `${ZIP_CODE_NUMBER_ONLY.slice(0, 5)}-${ZIP_CODE_NUMBER_ONLY.slice(5, 8)}`;
       } else {
         // Nothing to do
       }
     }
 
-    if (zipCodeNumbersOnly.length <= 5) {
-      normalizedZipCode = `${zipCodeNumbersOnly.slice(0)}`;
-    } else if (zipCodeNumbersOnly.length <= 8 || zipCodeNumbersOnly.length > 8) {
-      normalizedZipCode = `${zipCodeNumbersOnly.slice(0, 5)}-${zipCodeNumbersOnly.slice(5, 8)}`;
+    if (ZIP_CODE_NUMBER_ONLY.length <= 5) {
+      normalizedZipCode = `${ZIP_CODE_NUMBER_ONLY.slice(0)}`;
+    } else if (ZIP_CODE_NUMBER_ONLY.length <= 8 || ZIP_CODE_NUMBER_ONLY.length > 8) {
+      normalizedZipCode = `${ZIP_CODE_NUMBER_ONLY.slice(0, 5)}-${ZIP_CODE_NUMBER_ONLY.slice(5, 8)}`;
     } else {
       // Nothing to do
     }

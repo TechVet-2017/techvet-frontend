@@ -1,6 +1,12 @@
 import React from 'react';
 import {
-  List, Responsive, SimpleList, EditButton, Datagrid, DeleteButton, TextField,
+  List,
+  Responsive,
+  SimpleList,
+  EditButton,
+  Datagrid,
+  DeleteButton,
+  TextField,
 } from 'admin-on-rest/lib/mui';
 
 export const UserList = props => (

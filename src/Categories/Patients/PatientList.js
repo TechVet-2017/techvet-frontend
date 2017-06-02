@@ -1,8 +1,15 @@
 import React from 'react';
 import {
-  List, Responsive, SimpleList, ShowButton,
-  Datagrid, TextField, EditButton, Filter,
-  TextInput, DeleteButton,
+  List,
+  Responsive,
+  SimpleList,
+  ShowButton,
+  Datagrid,
+  TextField,
+  EditButton,
+  Filter,
+  TextInput,
+  DeleteButton,
 } from 'admin-on-rest/lib/mui';
 
 // Global variable

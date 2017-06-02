@@ -1,7 +1,14 @@
 import React from 'react';
 import {
-  List, Responsive, SimpleList, ShowButton,
-  Datagrid, TextField, EditButton, DeleteButton, Filter,
+  List,
+  Responsive,
+  SimpleList,
+  ShowButton,
+  Datagrid,
+  TextField,
+  EditButton,
+  DeleteButton,
+  Filter,
   TextInput,
 } from 'admin-on-rest/lib/mui';
 import {
