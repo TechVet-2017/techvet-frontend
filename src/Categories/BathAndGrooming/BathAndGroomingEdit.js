@@ -1,5 +1,10 @@
 import React from 'react';
-import { DisabledInput, LongTextInput, Edit, SimpleForm } from 'admin-on-rest/lib/mui';
+import {
+  DisabledInput,
+  LongTextInput,
+  Edit,
+  SimpleForm,
+} from 'admin-on-rest/lib/mui';
 // Global variables
 import { minimumServiceLength, maximumServiceLength } from './index';
 

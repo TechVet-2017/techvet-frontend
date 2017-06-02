@@ -1,6 +1,10 @@
 import React from 'react';
 import {
-  SimpleForm, TextInput, DateInput, RadioButtonGroupInput, Edit,
+  SimpleForm,
+  TextInput,
+  DateInput,
+  RadioButtonGroupInput,
+  Edit,
 } from 'admin-on-rest/lib/mui';
 import {
   required,
