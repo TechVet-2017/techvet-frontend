@@ -7,7 +7,7 @@ import {
   SelectInput,
 } from 'admin-on-rest/lib/mui';
 
-import { required } from '../Validators' ;
+import { required } from '../Validators';
 
 export const BathAndGroomingCreate = props => (
   <Create {...props} title={'Adicionar Serviço'}>
@@ -17,8 +17,8 @@ export const BathAndGroomingCreate = props => (
         validate={required}
         label="Serviço"
         choices={[
-          { id: "Banho", name: "Banho"},
-          { id: "Banho e Tosa", name: "Banho e Tosa"},
+          { id: 'Banho', name: 'Banho' },
+          { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
       <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
