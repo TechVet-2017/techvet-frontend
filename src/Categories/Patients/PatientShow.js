@@ -4,11 +4,15 @@ import {
   SimpleShowLayout,
   DateField,
   TextField,
+  ReferenceField,
 } from 'admin-on-rest/lib/mui';
 
 export const PatientShow = props => (
   <Show title={'Cadastro do Paciente'} {...props}>
     <SimpleShowLayout>
+      <ReferenceField label="Dono" source="ownerId" reference="owners">
+        <TextField label="Dono" source="ownerName" />
+      </ReferenceField>
       <TextField
         value="off"
         source="patientName"
