@@ -15,8 +15,8 @@ export const BathAndGroomingEdit = props => (
         validate={required}
         label="Serviço"
         choices={[
-          { id: "Banho", name: "Banho"},
-          { id: "Banho e Tosa", name: "Banho e Tosa"},
+          { id: 'Banho', name: 'Banho' },
+          { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
     </SimpleForm>
