@@ -4,6 +4,9 @@ export const TextInputValidation = (value) => {
   if (!value) {
     return 'Campo obrigatório';
   }
+  else {
+    //Do nothing
+  }
   return null;
 };
 
@@ -11,10 +14,9 @@ export const NameValidation = (value) => {
   if (value.length < 2) {
     return 'Campo muito pequeno';
   }
-/* if(value = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/){
-     return 'test';
-    }
-*/
+  else {
+    //Do nothing
+  }
   return null;
 };
 

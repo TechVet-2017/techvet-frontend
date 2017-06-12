@@ -3,6 +3,8 @@ import {
   Create,
   SimpleForm,
   RadioButtonGroupInput,
+  ReferenceInput,
+  SelectInput,
 } from 'admin-on-rest/lib/mui';
 
 import { required } from '../Validators' ;
@@ -19,6 +21,9 @@ export const BathAndGroomingCreate = props => (
           { id: "Banho e Tosa", name: "Banho e Tosa"},
         ]}
       />
+      <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
+        <SelectInput optionText="patientName" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );
