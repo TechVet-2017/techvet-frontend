@@ -7,6 +7,8 @@ import {
   EditButton,
   DeleteButton,
   TextField,
+  ShowButton,
+  ReferenceField,
 } from 'admin-on-rest/lib/mui';
 
 export const BathAndGroomingList = props => (
@@ -23,6 +25,10 @@ export const BathAndGroomingList = props => (
         <Datagrid>
           <TextField source="id" label="ID" />
           <TextField source="serviceBathGrooming" label="Serviço" />
+          <ReferenceField label="Animal" source="patientId" reference="patients" allowEmpty>
+            <TextField source="patientName"/>
+          </ReferenceField>
+          <ShowButton />
           <EditButton />
           <DeleteButton />
         </Datagrid>
