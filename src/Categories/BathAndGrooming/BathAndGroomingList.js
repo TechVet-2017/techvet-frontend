@@ -24,10 +24,10 @@ export const BathAndGroomingList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="ID" />
-          <TextField source="serviceBathGrooming" label="Serviço" />
           <ReferenceField label="Animal" source="patientId" reference="patients" allowEmpty>
             <TextField source="patientName"/>
           </ReferenceField>
+          <TextField source="serviceBathGrooming" label="Serviço" />
           <ShowButton />
           <EditButton />
           <DeleteButton />
