@@ -9,8 +9,11 @@ import {
 export const BathAndGroomingShow = props => (
   <Show title={'Banho & Tosa'} {...props}>
     <SimpleShowLayout>
-      <ReferenceField label="Paciente" source="patientId" reference="patients" allowEmpty>
-        <TextField optionText="patientName" />
+      <TextField label="Animal"/>
+      <ReferenceField source="patientId" reference="patients">
+        <TextField         
+          source="patientName"
+        />
       </ReferenceField>
       <TextField
         source="serviceBathGrooming"
