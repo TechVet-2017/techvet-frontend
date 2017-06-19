@@ -10,6 +10,8 @@ import {
   Filter,
   TextInput,
   DeleteButton,
+  ReferenceField,
+  
 } from 'admin-on-rest/lib/mui';
 
 // Global variable
@@ -40,6 +42,9 @@ export const PatientList = props => (
       medium={
         <Datagrid>
           <TextField source="id" label="RG BD Nº" />
+          <ReferenceField label="Dono" source="patientOwnerId" reference="owners" allowEmpty>
+            <TextField source="ownerName" />
+          </ReferenceField>
           <TextField source="patientName" label="Nome do Paciente" />
           <TextField source="species" label="Espécie" />
           <TextField source="breed" label="Raça" />
