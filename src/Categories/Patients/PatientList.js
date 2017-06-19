@@ -11,7 +11,6 @@ import {
   TextInput,
   DeleteButton,
   ReferenceField,
-  
 } from 'admin-on-rest/lib/mui';
 
 // Global variable

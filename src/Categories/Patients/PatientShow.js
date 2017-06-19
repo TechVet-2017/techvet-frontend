@@ -10,7 +10,7 @@ import {
 export const PatientShow = props => (
   <Show title={'Cadastro do Paciente'} {...props}>
     <SimpleShowLayout>
-      <TextField label="Dono"/>
+      <TextField label="Dono" />
       <ReferenceField label="Dono" source="patientOwnerId" reference="owners">
         <TextField label="Dono" source="ownerName" />
       </ReferenceField>
