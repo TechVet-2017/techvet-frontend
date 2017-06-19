@@ -5,6 +5,8 @@ import {
   DateInput,
   RadioButtonGroupInput,
   Edit,
+  ReferenceInput,
+  SelectInput,
 } from 'admin-on-rest/lib/mui';
 import {
   required,
@@ -13,6 +15,9 @@ import {
 export const PatientEdit = props => (
   <Edit title={'Cadastro do Paciente'} {...props}>
     <SimpleForm>
+      <ReferenceInput label="Dono" source="patientOwnerId" reference="owners" allowEmpty>
+        <SelectInput optionText="ownerName" />
+      </ReferenceInput>
       <TextInput
         source="patientName"
         label="Nome do Paciente"

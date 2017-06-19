@@ -15,7 +15,7 @@ import {
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
-      <ReferenceInput label="Dono" source="ownerId" reference="owners" allowEmpty>
+      <ReferenceInput label="Dono" source="patientOwnerId" reference="owners" allowEmpty>
         <SelectInput optionText="ownerName" />
       </ReferenceInput>
       <TextInput

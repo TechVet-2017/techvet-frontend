@@ -21,8 +21,11 @@ export const BathAndGroomingCreate = props => (
           { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
-      <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
-        <SelectInput optionText="patientName" />
+      <ReferenceInput label="Animal" source="patientId" reference="patients" allowEmpty>
+        <SelectInput
+          validate={required}
+          optionText="patientName"
+        />
       </ReferenceInput>
     </SimpleForm>
   </Create>
