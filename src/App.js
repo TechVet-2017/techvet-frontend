@@ -84,7 +84,7 @@ const App = () => (
       show={BathAndGroomingShow}
       edit={BathAndGroomingEdit}
       create={BathAndGroomingCreate}
-      remove={Delete} 
+      remove={Delete}
       icon={BathAndGroomingIcon}
     />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
