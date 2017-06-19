@@ -14,7 +14,8 @@
       // There is none substitute to this rule, but it's recommended turn it on later.
       "react/prop-types": "off",
       "arrow-body-style": "off",
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "no-else-return": "off"
     },
     "globals": {
         "localStorage": true

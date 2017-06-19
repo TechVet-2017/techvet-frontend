@@ -5,6 +5,8 @@ import {
   DateInput,
   RadioButtonGroupInput,
   TextInput,
+  ReferenceInput,
+  SelectInput,
 } from 'admin-on-rest/lib/mui';
 import {
   required,
@@ -13,6 +15,9 @@ import {
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
+      <ReferenceInput label="Dono" source="patientOwnerId" reference="owners" allowEmpty>
+        <SelectInput optionText="ownerName" />
+      </ReferenceInput>
       <TextInput
         source="patientName"
         label="Nome do Paciente"

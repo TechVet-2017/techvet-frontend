@@ -1,29 +1,32 @@
 import React from 'react';
 import {
   Create,
-  LongTextInput,
   SimpleForm,
+  RadioButtonGroupInput,
+  ReferenceInput,
+  SelectInput,
 } from 'admin-on-rest/lib/mui';
-// Global variables
-import { minimumServiceLength, maximumServiceLength } from './index';
 
-const validationIsEmpty = (values) => {
-  const errors = {};
-
-  if (!values.serviceBathGrooming) {
-    errors.serviceBathGrooming = ['Campo obrigatório'];
-  } else if (values.serviceBathGrooming.length < minimumServiceLength) {
-    errors.serviceBathGrooming = ['Campo muito pequeno'];
-  } else if (values.serviceBathGrooming.length > maximumServiceLength) {
-    errors.serviceBathGrooming = ['Campo muito longo'];
-  }
-  return errors;
-};
+import { required } from '../Validators';
 
 export const BathAndGroomingCreate = props => (
   <Create {...props} title={'Adicionar Serviço'}>
-    <SimpleForm validation={validationIsEmpty}>
-      <LongTextInput source="serviceBathGrooming" label="Serviço" />
+    <SimpleForm>
+      <RadioButtonGroupInput
+        source="serviceBathGrooming"
+        validate={required}
+        label="Serviço"
+        choices={[
+          { id: 'Banho', name: 'Banho' },
+          { id: 'Banho e Tosa', name: 'Banho e Tosa' },
+        ]}
+      />
+      <ReferenceInput label="Animal" source="patientId" reference="patients" allowEmpty>
+        <SelectInput
+          validate={required}
+          optionText="patientName"
+        />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );

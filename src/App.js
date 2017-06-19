@@ -19,7 +19,7 @@ import { PatientList, PatientEdit, PatientCreate, PatientShow, PatientFilter } f
 import { AttendenceList } from './Categories/Attendences';
 import { HospitalizationList } from './Categories/Hospitalizations';
 import { VaccinationScheduleList } from './Categories/VaccinationSchedule';
-import { BathAndGroomingList, BathAndGroomingEdit, BathAndGroomingCreate } from './Categories/BathAndGrooming';
+import { BathAndGroomingList, BathAndGroomingEdit, BathAndGroomingCreate, BathAndGroomingShow } from './Categories/BathAndGrooming';
 import { FinancialReportList } from './Categories/FinancialReports';
 import { AppointmentRecordsList, AppointmentRecordsEdit, AppointmentRecordsCreate } from './Categories/ClinicalRecordsAppointment';
 import { VaccinationRecordsList, VaccinationRecordsEdit, VaccinationRecordsCreate } from './Categories/ClinicalRecordsVaccination';
@@ -81,9 +81,11 @@ const App = () => (
       name="bathAndGrooming"
       options={{ label: 'Banho & Tosa' }}
       list={BathAndGroomingList}
+      show={BathAndGroomingShow}
       edit={BathAndGroomingEdit}
       create={BathAndGroomingCreate}
-      remove={Delete} icon={BathAndGroomingIcon}
+      remove={Delete}
+      icon={BathAndGroomingIcon}
     />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
     <Resource name="appointmentRecords" options={{ label: 'Consultas' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} icon={AttendenceIcon} />
