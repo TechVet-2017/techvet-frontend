@@ -9,9 +9,9 @@ import {
 export const BathAndGroomingShow = props => (
   <Show title={'Banho & Tosa'} {...props}>
     <SimpleShowLayout>
-      <TextField label="Animal"/>
+      <TextField label="Animal" />
       <ReferenceField source="patientId" reference="patients">
-        <TextField         
+        <TextField
           source="patientName"
         />
       </ReferenceField>

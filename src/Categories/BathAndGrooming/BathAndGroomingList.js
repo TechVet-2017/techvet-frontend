@@ -25,7 +25,7 @@ export const BathAndGroomingList = props => (
         <Datagrid>
           <TextField source="id" label="ID" />
           <ReferenceField label="Animal" source="patientId" reference="patients" allowEmpty>
-            <TextField source="patientName"/>
+            <TextField source="patientName" />
           </ReferenceField>
           <TextField source="serviceBathGrooming" label="Serviço" />
           <ShowButton />
