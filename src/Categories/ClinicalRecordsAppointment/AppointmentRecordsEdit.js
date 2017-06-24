@@ -8,7 +8,10 @@ import {
   Edit,
   SelectInput,
   ReferenceInput,
+  AutocompleteInput,
 } from 'admin-on-rest/lib/mui';
+
+import AutoComplete from 'material-ui/AutoComplete';
 
 const inlineStyle = {
   display: 'inline-block',
@@ -27,10 +30,11 @@ export const AppointmentRecordsEdit = props => (
       <FormTab label="Informações do Paciente">
         <h2 style={title}>Paciente</h2>
         <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
-          <SelectInput
+          <AutocompleteInput
             optionText="patientName"
-            style={inlineStyle} 
-        />
+            filter={AutoComplete.fuzzyFilter}
+            style={inlineStyle}
+          />
         </ReferenceInput>
         <TextInput
           source="veterinarian"

@@ -12,7 +12,13 @@ export const AppointmentRecordsList = props => (
 
   <List {...props} title={'Consultas'}>
     <Datagrid>
-      <ReferenceField label="Paciente" source="patientId" reference="patients" linkType="show" allowEmpty>
+      <ReferenceField
+        label="Paciente"
+        source="patientId"
+        reference="patients"
+        linkType="show"
+        allowEmpty
+      >
         <TextField source="patientName" />
       </ReferenceField>
       <TextField source="veterinarian" label="Veterinário" />

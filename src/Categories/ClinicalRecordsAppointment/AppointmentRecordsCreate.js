@@ -31,7 +31,7 @@ export const AppointmentRecordsCreate = props => (
           <AutocompleteInput
             optionText="patientName"
             filter={AutoComplete.fuzzyFilter}
-            style={inlineStyle} 
+            style={inlineStyle}
           />
         </ReferenceInput>
         <TextInput
