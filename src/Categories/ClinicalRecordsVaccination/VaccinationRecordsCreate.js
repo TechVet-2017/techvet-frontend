@@ -9,7 +9,10 @@ import {
   NumberInput,
   ReferenceInput,
   LongTextInput,
+  AutocompleteInput,
 } from 'admin-on-rest/lib/mui';
+
+import AutoComplete from 'material-ui/AutoComplete';
 
 const inlineStyle = {
   display: 'inline-block',
@@ -58,9 +61,10 @@ export const VaccinationRecordsCreate = props => (
       <FormTab label="Informações do Paciente">
         <h2 style={title}>Paciente</h2>
         <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
-          <SelectInput
+          <AutocompleteInput
             optionText="patientName"
-            style={inlineStyle} 
+            filter={AutoComplete.caseInsensitiveFilter}
+            style={inlineStyle}
           />
         </ReferenceInput>
         <TextInput
@@ -68,20 +72,20 @@ export const VaccinationRecordsCreate = props => (
           label="Atendido por Médico Veterinário"
           style={inlineStyle}
         />
-        <TextInput 
-          source="veterinarianIdentification" 
-          label="Identificador" 
-          style={inlineStyle} 
+        <TextInput
+          source="veterinarianIdentification"
+          label="Identificador"
+          style={inlineStyle}
         />
         <h2 style={title}>Anamnese</h2>
-        <LongTextInput 
-          source="anamnesis" 
-          label="Histórico da Doença" 
+        <LongTextInput
+          source="anamnesis"
+          label="Histórico da Doença"
         />
         <h2 style={title}>Histórico Clínico</h2>
-        <LongTextInput 
-          source="clinicalHistory" 
-          label="Sinais Clínicos" 
+        <LongTextInput
+          source="clinicalHistory"
+          label="Sinais Clínicos"
         />
         <h2 style={title}>Exame Físico</h2>
         <SelectInput
@@ -93,13 +97,13 @@ export const VaccinationRecordsCreate = props => (
             { id: 'desidratado', name: 'Desidratado' },
           ]}
         />
-        <NumberInput 
-          source="patientTemperature" 
-          label="Temperatura" 
+        <NumberInput
+          source="patientTemperature"
+          label="Temperatura"
         />
-        <NumberInput 
-          source="capillaryFill" 
-          label="TPC" 
+        <NumberInput
+          source="capillaryFill"
+          label="TPC"
         />
         <SelectInput
           source="patientPulse"
@@ -109,13 +113,13 @@ export const VaccinationRecordsCreate = props => (
             { id: 'fracoAssincrono', name: 'Fraco e Assíncrono' },
           ]}
         />
-        <TextInput 
-          source="lymphnodes" 
-          label="Linfonodos" 
+        <TextInput
+          source="lymphnodes"
+          label="Linfonodos"
         />
-        <NumberInput 
-          source="bloodPressure" 
-          label="PAS" 
+        <NumberInput
+          source="bloodPressure"
+          label="PAS"
         />
         <SelectInput
           source="mucosasApparent"
@@ -126,17 +130,17 @@ export const VaccinationRecordsCreate = props => (
             { id: 'hiperCorada', name: 'Hiper Corada' },
           ]}
         />
-        <NumberInput 
-          source="patientHeartRate" 
-          label="Frequência Cardíaca" 
+        <NumberInput
+          source="patientHeartRate"
+          label="Frequência Cardíaca"
         />
         <NumberInput
-          source="patientRespiratoryRate" 
-          label="Frequência Respiratória" 
+          source="patientRespiratoryRate"
+          label="Frequência Respiratória"
         />
-        <NumberInput 
-          source="patientWeight" 
-          label="Peso" 
+        <NumberInput
+          source="patientWeight"
+          label="Peso"
         />
       </FormTab>
       <FormTab label="Vacinação">
@@ -191,14 +195,14 @@ export const VaccinationRecordsCreate = props => (
             locale: 'pt',
           }}
         />
-        <TextInput 
-          source="vermifugeName" 
-          label="Vermífugo" 
+        <TextInput
+          source="vermifugeName"
+          label="Vermífugo"
         />
-        <TextInput 
-          source="vermifugeDosage" 
-          label="Dose" 
-          step={0.1} 
+        <TextInput
+          source="vermifugeDosage"
+          label="Dose"
+          step={0.1}
         />
         <DateInput
           source="vermifugationReturnDate"
