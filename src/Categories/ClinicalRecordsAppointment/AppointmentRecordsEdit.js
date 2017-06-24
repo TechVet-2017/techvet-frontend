@@ -32,7 +32,7 @@ export const AppointmentRecordsEdit = props => (
         <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
           <AutocompleteInput
             optionText="patientName"
-            filter={AutoComplete.fuzzyFilter}
+            filter={AutoComplete.caseInsensitiveFilter}
             style={inlineStyle}
           />
         </ReferenceInput>
