@@ -13,6 +13,8 @@ import {
   TabbedForm,
   FormTab,
   NumberInput,
+  ReferenceInput,
+  ReferenceField,
   LongTextInput,
 } from 'admin-on-rest/lib/mui';
 
@@ -20,7 +22,9 @@ export const VaccinationRecordsList = props => (
 
   <List {...props} title={'Vacinações'}>
     <Datagrid>
-      <TextField source="veterinarian" label="Paciente" />
+      <ReferenceField label="Paciente" source="patientId" reference="patients" allowEmpty>
+        <TextField source="patientName" />
+      </ReferenceField>
       <TextField source="veterinarian" label="Veterinário" />
       <TextField source="anamnesis" label="Anamnese" />
       <TextField source="vaccinationName" label="Vacina" />
@@ -75,12 +79,23 @@ export const VaccinationRecordsEdit = props => (
   <Edit title="Ficha de Vacinação" {...props}>
     <TabbedForm>
       <FormTab label="Informações do Paciente">
+        <h2 style={title}>Paciente</h2>
+        <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
+          <SelectInput
+            optionText="patientName"
+            style={inlineStyle} 
+          />
+        </ReferenceInput>
         <TextInput
           source="veterinarian"
           label="Atendido por Médico Veterinário"
           style={inlineStyle}
         />
-        <TextInput source="veterinarianIdentification" label="Identificador" style={inlineStyle} />
+        <TextInput 
+          source="veterinarianIdentification" 
+          label="Identificador" 
+          style={inlineStyle} 
+        />
         <h2 style={title}>Anamnese</h2>
         <LongTextInput source="anamnesis" label="Histórico da Doença" />
         <h2 style={title}>Histórico Clínico</h2>
@@ -194,6 +209,13 @@ export const VaccinationRecordsCreate = props => (
   <Create title="Cadastro Ficha Médica Vacinação" {...props}>
     <TabbedForm>
       <FormTab label="Informações do Paciente">
+        <h2 style={title}>Paciente</h2>
+        <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
+          <SelectInput
+            optionText="patientName"
+            style={inlineStyle} 
+          />
+        </ReferenceInput>
         <TextInput
           source="veterinarian"
           label="Atendido por Médico Veterinário"
