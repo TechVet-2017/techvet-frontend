@@ -1,13 +1,9 @@
 import React from 'react';
-import PostIcon from 'material-ui/svg-icons/action/book';
 import UserIcon from 'material-ui/svg-icons/social/person';
 import OwnerIcon from 'material-ui/svg-icons/social/person-outline';
 import PatientIcon from 'material-ui/svg-icons/action/pets';
 import AttendenceIcon from 'material-ui/svg-icons/image/healing';
-import HospitalizationIcon from 'material-ui/svg-icons/maps/local-hospital';
-import VaccinationScheduleIcon from 'material-ui/svg-icons/notification/event-note';
 import BathAndGroomingIcon from 'material-ui/svg-icons/places/hot-tub';
-import FinancialReportIcon from 'material-ui/svg-icons/editor/attach-money';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
