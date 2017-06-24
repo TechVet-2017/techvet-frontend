@@ -88,8 +88,23 @@ const App = () => (
       icon={BathAndGroomingIcon}
     />
     <Resource name="financialReport" options={{ label: 'Relatório Financeiro' }} list={FinancialReportList} icon={FinancialReportIcon} />
-    <Resource name="appointmentRecords" options={{ label: 'Consultas' }} list={AppointmentRecordsList} edit={AppointmentRecordsEdit} create={AppointmentRecordsCreate} remove={Delete} icon={AttendenceIcon} />
-    <Resource name="vaccinationRecords" options={{ label: 'Vacinação' }} list={VaccinationRecordsList} edit={VaccinationRecordsEdit} create={VaccinationRecordsCreate} remove={Delete} />
+    <Resource
+      name="appointmentRecords"
+      options={{ label: 'Consultas' }}
+      list={AppointmentRecordsList}
+      edit={AppointmentRecordsEdit}
+      create={AppointmentRecordsCreate}
+      remove={Delete}
+      icon={AttendenceIcon}
+    />
+    <Resource
+      name="vaccinationRecords"
+      options={{ label: 'Vacinação' }}
+      list={VaccinationRecordsList}
+      edit={VaccinationRecordsEdit}
+      create={VaccinationRecordsCreate}
+      remove={Delete}
+    />
   </Admin>
 );
 
