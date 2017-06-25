@@ -1,6 +1,7 @@
 export const formatZipCode = (zipCode, previousZipCode) => {
-  const ZIP_CODE_NUMBER_ONLY = zipCode.replace(/[^\d]/g, '');
-  let normalizedZipCode = null;
+  const ZIP_CODE_NUMBER_ONLY = zipCode.replace(/[^\d]/g, ''); // zip code format validator.
+  let normalizedZipCode = null; // initialize zip code normalizated
+  
   if (zipCode) {
     normalizedZipCode = zipCode;
     if (!previousZipCode || zipCode.length > previousZipCode.length) {
