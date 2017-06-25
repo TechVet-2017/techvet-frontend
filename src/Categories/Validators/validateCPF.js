@@ -9,7 +9,7 @@ function verifyCPFIsEmpyt(CPF_NUMBERS_ONLY) {
 }
 
 function calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth) {
-  let add = 0;
+  let add = 0; // Sum of the calculation of each position of the CPF
   for (let i = 0; i < (calculationWeigth - 1); i += 1) {
     add += parseInt((CPF_NUMBERS_ONLY.charAt(i)), calculationWeigth) * (calculationWeigth - i);
   }
@@ -22,15 +22,15 @@ function calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth) {
   return remainder;
 }
 function cpfCalculation(CPF_NUMBERS_ONLY) {
-  let remainder = 0;
+  let remainder = 0; // Verification digit
   let message = null;
-  let calculationWeigth = 10;
+  let calculationWeigth = 10; // Weight defined for the calculation of the first digit of the CPF
 
   remainder = calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth);
   if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(calculationWeigth - 1), calculationWeigth)) {
     message = 'CPF inválido';
   } else {
-    calculationWeigth += 1;
+    calculationWeigth += 1; // Weight defined for the calculation of the first digit of the CPF
     remainder = calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth);
     if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(calculationWeigth - 1),
     (calculationWeigth - 1))) {
@@ -64,7 +64,7 @@ function verifyCPFIsASequenceOfNumbers(CPF_NUMBERS_ONLY) {
 
 export const validateCPF = (cpf) => {
   const CPF_NUMBERS_ONLY = cpf.replace(/[^\d]+/g, '');
-  let message = null;
+  let message = null; // CPF validation message
   if (cpf) {
     message = verifyCPFIsEmpyt(CPF_NUMBERS_ONLY);
     message = verifyCPFIsASequenceOfNumbers(CPF_NUMBERS_ONLY);
