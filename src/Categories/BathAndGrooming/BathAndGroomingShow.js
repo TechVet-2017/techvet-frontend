@@ -23,6 +23,10 @@ export const BathAndGroomingShow = props => (
           { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
+      <TextField
+        source="serviceDescription"
+        label="Descrição do Serviço"
+      />
     </SimpleShowLayout>
   </Show>
 );
