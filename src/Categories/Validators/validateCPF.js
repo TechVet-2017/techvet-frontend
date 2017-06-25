@@ -1,4 +1,5 @@
-function verifyCPFIsEmpyt(CPF_NUMBERS_ONLY) {
+// This functiontion verify if the CPF is empty
+function verifyCPFIsEmpty(CPF_NUMBERS_ONLY) {
   let message = null;
   if (CPF_NUMBERS_ONLY === '') {
     message = 'CPF inválido';
@@ -7,13 +8,15 @@ function verifyCPFIsEmpyt(CPF_NUMBERS_ONLY) {
   }
   return message;
 }
-
-function calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth) {
-  let add = 0; // Sum of the calculation of each position of the CPF
+// This functiontion calculate the verification digit in the CPF
+function calculateVerificationDigit(CPF_NUMBERS_ONLY, calculationWeigth) {
+  let add = 0;
+  // Sum of the calculation of each position of the CPF
   for (let i = 0; i < (calculationWeigth - 1); i += 1) {
     add += parseInt((CPF_NUMBERS_ONLY.charAt(i)), calculationWeigth) * (calculationWeigth - i);
   }
   let remainder = 11 - (add % 11);
+  // The remainder can be only from 0 to 9, so if the remainder is 10 or 11, it is changed to 0
   if (remainder === 10 || remainder === 11) {
     remainder = 0;
   } else {
@@ -21,17 +24,21 @@ function calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth) {
   }
   return remainder;
 }
+
+// This function call other functions to execute the CPF calculation
 function cpfCalculation(CPF_NUMBERS_ONLY) {
   let remainder = 0; // Verification digit
   let message = null;
   let calculationWeigth = 10; // Weight defined for the calculation of the first digit of the CPF
 
-  remainder = calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth);
+  remainder = calculateVerificationDigit(CPF_NUMBERS_ONLY, calculationWeigth);
+  // Verify if the digity found by the calculation is the same founr in the 10 position
   if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(calculationWeigth - 1), calculationWeigth)) {
     message = 'CPF inválido';
   } else {
     calculationWeigth += 1; // Weight defined for the calculation of the first digit of the CPF
-    remainder = calculateDigity(CPF_NUMBERS_ONLY, calculationWeigth);
+    remainder = calculateVerificationDigit(CPF_NUMBERS_ONLY, calculationWeigth);
+     // Verify if the digity found by the calculation is the same founr in the 11 position
     if (remainder !== parseInt(CPF_NUMBERS_ONLY.charAt(calculationWeigth - 1),
     (calculationWeigth - 1))) {
       message = 'CPF inválido';
@@ -66,7 +73,7 @@ export const validateCPF = (cpf) => {
   const CPF_NUMBERS_ONLY = cpf.replace(/[^\d]+/g, '');
   let message = null; // CPF validation message
   if (cpf) {
-    message = verifyCPFIsEmpyt(CPF_NUMBERS_ONLY);
+    message = verifyCPFIsEmpty(CPF_NUMBERS_ONLY);
     message = verifyCPFIsASequenceOfNumbers(CPF_NUMBERS_ONLY);
   } else {
     message = cpf;
