@@ -33,7 +33,6 @@ export const PatientCreate = props => (
       />
       <RadioButtonGroupInput
         source="species"
-        
         label="Espécie"
         choices={[
         { id: 'Canino', name: 'Canino' },

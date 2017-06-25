@@ -13,7 +13,13 @@ import { required } from '../Validators';
 export const BathAndGroomingCreate = props => (
   <Create {...props} title={'Adicionar Serviço'}>
     <SimpleForm>
-      <ReferenceInput label="Animal" source="patientId" reference="patients" validate={required} allowEmpty>
+      <ReferenceInput
+        label="Animal"
+        source="patientId"
+        reference="patients"
+        validate={required}
+        allowEmpty
+      >
         <SelectInput
           validate={required}
           optionText="patientName"
