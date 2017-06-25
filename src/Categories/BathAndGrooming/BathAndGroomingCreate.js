@@ -5,6 +5,7 @@ import {
   RadioButtonGroupInput,
   ReferenceInput,
   SelectInput,
+  LongTextInput,
 } from 'admin-on-rest/lib/mui';
 
 import { required } from '../Validators';
@@ -12,6 +13,12 @@ import { required } from '../Validators';
 export const BathAndGroomingCreate = props => (
   <Create {...props} title={'Adicionar Serviço'}>
     <SimpleForm>
+      <ReferenceInput label="Animal" source="patientId" reference="patients" validate={required} allowEmpty>
+        <SelectInput
+          validate={required}
+          optionText="patientName"
+        />
+      </ReferenceInput>
       <RadioButtonGroupInput
         source="serviceBathGrooming"
         validate={required}
@@ -21,12 +28,11 @@ export const BathAndGroomingCreate = props => (
           { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
-      <ReferenceInput label="Animal" source="patientId" reference="patients" allowEmpty>
-        <SelectInput
-          validate={required}
-          optionText="patientName"
-        />
-      </ReferenceInput>
+      <LongTextInput
+        source="serviceDescription"
+        label="Descrição do Serviço"
+        validate={required}
+      />
     </SimpleForm>
   </Create>
 );
