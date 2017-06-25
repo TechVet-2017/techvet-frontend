@@ -19,7 +19,6 @@ const registersPerPage = 5;
 const PatientFilter = props => (
   <Filter {...props}>
     <TextInput label="Procurar por nome" source="patientName" />
-    <TextInput label="Procurar por RG BD Nº" source="id" />
   </Filter>
 );
 
