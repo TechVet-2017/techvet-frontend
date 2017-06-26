@@ -5,8 +5,9 @@ import PatientIcon from 'material-ui/svg-icons/action/pets';
 import AttendenceIcon from 'material-ui/svg-icons/image/healing';
 import BathAndGroomingIcon from 'material-ui/svg-icons/places/hot-tub';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import portuguesMessages from 'aor-language-portugues';
 
-import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { jsonServerRestClient, Admin, Resource, resolveBrowserLocale } from 'admin-on-rest';
 import { Delete } from 'admin-on-rest/lib/mui';
 import { UserList, UserEdit, UserCreate } from './Categories/Users';
 import { OwnerList, OwnerShow, OwnerCreate, OwnerEdit } from './Categories/Owners';
@@ -18,8 +19,14 @@ import Dashboard from './Dashboard';
 import authClient from './authClient';
 import CustomTheme from './CustomTheme';
 
+const messages = {
+  pt: portuguesMessages,
+};
+
 const App = () => (
   <Admin
+    locale={resolveBrowserLocale()}
+    messages={messages}
     restClient={jsonServerRestClient('http://localhost:8080/techvet/rest')}
     theme={getMuiTheme(CustomTheme)}
     title={'TechVet'}
