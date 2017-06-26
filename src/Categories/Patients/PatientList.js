@@ -28,7 +28,7 @@ export const PatientList = props => (
     {...props}
     filters={<PatientFilter />}
     perPage={registersPerPage}
-    title={'LIsta de Pacientes'}
+    title={'Lista de Pacientes'}
   >
     <Responsive
       small={
