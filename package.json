@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "admin-on-rest": "^1.0.0",
+    "aor-language-portugues": "^1.0.2",
     "jquery": "^3.2.1",
     "material-ui": "~0.17.4",
     "react": "~15.5.4",

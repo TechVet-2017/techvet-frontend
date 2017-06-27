@@ -5,6 +5,7 @@ import {
   SimpleForm,
   ReferenceInput,
   SelectInput,
+  LongTextInput,
 } from 'admin-on-rest/lib/mui';
 
 import { required } from '../Validators';
@@ -12,6 +13,18 @@ import { required } from '../Validators';
 export const BathAndGroomingEdit = props => (
   <Edit title={'Editar Serviço'} {...props}>
     <SimpleForm>
+      <ReferenceInput
+        label="Animal"
+        source="patientId"
+        reference="patients"
+        validate={required}
+        allowEmpty
+      >
+        <SelectInput
+          validate={required}
+          optionText="patientName"
+        />
+      </ReferenceInput>
       <RadioButtonGroupInput
         source="serviceBathGrooming"
         validate={required}
@@ -21,9 +34,11 @@ export const BathAndGroomingEdit = props => (
           { id: 'Banho e Tosa', name: 'Banho e Tosa' },
         ]}
       />
-      <ReferenceInput label="Paciente" source="patientId" reference="patients" allowEmpty>
-        <SelectInput optionText="patientName" />
-      </ReferenceInput>
+      <LongTextInput
+        source="serviceDescription"
+        label="Descrição do Serviço"
+        validate={required}
+      />
     </SimpleForm>
   </Edit>
 );

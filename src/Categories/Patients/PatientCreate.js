@@ -15,8 +15,16 @@ import {
 export const PatientCreate = props => (
   <Create {...props} title={'Pacientes'}>
     <SimpleForm>
-      <ReferenceInput label="Dono" source="patientOwnerId" reference="owners" allowEmpty>
-        <SelectInput optionText="ownerName" />
+      <ReferenceInput
+        label="Dono"
+        source="patientOwnerId"
+        reference="owners"
+        validate={required}
+        allowEmpty
+      >
+        <SelectInput
+          optionText="ownerName"
+        />
       </ReferenceInput>
       <TextInput
         source="patientName"
@@ -25,7 +33,6 @@ export const PatientCreate = props => (
       />
       <RadioButtonGroupInput
         source="species"
-        validate={required}
         label="Espécie"
         choices={[
         { id: 'Canino', name: 'Canino' },

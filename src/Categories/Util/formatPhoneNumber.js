@@ -1,6 +1,8 @@
 export const formatPhoneNumber = (phone, previousPhone) => {
+  // Condition constant defining the replace
   const PHONE_NUMBERS_ONLY = phone.replace(/[^\d]/g, '');
   let normalizedPhoneNumber = null;
+  // Condition that find the phone number for formatting
   if (phone) {
     normalizedPhoneNumber = phone;
     if (!previousPhone || phone.length > previousPhone.length) {
